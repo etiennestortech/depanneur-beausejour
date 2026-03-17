@@ -1,0 +1,17 @@
+{
+  "name": "depanneur-beausejour",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:html": "node build.js",
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "build": "npm run build:html && npm run build:css",
+    "dev:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
+    "dev": "npm run build:html && npm run dev:css"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
+}

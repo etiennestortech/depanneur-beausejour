@@ -1,0 +1,45 @@
+  <!-- Navbar -->
+  <header class="z-50 bg-surface-card px-9 py-8">
+    <div class="flex items-center gap-8">
+      <a href="./index.html" class="flex-1 shrink-0">
+        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-4 shrink-0">
+        <a href="./nos-magasins.html" class="{{nav:nos-magasins}}">Nos magasins</a>
+        <a href="./pret-a-manger.html" class="{{nav:pret-a-manger}}">Prêt-à-manger</a>
+        <a href="./lave-auto.html" class="{{nav:lave-auto}}">Lave-auto</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Le groupe
+            <svg class="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="nav-dropdown-panel">
+              <a href="./a-propos.html" class="{{nav-dropdown:a-propos}}">À propos</a>
+              <a href="./carrieres.html" class="{{nav-dropdown:carrieres}}">Carrières</a>
+              <a href="./fournisseurs.html" class="{{nav-dropdown:fournisseurs}}">Fournisseurs</a>
+              <a href="./faq.html" class="{{nav-dropdown:faq}}">FAQ</a>
+            </div>
+          </div>
+        </div>
+        <a href="./contact.html" class="{{nav:contact}}">Contact</a>
+      </nav>
+      <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="site-mobile-menu" hidden>
+      <div class="site-mobile-menu-inner">
+        <nav class="site-mobile-nav">
+          <a href="./nos-magasins.html" class="{{nav-mobile:nos-magasins}}">Nos magasins</a>
+          <a href="./pret-a-manger.html" class="{{nav-mobile:pret-a-manger}}">Prêt-à-manger</a>
+          <a href="./lave-auto.html" class="{{nav-mobile:lave-auto}}">Lave-auto</a>
+          <a href="./a-propos.html" class="{{nav-mobile:a-propos}}">À propos</a>
+          <a href="./carrieres.html" class="{{nav-mobile:carrieres}}">Carrières</a>
+          <a href="./fournisseurs.html" class="{{nav-mobile:fournisseurs}}">Fournisseurs</a>
+          <a href="./faq.html" class="{{nav-mobile:faq}}">FAQ</a>
+          <a href="./contact.html" class="{{nav-mobile:contact}}">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
