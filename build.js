@@ -11,13 +11,25 @@
  *   {{nav-mobile:slug}}           — resolves to nav-mobile-link-active or nav-mobile-link
  */
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname);
 const SRC = join(ROOT, 'src');
 const PAGES_DIR = join(SRC, 'pages');
 const DIST = join(ROOT, 'dist');
+const ASSETS_DIR = join(SRC, 'assets');
+const JS_DIR = join(SRC, 'js');
+
+function resetDist() {
+  rmSync(DIST, { recursive: true, force: true });
+  mkdirSync(DIST, { recursive: true });
+}
+
+function copyDir(source, destination) {
+  mkdirSync(destination, { recursive: true });
+  cpSync(source, destination, { recursive: true });
+}
 
 function buildPage(filePath) {
   let html = readFileSync(filePath, 'utf-8');
@@ -61,6 +73,8 @@ function buildPage(filePath) {
 }
 
 // Process all pages
+resetDist();
+
 const pages = readdirSync(PAGES_DIR).filter(f => f.endsWith('.html'));
 
 for (const page of pages) {
@@ -70,5 +84,8 @@ for (const page of pages) {
   writeFileSync(dest, html, 'utf-8');
   console.log(`  ✓ ${page}`);
 }
+
+copyDir(ASSETS_DIR, join(DIST, 'assets'));
+copyDir(JS_DIR, join(DIST, 'js'));
 
 console.log(`\nBuilt ${pages.length} pages → dist/`);

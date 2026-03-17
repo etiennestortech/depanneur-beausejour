@@ -192,7 +192,7 @@ html.lenis, html.lenis body { height: auto; }
      ══════════════════════════════════════════════════════════════════════════ */
 
   .btn-primary {
-    @apply inline-flex min-h-11 items-center px-7 py-[18px] font-medium no-underline bg-primary text-text-on-primary;
+    @apply inline-flex min-h-11 items-center px-7 py-[18px] font-medium no-underline bg-primary text-text-on-primary transition-transform transition-colors duration-200;
     border-radius: var(--radius-btn);
     font-family: var(--font-heading);
     font-size: var(--type-size-ui);
@@ -200,7 +200,7 @@ html.lenis, html.lenis body { height: auto; }
     letter-spacing: -0.02em;
   }
   .btn-secondary {
-    @apply inline-flex min-h-11 items-center px-7 py-[18px] font-medium no-underline text-text-inverse backdrop-blur-sm;
+    @apply inline-flex min-h-11 items-center px-7 py-[18px] font-medium no-underline text-text-inverse backdrop-blur-sm transition-transform transition-colors duration-200;
     background: var(--overlay-white-10);
     border-radius: var(--radius-btn);
     font-family: var(--font-heading);
@@ -209,7 +209,7 @@ html.lenis, html.lenis body { height: auto; }
     letter-spacing: -0.02em;
   }
   .btn-neutral {
-    @apply inline-flex min-h-11 items-center px-7 py-[18px] font-medium no-underline bg-surface-alt text-text-heading;
+    @apply inline-flex min-h-11 items-center px-7 py-[18px] font-medium no-underline bg-surface-alt text-text-heading transition-transform transition-colors duration-200;
     border-radius: var(--radius-btn);
     font-family: var(--font-heading);
     font-size: var(--type-size-ui);
@@ -223,6 +223,38 @@ html.lenis, html.lenis body { height: auto; }
   }
 
   /* ── Button context overrides ── */
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    @apply bg-primary-hover;
+  }
+  .btn-secondary:hover,
+  .btn-secondary:focus-visible {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  .btn-neutral:hover,
+  .btn-neutral:focus-visible {
+    @apply bg-surface-card;
+  }
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-neutral:hover {
+    transform: translateY(-1px);
+  }
+  .btn-primary:focus-visible,
+  .btn-secondary:focus-visible,
+  .btn-neutral:focus-visible,
+  .btn-link:focus-visible,
+  .hero-v2-cta:focus-visible,
+  .hero-v2-pill:focus-visible,
+  .store-card:focus-visible,
+  .slider-btn:focus-visible,
+  .slider-dot:focus-visible,
+  .contact-method-chip:focus-visible,
+  .faq-preview-item:focus-visible,
+  .form-input:focus-visible {
+    outline: 2px solid var(--color-border-primary);
+    outline-offset: 3px;
+  }
   .hero-bg .btn-primary     { @apply bg-surface-card text-text-heading hover:bg-surface-alt; }
   .hero-bg .btn-secondary   { @apply border-white/40 text-text-inverse; }
   .section-dark .btn-primary   { @apply bg-surface-card text-text-heading hover:bg-surface-alt; }
@@ -364,7 +396,7 @@ html.lenis, html.lenis body { height: auto; }
     height: calc(100svh - var(--header-h, 6.75rem) - 1.5rem);
   }
   .hero-v2-media {
-    @apply absolute inset-0 bg-cover bg-center;
+    @apply absolute inset-0 h-full w-full object-cover;
     transform: scale(1.05);
     pointer-events: none;
   }
@@ -408,7 +440,7 @@ html.lenis, html.lenis body { height: auto; }
     @apply flex items-center gap-8;
   }
   .hero-v2-cta {
-    @apply inline-flex items-center gap-2 no-underline bg-primary text-text-on-primary font-medium shrink-0;
+    @apply inline-flex items-center gap-2 no-underline bg-primary text-text-on-primary font-medium shrink-0 transition-transform transition-colors duration-200;
     font-family: var(--font-heading);
     font-size: var(--type-size-ui);
     line-height: 1;
@@ -420,6 +452,10 @@ html.lenis, html.lenis body { height: auto; }
     @apply inline-flex items-center justify-center bg-white rounded-full shrink-0;
     width: 40px;
     height: 40px;
+  }
+  .hero-v2-cta:hover {
+    @apply bg-primary-hover;
+    transform: translateY(-1px);
   }
   .hero-v2-line {
     @apply hidden lg:block;
@@ -442,7 +478,7 @@ html.lenis, html.lenis body { height: auto; }
     flex-wrap: nowrap;
   }
   .hero-v2-pill {
-    @apply inline-flex items-center gap-2 no-underline text-text-inverse font-medium backdrop-blur-sm whitespace-nowrap shrink-0;
+    @apply inline-flex items-center gap-2 no-underline text-text-inverse font-medium backdrop-blur-sm whitespace-nowrap shrink-0 transition-colors duration-200;
     background: var(--overlay-white-15);
     border-radius: var(--radius-btn);
     padding: 12px 20px;
@@ -450,6 +486,9 @@ html.lenis, html.lenis body { height: auto; }
     font-size: var(--type-size-ui);
     line-height: 1;
     letter-spacing: -0.02em;
+  }
+  .hero-v2-pill:hover {
+    background: rgba(255, 255, 255, 0.24);
   }
 
   /* Mobile adjustments for hero v2 */
@@ -550,7 +589,7 @@ html.lenis, html.lenis body { height: auto; }
     @apply relative;
   }
   .nav-dropdown-trigger {
-    @apply inline-flex items-center justify-center gap-1 no-underline font-medium text-text-heading whitespace-nowrap transition-colors duration-150 hover:text-text-body cursor-default;
+    @apply inline-flex items-center justify-center gap-1 no-underline font-medium text-text-heading whitespace-nowrap transition-colors duration-150 hover:text-text-body cursor-pointer;
     font-size: var(--type-size-ui);
     line-height: var(--type-leading-ui);
   }
@@ -898,8 +937,11 @@ html.lenis, html.lenis body { height: auto; }
     display: none;
   }
   .store-card {
-    @apply relative shrink-0 w-[500px] h-[346px] overflow-hidden no-underline;
+    @apply relative shrink-0 h-[346px] w-[min(31.25rem,calc(100vw-2rem))] overflow-hidden no-underline transition-transform duration-200;
     border-radius: var(--radius-card);
+  }
+  .store-card:hover {
+    transform: translateY(-2px);
   }
   .store-card-bg {
     @apply absolute inset-0 w-full h-full object-cover;
@@ -927,13 +969,17 @@ html.lenis, html.lenis body { height: auto; }
 
   /* ── Slider Controls ── */
   .slider-btn {
-    @apply inline-flex items-center justify-center w-[42px] h-[42px] rounded-full bg-surface-alt text-text-heading;
+    @apply inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-surface-alt text-text-heading transition-colors duration-200;
+  }
+  .slider-btn:hover {
+    @apply bg-surface-card;
   }
   .slider-dot {
-    @apply w-2 h-2 rounded-full bg-text-caption;
+    @apply h-2 w-2 rounded-full bg-text-caption transition-all duration-200;
   }
   .slider-dot--active {
     @apply bg-text-heading;
+    width: 1.5rem;
   }
 
   /* ── Food Category Text ── */
