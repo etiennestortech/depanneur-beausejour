@@ -515,14 +515,17 @@ html.lenis, html.lenis body { height: auto; }
     background: rgba(255, 255, 255, 0.3);
   }
   .hero-v2-right {
-    @apply flex flex-col gap-8 items-end shrink-0;
-    width: clamp(280px, 35%, 489px);
+    @apply flex min-w-0 flex-col items-end gap-8;
+    flex: 0 1 clamp(17.5rem, 35%, 30.5625rem);
+    max-width: 30.5625rem;
+    margin-left: auto;
   }
   .hero-v2-description {
     @apply text-text-inverse text-right;
     font-size: var(--type-size-body-lg);
     line-height: var(--type-leading-body);
-    max-width: 327px;
+    max-width: 20.4375rem;
+    width: 100%;
   }
   .hero-v2-pills {
     @apply flex gap-4;
@@ -540,6 +543,13 @@ html.lenis, html.lenis body { height: auto; }
   }
   .hero-v2-pill:hover {
     background: rgba(255, 255, 255, 0.24);
+  }
+
+  @media (max-width: 1279px) {
+    .hero-v2-pills {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
   }
 
   /* ── Scroll Reveal Text ── */
