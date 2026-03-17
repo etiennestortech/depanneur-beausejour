@@ -15,7 +15,20 @@
     <section class="hero-v2">
       <div class="hero-v2-card">
         <!-- Background image -->
-        <img src="./assets/hero-bg-v2.jpg" alt="" aria-hidden="true" class="hero-v2-media">
+        <img
+          src="./assets/hero-bg-v2-1600.jpg"
+          srcset="./assets/hero-bg-v2-1600.jpg 1600w, ./assets/hero-bg-v2.jpg 2560w"
+          sizes="100vw"
+          width="2560"
+          height="1780"
+          alt=""
+          aria-hidden="true"
+          class="hero-v2-media"
+          data-parallax
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        >
         <!-- Gradient overlay -->
         <div class="hero-v2-overlay"></div>
         <!-- Watermark icon -->
@@ -25,7 +38,7 @@
           <!-- Left column -->
           <div class="hero-v2-left">
             <div class="hero-v2-title-wrap">
-              <h1 class="hero-v2-title">Propager la bonne humeur, un client à la fois.</h1>
+              <h1 class="hero-v2-title max-w-[11.5ch]" data-reveal-text>Propager la bonne humeur, un client à la fois.</h1>
             </div>
             <div class="hero-v2-cta-row">
               <a href="./nos-magasins.html" class="hero-v2-cta">
@@ -63,29 +76,39 @@
     <section class="section py-[var(--space-section-lg)]">
       <div class="container intro-mosaic">
         <!-- Row 1: Title + Aerial photo -->
-        <h2 class="section-title intro-mosaic-title">Cinq magasins de proximité en Abitibi, au service de notre communauté depuis les années 60.</h2>
+        <h2 class="section-title intro-mosaic-title" data-reveal-text>Cinq magasins de proximité en Abitibi, au service de notre communauté depuis les années 60.</h2>
         <div class="intro-mosaic-aerial overflow-hidden rounded-card-lg">
-          <img src="./assets/intro-station-aerial.jpg" alt="Vue aérienne d'une station Beauséjour" class="media-image-cover" loading="lazy">
+          <img
+            src="./assets/intro-station-aerial-1440.jpg"
+            srcset="./assets/intro-station-aerial-1440.jpg 1440w, ./assets/intro-station-aerial.jpg 2200w"
+            sizes="(min-width: 1024px) 28rem, (min-width: 768px) 33vw, 100vw"
+            width="2200"
+            height="1236"
+            alt="Vue aérienne d'une station Beauséjour"
+            class="media-image-cover"
+            loading="lazy"
+            decoding="async"
+          >
         </div>
 
         <!-- Row 2: Érick photo + Shell photo + Stats -->
         <div class="intro-mosaic-erick overflow-hidden rounded-card-lg">
-          <img src="./assets/intro-erick.jpg" alt="Érick devant un magasin Beauséjour" class="media-image-cover" loading="lazy">
+          <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Érick devant un magasin Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
         </div>
         <div class="intro-mosaic-shell overflow-hidden rounded-card-lg">
-          <img src="./assets/intro-shell-historique.jpg" alt="Station Shell historique" class="media-image-cover" loading="lazy">
+          <img src="./assets/intro-shell-historique.jpg" width="665" height="841" alt="Station Shell historique" class="media-image-cover" loading="lazy" decoding="async">
         </div>
-        <div class="intro-mosaic-stats">
+        <div class="intro-mosaic-stats" data-stats-group>
           <div>
-            <p class="stat-value">5</p>
+            <p class="stat-value"><span data-counter-target="5">5</span></p>
             <p class="stat-label">Magasins de proximité</p>
           </div>
           <div>
-            <p class="stat-value whitespace-nowrap">50<span class="stat-accent">+</span></p>
+            <p class="stat-value whitespace-nowrap"><span data-counter-target="50">50</span><span class="stat-accent">+</span></p>
             <p class="stat-label">Années d'expérience</p>
           </div>
           <div>
-            <p class="stat-value whitespace-nowrap">30 000<span class="stat-accent">+</span></p>
+            <p class="stat-value whitespace-nowrap"><span data-counter-target="30000">30 000</span><span class="stat-accent">+</span></p>
             <p class="stat-label">Clients par semaine</p>
           </div>
         </div>
@@ -96,10 +119,10 @@
     <section class="section overflow-hidden py-[var(--space-section-lg)]">
       <div class="container mb-[var(--space-section-lg)] flex flex-col items-center gap-[var(--space-section-lg)] text-center">
         <img src="./assets/beausejour-icon-teal.svg" alt="" class="h-[76px] w-[83px] object-contain">
-        <div class="flex flex-col items-center text-center gap-4">
+        <div class="flex max-w-2xl flex-col items-center gap-4 text-center">
           <span class="eyebrow">Nos magasins</span>
-          <h2 class="section-title">Trouvez votre magasin de proximité.</h2>
-          <p class="section-subtitle text-center max-w-md">Cinq magasins de proximité en Abitibi, au service de notre communauté depuis les années 60.</p>
+          <h2 class="section-title" data-reveal-text>Trouvez votre magasin de proximité.</h2>
+          <p class="section-subtitle text-center">Cinq magasins de proximité en Abitibi, au service de notre communauté depuis les années 60.</p>
           <a href="./nos-magasins.html" class="btn-neutral mt-2">Nos magasins</a>
         </div>
       </div>
@@ -107,7 +130,17 @@
       <div data-slider-root>
         <div class="store-slider flex gap-2 overflow-x-auto snap-x snap-mandatory" data-slider>
           <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
-          <img src="./assets/store-card-bg.jpg" alt="" class="store-card-bg" loading="lazy">
+          <img
+            src="./assets/store-card-bg-1440.jpg"
+            srcset="./assets/store-card-bg-1440.jpg 1440w, ./assets/store-card-bg.jpg 2200w"
+            sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
+            width="2200"
+            height="1236"
+            alt=""
+            class="store-card-bg"
+            loading="lazy"
+            decoding="async"
+          >
           <div class="store-card-overlay"></div>
           <div class="store-card-content">
             <p class="font-bold text-sm">Ouvert 24h / 7 jours</p>
@@ -121,7 +154,17 @@
           </div>
           </a>
           <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
-          <img src="./assets/store-card-bg.jpg" alt="" class="store-card-bg" loading="lazy">
+          <img
+            src="./assets/store-card-bg-1440.jpg"
+            srcset="./assets/store-card-bg-1440.jpg 1440w, ./assets/store-card-bg.jpg 2200w"
+            sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
+            width="2200"
+            height="1236"
+            alt=""
+            class="store-card-bg"
+            loading="lazy"
+            decoding="async"
+          >
           <div class="store-card-overlay"></div>
           <div class="store-card-content">
             <p class="font-bold text-sm">Ouvert 24h / 7 jours</p>
@@ -135,7 +178,17 @@
           </div>
           </a>
           <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
-          <img src="./assets/store-card-bg.jpg" alt="" class="store-card-bg" loading="lazy">
+          <img
+            src="./assets/store-card-bg-1440.jpg"
+            srcset="./assets/store-card-bg-1440.jpg 1440w, ./assets/store-card-bg.jpg 2200w"
+            sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
+            width="2200"
+            height="1236"
+            alt=""
+            class="store-card-bg"
+            loading="lazy"
+            decoding="async"
+          >
           <div class="store-card-overlay"></div>
           <div class="store-card-content">
             <p class="min-h-5 text-sm font-bold" aria-hidden="true"></p>
@@ -149,7 +202,17 @@
           </div>
           </a>
           <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
-          <img src="./assets/store-card-bg.jpg" alt="" class="store-card-bg" loading="lazy">
+          <img
+            src="./assets/store-card-bg-1440.jpg"
+            srcset="./assets/store-card-bg-1440.jpg 1440w, ./assets/store-card-bg.jpg 2200w"
+            sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
+            width="2200"
+            height="1236"
+            alt=""
+            class="store-card-bg"
+            loading="lazy"
+            decoding="async"
+          >
           <div class="store-card-overlay"></div>
           <div class="store-card-content">
             <p class="font-bold text-sm">Ouvert 24h / 7 jours</p>
@@ -163,7 +226,17 @@
           </div>
           </a>
           <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
-          <img src="./assets/store-card-bg.jpg" alt="" class="store-card-bg" loading="lazy">
+          <img
+            src="./assets/store-card-bg-1440.jpg"
+            srcset="./assets/store-card-bg-1440.jpg 1440w, ./assets/store-card-bg.jpg 2200w"
+            sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
+            width="2200"
+            height="1236"
+            alt=""
+            class="store-card-bg"
+            loading="lazy"
+            decoding="async"
+          >
           <div class="store-card-overlay"></div>
           <div class="store-card-content">
             <p class="min-h-5 text-sm font-bold" aria-hidden="true"></p>
@@ -197,20 +270,30 @@
     <!-- Food Preview -->
     <section class="section">
       <div class="container py-20">
-        <div class="intro-center">
-          <h2 class="section-title">Frais et savoureux, chaque jour</h2>
+        <div class="intro-center max-w-2xl">
+          <h2 class="section-title" data-reveal-text>Frais et savoureux, chaque jour</h2>
           <p class="section-subtitle text-center">Repas préparés, pâtisseries et café de spécialité — disponibles dans tous nos magasins.</p>
           <a href="./pret-a-manger.html" class="btn-neutral mt-6">Prêt-à-manger</a>
         </div>
 
         <div class="flex flex-col gap-2">
-          <div class="w-full h-[420px] lg:h-[676px] overflow-hidden rounded-card-lg">
-            <img src="./assets/food-hero.jpg" alt="Intérieur magasin Beauséjour" class="media-image-cover" loading="lazy">
+          <div class="h-[280px] w-full overflow-hidden rounded-card-lg sm:h-[340px] lg:h-[480px]">
+            <img
+              src="./assets/food-hero-1600.jpg"
+              srcset="./assets/food-hero-1600.jpg 1600w, ./assets/food-hero.jpg 2200w"
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              width="2200"
+              height="1467"
+              alt="Intérieur magasin Beauséjour"
+              class="media-image-cover"
+              loading="lazy"
+              decoding="async"
+            >
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
             <div class="flex flex-col gap-3">
               <div class="h-[278px] overflow-hidden rounded-card">
-                <img src="./assets/food-patisseries.jpg" alt="Pâtisseries" class="media-image-cover" loading="lazy">
+                <img src="./assets/food-patisseries.jpg" width="1440" height="1800" alt="Pâtisseries" class="media-image-cover" loading="lazy" decoding="async">
               </div>
               <div>
                 <p class="font-bold text-sm text-text-heading">Pâtisseries</p>
@@ -219,7 +302,7 @@
             </div>
             <div class="flex flex-col gap-3">
               <div class="h-[278px] overflow-hidden rounded-card">
-                <img src="./assets/food-repas-chauds.jpg" alt="Repas chauds" class="media-image-cover" loading="lazy">
+                <img src="./assets/food-repas-chauds.jpg" width="1536" height="2048" alt="Repas chauds" class="media-image-cover" loading="lazy" decoding="async">
               </div>
               <div>
                 <p class="font-bold text-sm text-text-heading">Repas chauds</p>
@@ -228,7 +311,7 @@
             </div>
             <div class="flex flex-col gap-3">
               <div class="h-[278px] overflow-hidden rounded-card">
-                <img src="./assets/food-pret-a-manger.jpg" alt="Prêt-à-manger" class="media-image-cover" loading="lazy">
+                <img src="./assets/food-pret-a-manger.jpg" width="1600" height="1068" alt="Prêt-à-manger" class="media-image-cover" loading="lazy" decoding="async">
               </div>
               <div>
                 <p class="font-bold text-sm text-text-heading">Prêt-à-manger</p>
@@ -245,12 +328,12 @@
       <div class="relative bg-surface-dark overflow-hidden rounded-card-lg">
         <div class="brand-pattern brand-pattern-light" aria-hidden="true"></div>
         <div class="relative z-10 flex flex-col items-center gap-12 container py-20 lg:py-28">
-          <div class="flex flex-col items-center text-center gap-4 max-w-xl">
-            <h2 class="section-title text-text-inverse">Des lave-autos pour tous les besoins</h2>
+          <div class="flex max-w-2xl flex-col items-center gap-4 text-center">
+            <h2 class="section-title text-text-inverse" data-reveal-text>Des lave-autos pour tous les besoins</h2>
             <p class="body-text-lg text-text-on-dark">Manuel, automatique ou lave-chien — on a ce qu'il vous faut pour garder vos véhicules (et vos compagnons) propres.</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
+          <div class="grid w-full grid-cols-1 gap-3 md:grid-cols-3">
             <div class="carwash-card">
               <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary shrink-0">
                 <img src="./assets/icon-carwash-auto.svg" alt="" class="w-8 h-8 object-contain">
@@ -287,54 +370,84 @@
 
     <!-- Careers CTA -->
     <section class="section py-24 lg:py-28">
-      <div class="container">
-        <div class="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-          <h2 class="section-title">Rejoignez l'équipe Beauséjour</h2>
-          <p class="section-subtitle max-w-2xl text-center">On cherche des gens motivés, fiables et chaleureux qui veulent propager la bonne humeur avec nous, chaque jour.</p>
-        </div>
+      <div class="container flex max-w-4xl flex-col items-center gap-4 text-center">
+        <h2 class="section-title" data-reveal-text>Rejoignez l'équipe Beauséjour</h2>
+        <p class="section-subtitle text-center">On cherche des gens motivés et passionnés qui veulent propager la bonne humeur avec nous.</p>
+      </div>
 
-        <div class="mt-16 grid gap-4 lg:grid-cols-[minmax(0,1.3fr)_repeat(2,minmax(0,1fr))]">
-          <div class="relative overflow-hidden rounded-card-lg bg-surface-dark p-8 text-text-inverse lg:p-10">
-            <div class="brand-pattern brand-pattern-light" aria-hidden="true"></div>
-            <div class="relative z-10 flex h-full flex-col justify-between gap-10">
-              <div class="flex flex-col gap-4">
-                <span class="eyebrow text-text-on-dark">Carrières</span>
-                <h3 class="card-title-lg text-text-inverse">Une équipe enracinée en Abitibi, tournée vers le service.</h3>
-                <p class="body-text-lg max-w-xl text-text-on-dark">Milieu humain, rythme dynamique, standards élevés et vraies possibilités d'évolution dans une entreprise locale bien établie.</p>
-              </div>
-              <div class="grid gap-3 sm:grid-cols-3">
-                <div class="rounded-card border border-border-dark bg-white/5 px-4 py-4">
-                  <p class="ui-text-strong text-text-inverse">Horaires flexibles</p>
-                  <p class="meta-text mt-2 text-text-on-dark">Temps plein, temps partiel et horaires variables selon les postes.</p>
-                </div>
-                <div class="rounded-card border border-border-dark bg-white/5 px-4 py-4">
-                  <p class="ui-text-strong text-text-inverse">Équipe solide</p>
-                  <p class="meta-text mt-2 text-text-on-dark">Une culture de proximité axée sur l'entraide et la qualité du service.</p>
-                </div>
-                <div class="rounded-card border border-border-dark bg-white/5 px-4 py-4">
-                  <p class="ui-text-strong text-text-inverse">Évolution réelle</p>
-                  <p class="meta-text mt-2 text-text-on-dark">Des responsabilités qui grandissent avec l'expérience et l'implication.</p>
-                </div>
-              </div>
-            </div>
+      <div class="careers-marquee mt-16">
+        <div class="careers-marquee-track">
+          <div class="careers-marquee-card">
+            <img
+              src="./assets/food-hero-1600.jpg"
+              srcset="./assets/food-hero-1600.jpg 1600w, ./assets/food-hero.jpg 2200w"
+              sizes="(min-width: 1024px) 23rem, 18rem"
+              width="2200"
+              height="1467"
+              alt="Membre de l'équipe Beauséjour en magasin"
+              class="careers-marquee-image"
+              loading="lazy"
+              decoding="async"
+            >
           </div>
-
-          <div class="card-padded flex flex-col gap-4">
-            <span class="tag">Service</span>
-            <h3 class="card-title">Des rôles où l'humain compte.</h3>
-            <p class="body-text">Accueil, caisse, prêt-à-manger, entretien, soutien terrain. Les journées sont variées et le service reste au centre.</p>
+          <div class="careers-marquee-card">
+            <img
+              src="./assets/store-card-bg-1440.jpg"
+              srcset="./assets/store-card-bg-1440.jpg 1440w, ./assets/store-card-bg.jpg 2200w"
+              sizes="(min-width: 1024px) 23rem, 18rem"
+              width="2200"
+              height="1236"
+              alt="Employée Beauséjour devant l'entrée du magasin"
+              class="careers-marquee-image"
+              loading="lazy"
+              decoding="async"
+            >
           </div>
-
-          <div class="card-padded flex flex-col gap-4">
-            <span class="tag">Ambiance</span>
-            <h3 class="card-title">Une marque locale qui a du caractère.</h3>
-            <p class="body-text">On mise sur des lieux propres, rapides, chaleureux et bien tenus. L'expérience client commence avec l'équipe.</p>
+          <div class="careers-marquee-card">
+            <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Érick devant un magasin Beauséjour" class="careers-marquee-image" loading="lazy" decoding="async">
+          </div>
+          <div class="careers-marquee-card">
+            <img src="./assets/food-patisseries.jpg" width="1440" height="1800" alt="Employée Beauséjour au comptoir prêt-à-manger" class="careers-marquee-image" loading="lazy" decoding="async">
+          </div>
+          <div class="careers-marquee-card">
+            <img
+              src="./assets/food-hero-1600.jpg"
+              srcset="./assets/food-hero-1600.jpg 1600w, ./assets/food-hero.jpg 2200w"
+              sizes="(min-width: 1024px) 23rem, 18rem"
+              width="2200"
+              height="1467"
+              alt=""
+              aria-hidden="true"
+              class="careers-marquee-image"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="careers-marquee-card">
+            <img
+              src="./assets/store-card-bg-1440.jpg"
+              srcset="./assets/store-card-bg-1440.jpg 1440w, ./assets/store-card-bg.jpg 2200w"
+              sizes="(min-width: 1024px) 23rem, 18rem"
+              width="2200"
+              height="1236"
+              alt=""
+              aria-hidden="true"
+              class="careers-marquee-image"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="careers-marquee-card">
+            <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="" aria-hidden="true" class="careers-marquee-image" loading="lazy" decoding="async">
+          </div>
+          <div class="careers-marquee-card">
+            <img src="./assets/food-patisseries.jpg" width="1440" height="1800" alt="" aria-hidden="true" class="careers-marquee-image" loading="lazy" decoding="async">
           </div>
         </div>
+      </div>
 
-        <div class="mt-12 flex justify-center">
-          <a href="./carrieres.html" class="btn-neutral">Voir les postes disponibles</a>
-        </div>
+      <div class="mt-16 flex justify-center">
+        <a href="./carrieres.html" class="btn-neutral">Voir les postes disponibles</a>
       </div>
     </section>
   </main>

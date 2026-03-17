@@ -101,12 +101,12 @@
   --type-size-title-sm: 1.375rem;      /* 22px — Figma: Heading 6 */
   --type-size-title-md: 1.75rem;       /* 28px */
   --type-size-title-lg: clamp(2rem, 2vw + 1.5rem, 2.75rem);    /* ~44px */
-  --type-size-page: clamp(2.5rem, 3vw + 1rem, 3.25rem);        /* ~52px — Figma: H2 */
-  --type-size-display: clamp(2.75rem, 4vw + 1rem, 4rem);        /* ~64px hero */
+  --type-size-page: clamp(3rem, 2.45vw + 1.35rem, 4.25rem);    /* ~48px to 68px */
+  --type-size-display: clamp(3rem, 3.7vw + 1rem, 4.5rem);      /* ~48px to 72px */
   --type-size-metric: clamp(2.75rem, 3vw + 1.5rem, 4rem);       /* ~64px stats */
 
   --type-leading-tight: 1;
-  --type-leading-heading: 1.2;         /* Figma: headings use 1.2 */
+  --type-leading-heading: 1.1;
   --type-leading-ui: 1.5;             /* Figma: Inter text uses 1.5 */
   --type-leading-body: 1.5;           /* Figma: body text uses 1.5 */
   --type-leading-dense: 1.4;          /* Figma: H6 uses 1.4 */
