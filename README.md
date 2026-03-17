@@ -2,6 +2,8 @@
 
 Marketing site for Groupe Beausejour, built as a lightweight static site with Tailwind CSS v4 and a small HTML include/build step.
 
+This project should stay Tailwind-focused: prefer Tailwind utilities for page composition, keep design tokens centralized, and only extract a small number of stable shared primitives into component classes when repetition clearly justifies it.
+
 ## Stack
 
 - Static HTML pages in `src/pages`
@@ -44,3 +46,5 @@ build.js         HTML include/build script
 - Keep shared primitives minimal and reusable
 - Prefer Tailwind utilities in page markup for one-off composition
 - Extract only stable, repeated patterns into `src/components.css`
+- Avoid turning `src/components.css` into a second full styling system
+- Default to Tailwind-first decisions when adding or refactoring UI
