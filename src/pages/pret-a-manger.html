@@ -13,61 +13,78 @@
   <main>
     <!-- Hero -->
     <section class="section">
-      <div class="container py-24">
-        <div class="intro-stack">
+      <div class="container inner-hero-shell">
+        <div class="inner-hero-copy inner-hero-copy--narrow">
           <span class="tag">Prêt-à-manger</span>
-          <h1 class="page-title">Savourez nos produits frais</h1>
-          <p class="page-description">Des pâtisseries maison aux repas chauds en passant par les produits Cari &amp; Gingembre, nos magasins vous offrent une variété de choix gourmands pour tous les moments de la journée.</p>
+          <h1 class="page-title max-w-[12ch]">Savourez nos produits frais.</h1>
+          <p class="page-description max-w-[40rem]">Des pâtisseries maison aux repas chauds en passant par les produits Cari &amp; Gingembre, nos magasins vous offrent une variété de choix gourmands pour tous les moments de la journée.</p>
+          <div class="editorial-chip-row mt-6">
+            <span class="editorial-chip">Pâtisseries</span>
+            <span class="editorial-chip">Repas chauds</span>
+            <span class="editorial-chip">Déjeuners</span>
+            <span class="editorial-chip">Café</span>
+          </div>
+        </div>
+        <div class="inner-hero-aside inner-hero-aside--wide md:grid-cols-2">
+          <div class="inner-hero-media min-h-[20rem] md:row-span-2">
+            <img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Comptoir de prêt-à-manger Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="editorial-media-tile min-h-[12rem]">
+            <img src="./assets/food-patisseries.jpg" width="1800" height="1199" alt="Pâtisseries maison" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="editorial-media-tile min-h-[12rem]">
+            <img src="./assets/food-repas-chauds.jpg" width="1800" height="1199" alt="Repas chauds" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Categories -->
     <section class="section-alt">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-left">
           <span class="eyebrow">Notre offre</span>
-          <h2 class="section-title">Tout pour satisfaire vos envies</h2>
+          <h2 class="section-title" data-reveal-text>Tout pour satisfaire vos envies.</h2>
           <p class="section-subtitle">Découvrez nos six catégories de produits frais disponibles en magasin.</p>
         </div>
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Pâtisseries</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-patisseries.jpg" width="1800" height="1199" alt="Pâtisseries" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Pâtisseries</h3>
               <p class="body-text mt-2">Viennoiseries, muffins, biscuits et autres douceurs préparées chaque jour.</p>
             </div>
           </div>
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Repas chauds</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-repas-chauds.jpg" width="1800" height="1199" alt="Repas chauds" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Repas chauds</h3>
               <p class="body-text mt-2">Repas complets, portions réchauffables et pizza chaude disponibles en magasin.</p>
             </div>
           </div>
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Prêt-à-manger</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Prêt-à-manger" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Prêt-à-manger</h3>
               <p class="body-text mt-2">Produits Cari &amp; Gingembre en réfrigérateur libre-service.</p>
             </div>
           </div>
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Déjeuner</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-patisseries.jpg" width="1800" height="1199" alt="Déjeuner" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Déjeuner</h3>
               <p class="body-text mt-2">Muffins anglais, croissants, café et jus frais.</p>
             </div>
           </div>
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Café</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Café" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Café</h3>
               <p class="body-text mt-2">Café régulier et spécialité disponibles chaque matin.</p>
             </div>
           </div>
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Slush</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-repas-chauds.jpg" width="1800" height="1199" alt="Slush et collations" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Slush</h3>
               <p class="body-text mt-2">Partenariat exclusif avec Xtra Slush.</p>
@@ -79,16 +96,25 @@
 
     <!-- Cari & Gingembre Partnership -->
     <section class="section-alt">
-      <div class="container py-20">
-        <div class="two-col-center">
-          <div class="detail-stack">
+      <div class="container py-[var(--space-section-md)]">
+        <div class="editorial-split">
+          <div class="editorial-split-copy">
             <span class="eyebrow">Partenariat local</span>
-            <h2 class="section-title mt-4">Cari &amp; Gingembre</h2>
+            <h2 class="section-title mt-3" data-reveal-text>Cari &amp; Gingembre.</h2>
             <p class="body-text mt-4">Cari &amp; Gingembre est une entreprise de production alimentaire locale spécialisée dans les repas frais prêts-à-manger. Leurs produits sont disponibles en réfrigérateur libre-service dans nos magasins, offrant à nos clients des repas sains et savoureux préparés avec des ingrédients de qualité.</p>
             <p class="body-text mt-4">Érick Beauséjour est actionnaire de Cari &amp; Gingembre depuis 2017, renforçant ainsi le lien entre nos deux entreprises et notre engagement envers l'économie locale de l'Abitibi.</p>
             <a href="./contact.html" class="btn-primary mt-6">Nous contacter</a>
           </div>
-          <div class="media-placeholder">Photo — Cari &amp; Gingembre</div>
+          <div class="editorial-split-media md:grid-cols-2">
+            <div class="editorial-media-card min-h-[20rem] md:row-span-2">
+              <img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Produits Cari et Gingembre" class="media-image-cover" loading="lazy" decoding="async">
+            </div>
+            <div class="editorial-note-card">
+              <p class="editorial-note-kicker">Depuis 2017</p>
+              <p class="editorial-note-title">Un lien direct entre production locale et réseau de proximité.</p>
+              <p class="editorial-note-body">Ce partenariat renforce notre volonté de proposer des produits d'ici, bien exécutés et disponibles au quotidien.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

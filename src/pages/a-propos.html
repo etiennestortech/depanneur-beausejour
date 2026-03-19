@@ -6,114 +6,189 @@
 <head>
   <!-- @include partials/head.html -->
 </head>
-<body class="bg-surface-page text-text-body font-body">
+<body class="about-page bg-surface-page text-text-body font-body">
 
   <!-- @include partials/header.html -->
 
   <main>
     <!-- Hero -->
-    <section class="section">
-      <div class="container py-24">
-        <div class="intro-stack">
-          <span class="tag">À propos</span>
-          <h1 class="page-title">Entreprise familiale depuis plus de 50 ans.</h1>
-          <p class="page-description">Entreprise régionale établie depuis 1971, nous opérons cinq magasins de proximité à Val-d'Or, Rouyn-Noranda et Louvicourt. Nous offrons une gamme complète de services incluant le prêt-à-manger, l'épicerie, la loterie, le carburant, ainsi que des services de lave-auto et de lave-chien. Ouverts 24 heures sur 24, nous maintenons des standards élevés de qualité et de service. Reconnus comme une référence dans notre région, nous sommes une entreprise proactive, en constante innovation afin de répondre aux besoins de notre clientèle.</p>
+    <section class="section overflow-hidden">
+      <div class="container py-[var(--space-section-lg)]">
+        <div class="about-hero-copy">
+          <h1 class="page-title max-w-[14ch] text-center">Entreprise familiale depuis plus de 50 ans.</h1>
+          <p class="page-description max-w-[53rem] text-center">Entreprise régionale établie depuis 1971, nous opérons cinq magasins de proximité à Val-d'Or, Rouyn-Noranda et Louvicourt. Nous offrons une gamme complète de services incluant le prêt-à-manger, l'épicerie, la loterie, le carburant, ainsi que des services de lave-auto et de lave-chien. Ouverts 24 heures sur 24, nous maintenons des standards élevés de qualité et de service. Reconnus comme une référence dans notre région, nous sommes une entreprise proactive, en constante innovation afin de répondre aux besoins de notre clientèle.</p>
+        </div>
+      </div>
+      <div class="about-hero-ribbon" aria-label="Moments du Groupe Beauséjour">
+        <div class="about-hero-ribbon-track">
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-edge">
+            <img src="./assets/about-histoire-station.jpg" width="1084" height="723" alt="Station Beauséjour historique" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-portrait about-hero-ribbon-card-tilt-left">
+            <img src="./assets/store-card-bg.jpg" width="2200" height="1236" alt="Magasin Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-feature about-hero-ribbon-card-tilt-right">
+            <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Érick Beauséjour devant un magasin" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-tall about-hero-ribbon-card-tilt-left">
+            <img src="./assets/about-histoire-station.jpg" width="1084" height="723" alt="Moment d'archive du Groupe Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-wide about-hero-ribbon-card-tilt-right">
+            <img src="./assets/intro-station-aerial.jpg" width="2200" height="1236" alt="Vue aérienne d'une station Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-edge">
+            <img src="./assets/store-card-bg.jpg" width="2200" height="1236" alt="Façade Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-edge" aria-hidden="true">
+            <img src="./assets/about-histoire-station.jpg" width="1084" height="723" alt="" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-portrait about-hero-ribbon-card-tilt-left" aria-hidden="true">
+            <img src="./assets/store-card-bg.jpg" width="2200" height="1236" alt="" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-feature about-hero-ribbon-card-tilt-right" aria-hidden="true">
+            <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-tall about-hero-ribbon-card-tilt-left" aria-hidden="true">
+            <img src="./assets/about-histoire-station.jpg" width="1084" height="723" alt="" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-wide about-hero-ribbon-card-tilt-right" aria-hidden="true">
+            <img src="./assets/intro-station-aerial.jpg" width="2200" height="1236" alt="" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
+          <figure class="about-hero-ribbon-card about-hero-ribbon-card-edge" aria-hidden="true">
+            <img src="./assets/store-card-bg.jpg" width="2200" height="1236" alt="" class="media-image-cover" loading="lazy" decoding="async">
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- Notre Histoire -->
-    <section class="section-alt">
-      <div class="container py-20">
-        <div class="about-story-grid">
-          <div class="about-story-copy">
-            <span class="eyebrow">Notre histoire</span>
-            <h2 class="section-title">Une aventure qui dure depuis plus de 50 ans</h2>
+    <!-- Timeline -->
+    <section class="section">
+      <div class="container py-[var(--space-section-lg)]">
+        <div class="about-timeline-layout">
+          <div class="about-timeline-copy">
+            <h2 class="section-title" data-reveal-text>Notre histoire et nos moments clés</h2>
             <p class="section-subtitle">Tout a commencé avec Raymond Beauséjour, formateur chez Shell Canada, qui a acquis la station « Pinto » au 202, 3e Avenue de Val-d'Or en 1970. Son fils Érick a rejoint l'entreprise en 1994 et n'a cessé de la faire grandir depuis.</p>
-            <p class="section-subtitle mt-4">Aujourd'hui, le Groupe Beauséjour exploite cinq magasins de proximité en Abitibi, avec un positionnement unique qui se démarque des commerces traditionnels par son approche chaleureuse et humaine.</p>
+            <p class="body-text mt-4">Aujourd'hui, le Groupe Beauséjour exploite cinq magasins de proximité en Abitibi, avec un positionnement unique qui se démarque des commerces traditionnels par son approche chaleureuse et humaine.</p>
           </div>
-          <div>
-            <img src="./wireframe/images/1-histoire_170912_105622.jpg" alt="Station Shell originale — Beauséjour" class="w-full object-cover rounded-card border border-border min-h-[300px]" loading="lazy">
+          <div class="about-timeline-list" data-about-timeline>
+            <div class="about-timeline-progress" aria-hidden="true"></div>
+            <article class="about-timeline-item">
+              <div class="about-timeline-rail">
+                <span class="about-timeline-dot"></span>
+              </div>
+              <div class="about-timeline-card">
+                <h3 class="about-timeline-title">Années 1960</h3>
+                <p class="about-timeline-body">Raymond Beauséjour, formateur Shell Canada, pose les bases.</p>
+              </div>
+            </article>
+            <article class="about-timeline-item">
+              <div class="about-timeline-rail">
+                <span class="about-timeline-dot"></span>
+              </div>
+              <div class="about-timeline-card">
+                <h3 class="about-timeline-title">1970</h3>
+                <p class="about-timeline-body">Acquisition de la station « Pinto » au 202, 3e Avenue, Val-d'Or.</p>
+              </div>
+            </article>
+            <article class="about-timeline-item">
+              <div class="about-timeline-rail">
+                <span class="about-timeline-dot"></span>
+              </div>
+              <div class="about-timeline-card">
+                <h3 class="about-timeline-title">1994</h3>
+                <p class="about-timeline-body">Érick Beauséjour rejoint l'entreprise familiale.</p>
+              </div>
+            </article>
+            <article class="about-timeline-item">
+              <div class="about-timeline-rail">
+                <span class="about-timeline-dot"></span>
+              </div>
+              <div class="about-timeline-card">
+                <h3 class="about-timeline-title">1996</h3>
+                <p class="about-timeline-body">Introduction du lave-auto sans contact et du prêt-à-manger.</p>
+              </div>
+            </article>
+            <article class="about-timeline-item">
+              <div class="about-timeline-rail">
+                <span class="about-timeline-dot"></span>
+              </div>
+              <div class="about-timeline-card">
+                <h3 class="about-timeline-title">2005</h3>
+                <p class="about-timeline-body">Deuxième lave-auto à la station Pinto.</p>
+              </div>
+            </article>
+            <article class="about-timeline-item">
+              <div class="about-timeline-rail">
+                <span class="about-timeline-dot"></span>
+              </div>
+              <div class="about-timeline-card">
+                <h3 class="about-timeline-title">2014</h3>
+                <p class="about-timeline-body">Lave-auto manuel 4 baies + lave-chien. Acquisition du magasin Loubell.</p>
+              </div>
+            </article>
+            <article class="about-timeline-item">
+              <div class="about-timeline-rail">
+                <span class="about-timeline-dot"></span>
+              </div>
+              <div class="about-timeline-card">
+                <h3 class="about-timeline-title">2017</h3>
+                <p class="about-timeline-body">Acquisition de l'entreprise Cari &amp; Gingembre par Érick.</p>
+              </div>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Nos moments clés -->
-    <section class="section">
-      <div class="container py-20">
-        <div class="intro-left">
-          <span class="eyebrow">Notre parcours</span>
-          <h2 class="section-title">Nos moments clés</h2>
-        </div>
-        <div class="about-story-list">
-          <div class="about-story-card">
-            <p class="about-story-card-title">Années 1960</p>
-            <p class="about-story-card-body">Raymond Beauséjour, formateur Shell Canada, pose les bases.</p>
-          </div>
-          <div class="about-story-card">
-            <p class="about-story-card-title">1970</p>
-            <p class="about-story-card-body">Acquisition de la station « Pinto » au 202, 3e Avenue, Val-d'Or.</p>
-          </div>
-          <div class="about-story-card">
-            <p class="about-story-card-title">1994</p>
-            <p class="about-story-card-body">Érick Beauséjour rejoint l'entreprise familiale.</p>
-          </div>
-          <div class="about-story-card">
-            <p class="about-story-card-title">1996</p>
-            <p class="about-story-card-body">Introduction du lave-auto sans contact et du prêt-à-manger.</p>
-          </div>
-          <div class="about-story-card">
-            <p class="about-story-card-title">2005</p>
-            <p class="about-story-card-body">Deuxième lave-auto à la station Pinto.</p>
-          </div>
-          <div class="about-story-card">
-            <p class="about-story-card-title">2014</p>
-            <p class="about-story-card-body">Lave-auto manuel 4 baies + lave-chien. Acquisition du magasin Loubell.</p>
-          </div>
-          <div class="about-story-card">
-            <p class="about-story-card-title">2017</p>
-            <p class="about-story-card-body">Acquisition de l'entreprise Cari &amp; Gingembre par Érick.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission -->
-    <section class="section-dark">
-      <div class="container py-20 text-center">
-        <span class="eyebrow block mb-4">Notre mission</span>
-        <p class="page-title text-text-inverse mx-auto max-w-3xl">Propager la bonne humeur, un client à la fois.</p>
       </div>
     </section>
 
     <!-- Vision -->
     <section class="section">
-      <div class="container py-20">
-        <div class="intro-stack">
-          <span class="eyebrow">Notre vision</span>
-          <p class="page-title max-w-4xl" style="line-height: 1.5;">Nous distinguer par notre service rapide et chaleureux, nos offres et nos sites. En répondant à notre clientèle avec un assortiment de produits à la hauteur de leurs attentes. Dans des emplacements aussi avant-gardistes que sécuritaires. Tout en maintenant des standards de propreté au plus haut niveau.</p>
+      <div class="container py-[var(--space-section-md)]">
+        <div class="about-statement-panel" data-about-statement>
+          <div class="about-statement-watermark" aria-hidden="true" data-about-statement-watermark>
+            <img src="./assets/beausejour-icon.svg" alt="" class="h-full w-full object-contain">
+          </div>
+          <div class="about-statement-body" data-about-statement-body>
+            <span class="eyebrow block">Notre vision</span>
+            <p class="about-statement-copy" data-about-statement-copy>Nous distinguer par notre service rapide et chaleureux, nos offres et nos sites. En répondant à notre clientèle avec un assortiment de produits à la hauteur de leurs attentes. Dans des emplacements aussi avant-gardistes que sécuritaires. Tout en maintenant des standards de propreté au plus haut niveau.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Values -->
-    <section class="section-alt">
-      <div class="container py-20">
+    <section class="section">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-left">
-          <span class="eyebrow">Ce qui nous guide</span>
-          <h2 class="section-title">Nos valeurs</h2>
+          <h2 class="section-title" data-reveal-text>Nos valeurs</h2>
         </div>
         <div class="about-values-grid">
           <div class="about-value-card">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor" stroke-width="1.6">
+                <path d="M12 3l7 4v5c0 4.5-2.8 7.4-7 9-4.2-1.6-7-4.5-7-9V7l7-4Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="m9.5 12 1.7 1.7 3.3-3.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
             <h3 class="card-title">Respect et intégrité</h3>
             <p class="about-value-card-body">Envers nos employés, nos clients, nos fournisseurs et surtout nous-mêmes. Faire preuve d'honnêteté dans nos communications et d'ouverture d'esprit afin de s'adapter aux opportunités dans notre milieu de travail.</p>
           </div>
           <div class="about-value-card">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 13.5 10 17l8-10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 6h16M4 10h8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
             <h3 class="card-title">Qualité</h3>
             <p class="about-value-card-body">Se positionner solidement à travers les marchés concurrentiels en s'appuyant sur le perfectionnement et l'épanouissement de nos employés qui veulent grandir avec nous.</p>
           </div>
           <div class="about-value-card">
+            <span class="about-value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 15 10 11l3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 18H6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
             <h3 class="card-title">Efficacité</h3>
             <p class="about-value-card-body">Vibrer à l'idée d'accomplir et de mettre à terme des défis dans le but d'assurer la pérennité et la rentabilité de l'entreprise.</p>
           </div>
@@ -123,28 +198,32 @@
 
     <!-- Partners -->
     <section class="section">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-center">
           <span class="eyebrow">Ils nous font confiance</span>
-          <h2 class="section-title">Nos principaux partenaires</h2>
+          <h2 class="section-title" data-reveal-text>Nos principaux partenaires.</h2>
         </div>
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_2_voisin.png" alt="Voisin" loading="lazy"></div>
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_3_lotoquebec.png" alt="Loto Québec" loading="lazy"></div>
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_4_slush.png" alt="Xtra Slush" loading="lazy"></div>
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_5_airmiles_170804_135037.png" alt="Air Miles" loading="lazy"></div>
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_6_shell_170804_135157.png" alt="Shell" loading="lazy"></div>
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_7_zonebonbon.png" alt="Zone Bonbons" loading="lazy"></div>
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_8_ultramar_170804_135047.png" alt="Ultramar" loading="lazy"></div>
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_9_logo-poc-trio-usine-PNG-1.png" alt="Cari &amp; Gingembre" loading="lazy"></div>
-          <div class="partner-logo"><img src="./wireframe/logos/imgi_10_logo-circuit-electrique.png" alt="Circuit électrique" loading="lazy"></div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div class="partner-logo"><img src="./assets/partners/voisin.png" alt="Voisin" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="./assets/partners/loto-quebec.png" alt="Loto Québec" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="./assets/partners/xtra-slush.png" alt="Xtra Slush" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="./assets/partners/air-miles.png" alt="Air Miles" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="./assets/partners/shell.png" alt="Shell" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="./assets/partners/zone-bonbons.png" alt="Zone Bonbons" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="./assets/partners/ultramar.png" alt="Ultramar" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="./assets/partners/cari-gingembre.png" alt="Cari &amp; Gingembre" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="./assets/partners/circuit-electrique.png" alt="Circuit électrique" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </section>
 
     <!-- CTAs -->
     <section class="section-alt">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
+        <div class="intro-left">
+          <span class="eyebrow">La suite</span>
+          <h2 class="section-title" data-reveal-text>Poursuivre avec nous.</h2>
+        </div>
         <div class="grid gap-6 md:grid-cols-2">
           <div class="card-padded">
             <span class="eyebrow">Carrières</span>

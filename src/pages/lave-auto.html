@@ -13,24 +13,46 @@
   <main>
     <!-- Hero -->
     <section class="section">
-      <div class="container py-24">
-        <div class="intro-stack">
+      <div class="container inner-hero-shell">
+        <div class="inner-hero-copy inner-hero-copy--narrow">
           <span class="tag">Lave-auto</span>
-          <h1 class="page-title">Des installations pour tous les besoins</h1>
-          <p class="page-description">Lave-auto automatique, baies manuelles et même un lave-chien. Trois types d'installations répartis dans nos succursales en Abitibi.</p>
+          <h1 class="page-title max-w-[12ch]">Des installations pour tous les besoins.</h1>
+          <p class="page-description max-w-[42rem]">Lave-auto automatique, baies manuelles et même un lave-chien. Trois types d'installations répartis dans nos succursales en Abitibi.</p>
+          <div class="editorial-chip-row mt-6">
+            <span class="editorial-chip">Automatique</span>
+            <span class="editorial-chip">Manuel</span>
+            <span class="editorial-chip">Lave-chien</span>
+          </div>
+        </div>
+        <div class="inner-hero-aside inner-hero-aside--wide md:grid-cols-3">
+          <div class="editorial-note-card">
+            <img src="./assets/icon-carwash-auto.svg" alt="" class="h-8 w-8">
+            <p class="editorial-note-title">Automatique</p>
+            <p class="editorial-note-body">Rapide, efficace, plusieurs niveaux de lavage.</p>
+          </div>
+          <div class="editorial-note-card">
+            <img src="./assets/icon-carwash-manual.svg" alt="" class="h-8 w-8">
+            <p class="editorial-note-title">Manuel</p>
+            <p class="editorial-note-body">4 baies libre-service pour un contrôle complet.</p>
+          </div>
+          <div class="editorial-note-card">
+            <img src="./assets/icon-carwash-dog.svg" alt="" class="h-8 w-8">
+            <p class="editorial-note-title">Lave-chien</p>
+            <p class="editorial-note-body">Un service rare et pratique pour les propriétaires d'animaux.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Lave-auto automatique -->
     <section class="section-alt">
-      <div class="container py-20">
-        <div class="two-col-center">
-          <div class="detail-stack">
+      <div class="container py-[var(--space-section-md)]">
+        <div class="editorial-split">
+          <div class="editorial-split-copy">
             <span class="eyebrow">Automatique</span>
-            <h2 class="section-title mt-3">Lave-auto automatique</h2>
+            <h2 class="section-title mt-3" data-reveal-text>Lave-auto automatique.</h2>
             <p class="body-text mt-4">Lavage rapide et efficace. Plusieurs niveaux disponibles.</p>
-            <div class="grid gap-3 mt-8">
+            <div class="grid gap-3 mt-8 w-full">
               <div class="card-compact">
                 <p class="ui-text-strong text-text-heading">Standard</p>
                 <p class="body-text mt-1">Mousse, rinçage, séchage</p>
@@ -46,19 +68,36 @@
             </div>
             <p class="meta-text mt-6 text-text-muted">Disponible au Beauséjour Voisin 202, Beauséjour Voisin 1697 et Beauséjour Shell 117.</p>
           </div>
-          <div class="media-placeholder">Photo — Lave-auto automatique</div>
+          <div class="editorial-split-media">
+            <div class="statement-panel">
+              <div class="brand-pattern brand-pattern-dark"></div>
+              <div class="statement-panel-body">
+                <span class="eyebrow">3 sites</span>
+                <p class="statement-panel-copy mt-4">Un lavage rapide, constant et accessible jour après jour.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Lave-auto manuel -->
     <section class="section">
-      <div class="container py-20">
-        <div class="two-col-center">
-          <div class="media-placeholder">Photo — Lave-auto manuel</div>
-          <div class="detail-stack">
+      <div class="container py-[var(--space-section-md)]">
+        <div class="editorial-split">
+          <div class="editorial-split-media">
+            <div class="editorial-note-card min-h-[18rem] flex flex-col justify-between">
+              <div>
+                <p class="editorial-note-kicker">Voisin 202</p>
+                <p class="editorial-note-title">4 baies libre-service.</p>
+                <p class="editorial-note-body">Jets haute pression, mousse, cire et rinçage pour ceux qui veulent gérer chaque détail eux-mêmes.</p>
+              </div>
+              <img src="./assets/icon-carwash-manual.svg" alt="" class="h-12 w-12">
+            </div>
+          </div>
+          <div class="editorial-split-copy lg:col-start-8">
             <span class="eyebrow">Manuel</span>
-            <h2 class="section-title mt-3">Lave-auto manuel</h2>
+            <h2 class="section-title mt-3" data-reveal-text>Lave-auto manuel.</h2>
             <p class="body-text mt-4">Quatre baies libre-service avec jets haute pression, mousse, cire et rinçage.</p>
             <p class="meta-text mt-6 text-text-muted">Disponible au Beauséjour Voisin 202.</p>
           </div>
@@ -68,15 +107,24 @@
 
     <!-- Lave-chien -->
     <section class="section-alt">
-      <div class="container py-20">
-        <div class="two-col-center">
-          <div class="detail-stack">
+      <div class="container py-[var(--space-section-md)]">
+        <div class="editorial-split">
+          <div class="editorial-split-copy">
             <span class="eyebrow">Lave-chien</span>
-            <h2 class="section-title mt-3">Lave-chien</h2>
+            <h2 class="section-title mt-3" data-reveal-text>Lave-chien.</h2>
             <p class="body-text mt-4">Service unique en Abitibi. Baie dédiée avec eau chaude, shampooing et séchoir.</p>
             <p class="meta-text mt-6 text-text-muted">Disponible au Beauséjour Voisin 202 seulement.</p>
           </div>
-          <div class="media-placeholder">Photo — Lave-chien</div>
+          <div class="editorial-split-media">
+            <div class="editorial-note-card min-h-[18rem] flex flex-col justify-between">
+              <div>
+                <p class="editorial-note-kicker">Service unique</p>
+                <p class="editorial-note-title">Pratique, propre et pensé pour les propriétaires d'animaux.</p>
+                <p class="editorial-note-body">Une baie dédiée avec eau chaude, shampooing et séchoir pour un service simple à utiliser sur place.</p>
+              </div>
+              <img src="./assets/icon-carwash-dog.svg" alt="" class="h-12 w-12">
+            </div>
+          </div>
         </div>
       </div>
     </section>

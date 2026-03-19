@@ -175,6 +175,206 @@ function initSliders() {
   document.querySelectorAll('[data-slider-root]').forEach(initSlider);
 }
 
+function initStoreMap() {
+  const mapElement = document.querySelector('[data-store-map]');
+
+  if (!mapElement || !window.mapboxgl) {
+    return;
+  }
+
+  const root = mapElement.closest('[data-store-map-root]') ?? mapElement.parentElement;
+  const dataElement = root?.querySelector('[data-store-map-data]');
+  const cardElements = Array.from(root?.querySelectorAll('[data-store-map-item]') ?? []);
+  const token = mapElement.dataset.mapboxToken;
+
+  if (!dataElement || !token) {
+    return;
+  }
+
+  let locations;
+
+  try {
+    locations = JSON.parse(dataElement.textContent);
+  } catch (error) {
+    console.error('Unable to parse store map data.', error);
+    return;
+  }
+
+  if (!Array.isArray(locations) || locations.length === 0) {
+    return;
+  }
+
+  window.mapboxgl.accessToken = token;
+
+  const map = new window.mapboxgl.Map({
+    container: mapElement,
+    style: 'mapbox://styles/mapbox/light-v11',
+    center: [locations[0].lng, locations[0].lat],
+    zoom: 8.2,
+    attributionControl: false,
+  });
+
+  map.addControl(new window.mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
+  map.scrollZoom.disable();
+
+  const bounds = new window.mapboxgl.LngLatBounds();
+  const storeViews = new Map();
+
+  const resizeMap = () => {
+    map.resize();
+  };
+
+  const setActiveStore = (storeId) => {
+    cardElements.forEach((card) => {
+      card.classList.toggle('is-active', card.dataset.storeId === storeId);
+    });
+
+    storeViews.forEach(({ markerElement }, id) => {
+      markerElement.classList.toggle('is-active', id === storeId);
+    });
+  };
+
+  const focusStore = (storeId, { openPopup = true, flyTo = true } = {}) => {
+    const storeView = storeViews.get(storeId);
+
+    if (!storeView) {
+      return;
+    }
+
+    setActiveStore(storeId);
+
+    if (flyTo) {
+      map.flyTo({
+        center: [storeView.location.lng, storeView.location.lat],
+        zoom: Math.max(map.getZoom(), 10.4),
+        speed: 0.9,
+        curve: 1.15,
+        essential: true,
+      });
+    }
+
+    if (openPopup) {
+      storeViews.forEach(({ popup }, id) => {
+        if (id !== storeId) {
+          popup.remove();
+        }
+      });
+
+      if (!storeView.popup.isOpen()) {
+        storeView.marker.togglePopup();
+      }
+    }
+  };
+
+  locations.forEach((location) => {
+    if (!Number.isFinite(location.lng) || !Number.isFinite(location.lat)) {
+      return;
+    }
+
+    const marker = document.createElement('button');
+    marker.type = 'button';
+    marker.className = 'store-map-marker';
+    marker.setAttribute('aria-label', location.name);
+
+    const popupMarkup = `
+      <div class="store-map-popup-content">
+        <p class="store-map-popup-title">${location.name}</p>
+        <p class="store-map-popup-copy">${location.address}</p>
+        <p class="store-map-popup-copy">${location.hours}</p>
+      </div>
+    `;
+
+    const popup = new window.mapboxgl.Popup({
+      offset: 18,
+      closeButton: false,
+      className: 'store-map-popup',
+    }).setHTML(popupMarkup);
+
+    const markerInstance = new window.mapboxgl.Marker({ element: marker })
+      .setLngLat([location.lng, location.lat])
+      .setPopup(popup)
+      .addTo(map);
+
+    storeViews.set(location.id ?? location.name, {
+      location,
+      marker: markerInstance,
+      markerElement: marker,
+      popup,
+    });
+
+    marker.addEventListener('click', () => {
+      setActiveStore(location.id ?? location.name);
+    });
+
+    bounds.extend([location.lng, location.lat]);
+  });
+
+  cardElements.forEach((card) => {
+    const storeId = card.dataset.storeId;
+
+    if (!storeId) {
+      return;
+    }
+
+    card.addEventListener('click', () => {
+      focusStore(storeId);
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        focusStore(storeId);
+      }
+    });
+
+    card.addEventListener('mouseenter', () => {
+      setActiveStore(storeId);
+    });
+
+    card.addEventListener('focus', () => {
+      setActiveStore(storeId);
+    });
+  });
+
+  if (!bounds.isEmpty()) {
+    map.on('load', () => {
+      resizeMap();
+      map.fitBounds(bounds, {
+        padding: {
+          top: 72,
+          right: 72,
+          bottom: 72,
+          left: 72,
+        },
+        maxZoom: 9.6,
+      });
+
+      const firstLocation = locations[0];
+      if (firstLocation) {
+        setActiveStore(firstLocation.id ?? firstLocation.name);
+      }
+    });
+  }
+
+  if (root && window.ResizeObserver) {
+    const resizeObserver = new ResizeObserver(() => {
+      resizeMap();
+    });
+
+    resizeObserver.observe(root);
+  }
+
+  root?.querySelectorAll('img').forEach((image) => {
+    if (!image.complete) {
+      image.addEventListener('load', resizeMap, { once: true });
+    }
+  });
+
+  window.addEventListener('load', resizeMap, { once: true });
+  window.addEventListener('resize', resizeMap);
+  resizeMap();
+}
+
 function createButtonLabelMarkup(text) {
   const container = document.createElement('span');
   container.className = 'button-label-stack';
@@ -249,6 +449,46 @@ function splitRevealText(element) {
   element.dataset.revealReady = 'true';
 }
 
+function splitScrubText(element) {
+  if (element.dataset.scrubReady === 'true') {
+    return Array.from(element.querySelectorAll('.scrub-char'));
+  }
+
+  const text = element.textContent.trim().replace(/\s+/g, ' ');
+
+  if (!text) {
+    return [];
+  }
+
+  element.setAttribute('aria-label', text);
+  element.textContent = '';
+
+  const characters = [];
+
+  text.split(' ').forEach((word, wordIndex, words) => {
+    const wordSpan = document.createElement('span');
+    wordSpan.className = 'scrub-word';
+    wordSpan.setAttribute('aria-hidden', 'true');
+
+    Array.from(word).forEach((character) => {
+      const span = document.createElement('span');
+      span.className = 'scrub-char';
+      span.textContent = character;
+      wordSpan.append(span);
+      characters.push(span);
+    });
+
+    element.append(wordSpan);
+
+    if (wordIndex < words.length - 1) {
+      element.append(document.createTextNode(' '));
+    }
+  });
+
+  element.dataset.scrubReady = 'true';
+  return characters;
+}
+
 function formatCounterValue(value) {
   return new Intl.NumberFormat('fr-CA', {
     maximumFractionDigits: 0,
@@ -296,7 +536,9 @@ function initStatCounters(gsap, ScrollTrigger) {
         value: target,
         duration: 1.15,
         ease: 'power2.out',
+        immediateRender: false,
         onStart: () => {
+          state.value = 0;
           counter.textContent = '0';
         },
         onUpdate: () => {
@@ -304,6 +546,90 @@ function initStatCounters(gsap, ScrollTrigger) {
         },
       }, index * 0.08);
     });
+  });
+}
+
+function initAboutTimelineProgress(gsap, ScrollTrigger) {
+  document.querySelectorAll('[data-about-timeline]').forEach((timeline) => {
+    const progress = timeline.querySelector('.about-timeline-progress');
+    const items = Array.from(timeline.querySelectorAll('.about-timeline-item'));
+
+    if (!progress || items.length === 0) {
+      return;
+    }
+
+    gsap.set(progress, { scaleY: 0 });
+
+    gsap.to(progress, {
+      scaleY: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: timeline,
+        start: 'top 78%',
+        end: 'bottom 62%',
+        scrub: true,
+      },
+    });
+
+    items.forEach((item) => {
+      ScrollTrigger.create({
+        trigger: item,
+        start: 'top 72%',
+        end: 'bottom 72%',
+        onEnter: () => item.classList.add('is-active'),
+        onEnterBack: () => item.classList.add('is-active'),
+        onLeaveBack: () => item.classList.remove('is-active'),
+      });
+    });
+  });
+}
+
+function initAboutStatementScrub(gsap, ScrollTrigger) {
+  document.querySelectorAll('[data-about-statement]').forEach((panel) => {
+    const copy = panel.querySelector('[data-about-statement-copy]');
+    const watermark = panel.querySelector('[data-about-statement-watermark]');
+
+    if (!copy) {
+      return;
+    }
+
+    const characters = splitScrubText(copy);
+
+    if (characters.length === 0) {
+      return;
+    }
+
+    gsap.set(characters, { opacity: 0.18 });
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: panel,
+        start: 'top 72%',
+        end: 'bottom 38%',
+        scrub: 0.8,
+      },
+    });
+
+    timeline.to(characters, {
+      opacity: 1,
+      duration: 1,
+      ease: 'none',
+      stagger: {
+        each: 0.018,
+        from: 'start',
+      },
+    }, 0);
+
+    if (watermark) {
+      timeline.fromTo(watermark, {
+        scale: 0.9,
+        opacity: 0.04,
+      }, {
+        scale: 1.06,
+        opacity: 0.08,
+        ease: 'none',
+      }, 0);
+    }
   });
 }
 
@@ -370,6 +696,8 @@ function initRevealAnimations(lenis) {
   });
 
   initStatCounters(gsap, ScrollTrigger);
+  initAboutTimelineProgress(gsap, ScrollTrigger);
+  initAboutStatementScrub(gsap, ScrollTrigger);
 
   ScrollTrigger.refresh();
 }
@@ -381,5 +709,6 @@ const lenis = initLenis();
 initMobileMenu();
 initNavDropdowns();
 initSliders();
+initStoreMap();
 initButtonEffects();
 initRevealAnimations(lenis);

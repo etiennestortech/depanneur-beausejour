@@ -5,17 +5,10 @@ dist/
 .claude/
 .playwright-mcp/
 
+# Dev screenshots
+*.png
+
+# Reference files (not part of site)
 wireframe/
 Nos Succursales*
 Note Wireframe.docx
-
-alignment-hero.png
-halo-hero-reference.png
-hero-*.png
-homepage-*.png
-intro-*.png
-mosaic-*.png
-navbar-updated.png
-section-*.png
-slider-*.png
-stats-*.png

@@ -75,7 +75,11 @@ function buildPage(filePath) {
 // Process all pages
 resetDist();
 
-const pages = readdirSync(PAGES_DIR).filter(f => f.endsWith('.html'));
+const pages = readdirSync(PAGES_DIR).filter((file) => (
+  file.endsWith('.html') &&
+  !file.includes('.backup.') &&
+  !file.includes('.v1-backup.')
+));
 
 for (const page of pages) {
   const src = join(PAGES_DIR, page);

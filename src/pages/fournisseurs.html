@@ -13,18 +13,35 @@
   <main>
     <!-- Hero -->
     <section class="section">
-      <div class="container py-24">
-        <div class="intro-stack">
+      <div class="container inner-hero-shell">
+        <div class="inner-hero-copy inner-hero-copy--narrow">
           <span class="tag">Fournisseurs</span>
-          <h1 class="page-title">Devenez partenaire</h1>
-          <p class="page-description">Vous êtes un producteur local ou un distributeur régional? Joignez-vous au réseau Beauséjour et offrez vos produits dans cinq points de vente en Abitibi.</p>
+          <h1 class="page-title max-w-[12ch]">Devenez partenaire.</h1>
+          <p class="page-description max-w-[40rem]">Vous êtes un producteur local ou un distributeur régional? Joignez-vous au réseau Beauséjour et offrez vos produits dans cinq points de vente en Abitibi.</p>
+          <div class="intro-actions">
+            <a href="#formulaire" class="btn-primary">Soumettre une demande</a>
+          </div>
+        </div>
+        <div class="inner-hero-aside inner-hero-aside--wide md:grid-cols-2">
+          <div class="inner-hero-media min-h-[20rem] md:row-span-2">
+            <img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Produits alimentaires en magasin" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="editorial-media-tile min-h-[12rem]">
+            <img src="./assets/food-patisseries.jpg" width="1800" height="1199" alt="Produits de boulangerie" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="editorial-note-card">
+            <p class="editorial-note-kicker">Réseau local</p>
+            <p class="editorial-note-title">Des partenariats durables, pas des tests sans suivi.</p>
+            <p class="editorial-note-body">Nous cherchons des produits solides, une bonne exécution et des relations de confiance qui peuvent durer.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Credibility Stats -->
-    <section class="section-dark">
-      <div class="container py-20">
+    <section class="section-dark overflow-hidden">
+      <div class="container relative py-[var(--space-section-md)]">
+        <div class="brand-pattern brand-pattern-dark"></div>
         <div class="stats-band lg:grid-cols-4">
           <div class="stat-item-dark">
             <div class="stat-value">5</div>
@@ -48,10 +65,10 @@
 
     <!-- Why Partner -->
     <section class="section">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-center">
           <span class="eyebrow">Pourquoi nous choisir</span>
-          <h2 class="section-title">Les avantages d'un partenariat</h2>
+          <h2 class="section-title" data-reveal-text>Les avantages d'un partenariat.</h2>
           <p class="section-subtitle">Nous bâtissons des relations durables avec nos fournisseurs pour offrir le meilleur à nos clients.</p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
@@ -73,29 +90,29 @@
 
     <!-- Product Categories -->
     <section class="section-alt">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-center">
           <span class="eyebrow">Catégories</span>
-          <h2 class="section-title">Ce que nous recherchons</h2>
+          <h2 class="section-title" data-reveal-text>Ce que nous recherchons.</h2>
           <p class="section-subtitle">Nous sommes à la recherche de fournisseurs dans plusieurs catégories de produits.</p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Alimentation et boissons</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Alimentation et boissons" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Alimentation et boissons</h3>
               <p class="body-text mt-2">Produits alimentaires, boissons, collations et produits frais pour nos réfrigérateurs et étagères.</p>
             </div>
           </div>
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Produits prêt-à-manger</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-repas-chauds.jpg" width="1800" height="1199" alt="Produits prêt-à-manger" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Produits prêt-à-manger</h3>
               <p class="body-text mt-2">Repas préparés, sandwichs, salades et autres produits de restauration rapide de qualité.</p>
             </div>
           </div>
           <div class="solution-card">
-            <div class="media-placeholder-card">Photo — Produits généraux</div>
+            <div class="h-56 overflow-hidden"><img src="./assets/food-patisseries.jpg" width="1800" height="1199" alt="Produits généraux" class="media-image-cover" loading="lazy" decoding="async"></div>
             <div class="solution-card-body">
               <h3 class="card-title">Produits généraux</h3>
               <p class="body-text mt-2">Articles de dépanneur, produits saisonniers, accessoires automobiles et autres marchandises courantes.</p>
@@ -107,10 +124,10 @@
 
     <!-- Process -->
     <section class="section">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-center">
           <span class="eyebrow">Comment ça fonctionne</span>
-          <h2 class="section-title">Un processus simple en 3 étapes</h2>
+          <h2 class="section-title" data-reveal-text>Un processus simple en 3 étapes.</h2>
           <p class="section-subtitle">De la prise de contact à la mise en rayon, nous facilitons chaque étape du partenariat.</p>
         </div>
         <div class="process-steps-grid">
@@ -140,11 +157,11 @@
     </section>
 
     <!-- Supplier Form -->
-    <section class="section-alt">
-      <div class="container py-20">
+    <section id="formulaire" class="section-alt">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-center">
           <span class="eyebrow">Formulaire</span>
-          <h2 class="section-title">Soumettez votre candidature</h2>
+          <h2 class="section-title" data-reveal-text>Soumettez votre candidature.</h2>
           <p class="section-subtitle">Remplissez le formulaire suivant et notre équipe vous contactera dans les meilleurs délais.</p>
         </div>
         <div class="mx-auto max-w-[40rem]">

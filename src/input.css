@@ -1,7 +1,7 @@
 @import "tailwindcss";
-@source "../dist/*.html";
 @source "./pages/*.html";
-@source "../dist/js/*.js";
+@source "./partials/*.html";
+@source "./js/*.js";
 
 /* ============================================================================
    DESIGN SYSTEM TOKENS — Groupe Beauséjour
@@ -110,8 +110,8 @@
   --type-leading-ui: 1.5;             /* Figma: Inter text uses 1.5 */
   --type-leading-body: 1.5;           /* Figma: body text uses 1.5 */
   --type-leading-dense: 1.4;          /* Figma: H6 uses 1.4 */
-  --type-tracking-heading: -0.04em;   /* Figma: heading tracking ~ -4% */
-  --type-tracking-display: -0.05em;   /* Figma: hero title -3.2px / 64px */
+  --type-tracking-heading: -0.045em;  /* slightly tighter for page/section title consistency */
+  --type-tracking-display: -0.08em;   /* tighter homepage/display tracking */
   --type-tracking-label: 0.02em;
   --type-tracking-micro: 0;
 

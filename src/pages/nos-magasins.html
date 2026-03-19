@@ -13,108 +13,196 @@
   <main>
     <!-- Hero -->
     <section class="section">
-      <div class="container py-24">
-        <div class="intro-stack">
+      <div class="container inner-hero-shell">
+        <div class="inner-hero-copy inner-hero-copy--narrow">
           <span class="tag">Nos magasins</span>
-          <h1 class="page-title">Cinq magasins pour vous servir</h1>
-          <p class="page-description">Trouvez votre Beauséjour le plus proche — essence, prêt-à-manger, lave-auto et plus encore. Retrouvez-nous à Val-d'Or, Louvicourt et Rouyn-Noranda.</p>
+          <h1 class="page-title max-w-[12ch]">Cinq magasins pour vous servir.</h1>
+          <p class="page-description max-w-[40rem]">Trouvez votre Beauséjour le plus proche — essence, prêt-à-manger, lave-auto et plus encore. Retrouvez-nous à Val-d'Or, Louvicourt et Rouyn-Noranda.</p>
+          <div class="editorial-chip-row mt-6">
+            <span class="editorial-chip">Val-d'Or</span>
+            <span class="editorial-chip">Louvicourt</span>
+            <span class="editorial-chip">Rouyn-Noranda</span>
+          </div>
+        </div>
+        <div class="inner-hero-aside inner-hero-aside--wide md:grid-cols-2">
+          <div class="inner-hero-media min-h-[20rem] md:row-span-2">
+            <img src="./assets/stores/store-202-3e-avenue.jpg" width="4096" height="2731" alt="Vue aérienne du magasin Beauséjour Voisin 202" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="editorial-note-card">
+            <p class="editorial-note-kicker">Réseau</p>
+            <p class="editorial-note-title">5 magasins de proximité en Abitibi.</p>
+            <p class="editorial-note-body">Un réseau pensé pour couvrir Val-d'Or, Louvicourt et Rouyn-Noranda avec des services adaptés à chaque point de vente.</p>
+          </div>
+          <div class="editorial-metric-card">
+            <p class="editorial-metric-value">30 000<span class="inner-hero-accent">+</span></p>
+            <p class="editorial-metric-copy">clients servis chaque semaine</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Store Cards -->
-    <section class="section-alt">
-      <div class="container py-20">
-        <div class="location-grid location-grid--multi">
-
-          <div class="location-card">
-            <div class="media-placeholder-card">Photo — Beauséjour Voisin 202</div>
-            <div class="location-card-body">
-              <span class="tag mb-3">24h/7</span>
-              <h3 class="card-title mt-2">Beauséjour Voisin 202</h3>
-              <p class="body-text mt-1">202, 3e Avenue, Val-d'Or, QC J9P 1T4</p>
-              <p class="body-text mt-1">819-825-2525</p>
-              <p class="body-text mt-1">Ouvert 24h / 7 jours</p>
-              <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tag">Essence</span>
-                <span class="tag">Propane</span>
-                <span class="tag">Lave-auto automatique</span>
-                <span class="tag">Lave-auto manuel</span>
-                <span class="tag">Lave-chien</span>
-                <span class="tag">Prêt-à-manger</span>
-                <span class="tag">Scène+</span>
+    <!-- Map -->
+    <section class="section">
+      <div class="container py-[var(--space-section-md)]">
+        <div class="store-finder" data-store-map-root>
+          <div class="store-finder-layout">
+            <div class="store-finder-map-column">
+              <div class="store-finder-map-shell">
+                <div
+                  class="store-finder-map-canvas"
+                  data-store-map
+                  data-mapbox-token="pk.eyJ1IjoiZXRpZW5uZWxhcnVjaGUiLCJhIjoiY21tdW03bXI3MjdwdTJwcHMwMjZ3Y3l0MSJ9._ZTZL9jaccU2H9VsVhW81Q"
+                  aria-label="Carte des magasins Groupe Beauséjour"
+                ></div>
+                <script type="application/json" data-store-map-data>
+                  [
+                    {
+                      "id": "store-202",
+                      "name": "Beauséjour Voisin 202",
+                      "address": "202, 3e Avenue, Val-d'Or, QC J9P 1T4",
+                      "hours": "Ouvert 24h / 7 jours",
+                      "lng": -77.7732598,
+                      "lat": 48.1008294
+                    },
+                    {
+                      "id": "store-1697",
+                      "name": "Beauséjour Voisin 1697",
+                      "address": "1697, 3e Avenue, Val-d'Or, QC J9P 1T4",
+                      "hours": "Ouvert 24h / 7 jours",
+                      "lng": -77.817508,
+                      "lat": 48.0986783
+                    },
+                    {
+                      "id": "store-loubell",
+                      "name": "Loubell Voisin",
+                      "address": "315, Route 117, Louvicourt, QC J0Y 1V0",
+                      "hours": "Lun-sam 6h-21h, Dim 7h-21h",
+                      "lng": -77.3827978,
+                      "lat": 48.0728054
+                    },
+                    {
+                      "id": "store-shell-117",
+                      "name": "Beauséjour Shell 117",
+                      "address": "586, Avenue Larivière, Rouyn-Noranda, QC J9X 3B8",
+                      "hours": "Ouvert 24h / 7 jours",
+                      "lng": -79.0101753,
+                      "lat": 48.2271908
+                    },
+                    {
+                      "id": "store-111-sud",
+                      "name": "Beauséjour 111 Sud",
+                      "address": "2965, Chemin Sullivan, Val-d'Or, QC J9P 0B8",
+                      "hours": "Lun-sam 6h-23h, Dim 7h-23h",
+                      "lng": -77.8322813,
+                      "lat": 48.1227454
+                    }
+                  ]
+                </script>
               </div>
             </div>
-          </div>
+            <aside class="store-finder-sidebar">
+              <span class="eyebrow">Points de service</span>
+              <div class="store-finder-list">
+                <article class="store-finder-card" data-store-map-item data-store-id="store-202" tabindex="0">
+                  <div class="store-finder-card-media">
+                    <span class="store-finder-card-badge">24h/7</span>
+                    <img src="./assets/stores/store-202-3e-avenue.jpg" width="4096" height="2731" alt="Beauséjour Voisin 202" class="media-image-cover" loading="lazy" decoding="async">
+                  </div>
+                  <div class="store-finder-card-body">
+                    <h3 class="store-finder-card-title">Beauséjour Voisin 202</h3>
+                    <p class="store-finder-card-copy">202, 3e Avenue, Val-d'Or, QC J9P 1T4</p>
+                    <p class="store-finder-card-copy">819-825-2525</p>
+                    <p class="store-finder-card-copy">Ouvert 24h / 7 jours</p>
+                    <div class="store-finder-pill-row">
+                      <span class="store-finder-pill">Essence</span>
+                      <span class="store-finder-pill">Propane</span>
+                      <span class="store-finder-pill">Lave-auto automatique</span>
+                      <span class="store-finder-pill">Lave-auto manuel</span>
+                      <span class="store-finder-pill">Lave-chien</span>
+                      <span class="store-finder-pill">Prêt-à-manger</span>
+                      <span class="store-finder-pill">Scène+</span>
+                    </div>
+                  </div>
+                </article>
 
-          <div class="location-card">
-            <div class="media-placeholder-card">Photo — Beauséjour Voisin 1697</div>
-            <div class="location-card-body">
-              <span class="tag mb-3">24h/7</span>
-              <h3 class="card-title mt-2">Beauséjour Voisin 1697</h3>
-              <p class="body-text mt-1">1697, 3e Avenue, Val-d'Or, QC J9P 1T4</p>
-              <p class="body-text mt-1">819-825-7777</p>
-              <p class="body-text mt-1">Ouvert 24h / 7 jours</p>
-              <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tag">Essence</span>
-                <span class="tag">Propane</span>
-                <span class="tag">Lave-auto automatique</span>
-                <span class="tag">Prêt-à-manger</span>
-                <span class="tag">Scène+</span>
+                <article class="store-finder-card" data-store-map-item data-store-id="store-1697" tabindex="0">
+                  <div class="store-finder-card-media">
+                    <span class="store-finder-card-badge">24h/7</span>
+                    <img src="./assets/stores/store-1697-3e-avenue.jpg" width="4096" height="2301" alt="Beauséjour Voisin 1697" class="media-image-cover" loading="lazy" decoding="async">
+                  </div>
+                  <div class="store-finder-card-body">
+                    <h3 class="store-finder-card-title">Beauséjour Voisin 1697</h3>
+                    <p class="store-finder-card-copy">1697, 3e Avenue, Val-d'Or, QC J9P 1T4</p>
+                    <p class="store-finder-card-copy">819-825-7777</p>
+                    <p class="store-finder-card-copy">Ouvert 24h / 7 jours</p>
+                    <div class="store-finder-pill-row">
+                      <span class="store-finder-pill">Essence</span>
+                      <span class="store-finder-pill">Propane</span>
+                      <span class="store-finder-pill">Lave-auto automatique</span>
+                      <span class="store-finder-pill">Prêt-à-manger</span>
+                      <span class="store-finder-pill">Scène+</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="store-finder-card" data-store-map-item data-store-id="store-loubell" tabindex="0">
+                  <div class="store-finder-card-media">
+                    <img src="./assets/stores/store-315-rte-117.jpg" width="4096" height="2301" alt="Loubell Voisin" class="media-image-cover" loading="lazy" decoding="async">
+                  </div>
+                  <div class="store-finder-card-body">
+                    <h3 class="store-finder-card-title">Loubell Voisin</h3>
+                    <p class="store-finder-card-copy">315, Route 117, Louvicourt, QC J0Y 1V0</p>
+                    <p class="store-finder-card-copy">819-738-6688</p>
+                    <p class="store-finder-card-copy">Lun-sam 6h-21h, Dim 7h-21h</p>
+                    <div class="store-finder-pill-row">
+                      <span class="store-finder-pill">Essence</span>
+                      <span class="store-finder-pill">Propane</span>
+                      <span class="store-finder-pill">Prêt-à-manger</span>
+                      <span class="store-finder-pill">Scène+</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="store-finder-card" data-store-map-item data-store-id="store-shell-117" tabindex="0">
+                  <div class="store-finder-card-media">
+                    <span class="store-finder-card-badge">24h/7</span>
+                    <img src="./assets/stores/store-586-av-lariviere.jpg" width="4096" height="2301" alt="Beauséjour Shell 117" class="media-image-cover" loading="lazy" decoding="async">
+                  </div>
+                  <div class="store-finder-card-body">
+                    <h3 class="store-finder-card-title">Beauséjour Shell 117</h3>
+                    <p class="store-finder-card-copy">586, Avenue Larivière, Rouyn-Noranda, QC J9X 3B8</p>
+                    <p class="store-finder-card-copy">819-762-5252</p>
+                    <p class="store-finder-card-copy">Ouvert 24h / 7 jours</p>
+                    <div class="store-finder-pill-row">
+                      <span class="store-finder-pill">Essence</span>
+                      <span class="store-finder-pill">Propane</span>
+                      <span class="store-finder-pill">Lave-auto automatique</span>
+                      <span class="store-finder-pill">Prêt-à-manger</span>
+                      <span class="store-finder-pill">Scène+</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="store-finder-card" data-store-map-item data-store-id="store-111-sud" tabindex="0">
+                  <div class="store-finder-card-media">
+                    <img src="./assets/stores/store-2965-chem-sullivan.jpg" width="4096" height="2301" alt="Beauséjour 111 Sud" class="media-image-cover" loading="lazy" decoding="async">
+                  </div>
+                  <div class="store-finder-card-body">
+                    <h3 class="store-finder-card-title">Beauséjour 111 Sud</h3>
+                    <p class="store-finder-card-copy">2965, Chemin Sullivan, Val-d'Or, QC J9P 0B8</p>
+                    <p class="store-finder-card-copy">819-824-5252</p>
+                    <p class="store-finder-card-copy">Lun-sam 6h-23h, Dim 7h-23h</p>
+                    <div class="store-finder-pill-row">
+                      <span class="store-finder-pill">Essence</span>
+                      <span class="store-finder-pill">Propane</span>
+                      <span class="store-finder-pill">Prêt-à-manger</span>
+                      <span class="store-finder-pill">Scène+</span>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </div>
+            </aside>
           </div>
-
-          <div class="location-card">
-            <div class="media-placeholder-card">Photo — Loubell Voisin</div>
-            <div class="location-card-body">
-              <h3 class="card-title">Loubell Voisin</h3>
-              <p class="body-text mt-1">315, Route 117, Louvicourt, QC J0Y 1V0</p>
-              <p class="body-text mt-1">819-738-6688</p>
-              <p class="body-text mt-1">Lun-sam 6h-21h, Dim 7h-21h</p>
-              <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tag">Essence</span>
-                <span class="tag">Propane</span>
-                <span class="tag">Prêt-à-manger</span>
-                <span class="tag">Scène+</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="location-card">
-            <div class="media-placeholder-card">Photo — Beauséjour Shell 117</div>
-            <div class="location-card-body">
-              <span class="tag mb-3">24h/7</span>
-              <h3 class="card-title mt-2">Beauséjour Shell 117</h3>
-              <p class="body-text mt-1">586, Avenue Larivière, Rouyn-Noranda, QC J9X 3B8</p>
-              <p class="body-text mt-1">819-762-5252</p>
-              <p class="body-text mt-1">Ouvert 24h / 7 jours</p>
-              <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tag">Essence</span>
-                <span class="tag">Propane</span>
-                <span class="tag">Lave-auto automatique</span>
-                <span class="tag">Prêt-à-manger</span>
-                <span class="tag">Scène+</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="location-card">
-            <div class="media-placeholder-card">Photo — Beauséjour 111 Sud</div>
-            <div class="location-card-body">
-              <h3 class="card-title">Beauséjour 111 Sud</h3>
-              <p class="body-text mt-1">2965, Chemin Sullivan, Val-d'Or, QC J9P 0B8</p>
-              <p class="body-text mt-1">819-824-5252</p>
-              <p class="body-text mt-1">Lun-sam 6h-23h, Dim 7h-23h</p>
-              <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tag">Essence</span>
-                <span class="tag">Propane</span>
-                <span class="tag">Prêt-à-manger</span>
-                <span class="tag">Scène+</span>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>

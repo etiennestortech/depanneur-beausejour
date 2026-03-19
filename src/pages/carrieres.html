@@ -13,14 +13,24 @@
   <main>
     <!-- Hero -->
     <section class="section">
-      <div class="container py-24">
-        <div class="intro-stack">
+      <div class="container inner-hero-shell">
+        <div class="inner-hero-copy inner-hero-copy--wide">
           <span class="tag">Carrières</span>
-          <h1 class="page-title">Propager la bonne humeur, un client à la fois</h1>
-          <p class="page-description">Joignez une équipe passionnée qui place le service et la bonne humeur au coeur de chaque interaction. Chez Beauséjour, chaque membre de l'équipe contribue à faire de nos magasins des lieux accueillants pour la communauté.</p>
+          <h1 class="page-title max-w-[13ch]">Propager la bonne humeur, un client à la fois.</h1>
+          <p class="page-description max-w-[44rem]">Joignez une équipe passionnée qui place le service et la bonne humeur au coeur de chaque interaction. Chez Beauséjour, chaque membre de l'équipe contribue à faire de nos magasins des lieux accueillants pour la communauté.</p>
           <div class="intro-actions">
             <a href="#postes" class="btn-primary">Voir les postes</a>
-            <a href="#candidature" class="btn-secondary">Postuler maintenant</a>
+            <a href="#candidature" class="btn-neutral">Postuler maintenant</a>
+          </div>
+        </div>
+        <div class="inner-hero-aside">
+          <div class="inner-hero-media">
+            <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Membre de l'équipe Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="editorial-note-card">
+            <p class="editorial-note-kicker">Culture</p>
+            <p class="editorial-note-title">Un rythme rapide, une équipe soudée.</p>
+            <p class="editorial-note-body">Horaires flexibles, évolution interne et environnement humain. On cherche des gens fiables, chaleureux et fiers du service qu'ils offrent.</p>
           </div>
         </div>
       </div>
@@ -28,13 +38,13 @@
 
     <!-- Benefits -->
     <section class="section-alt">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-left">
           <span class="eyebrow">Avantages</span>
-          <h2 class="section-title">Pourquoi travailler chez Beauséjour?</h2>
-          <p class="section-subtitle">Un milieu de travail humain, flexible et stimulant.</p>
+          <h2 class="section-title" data-reveal-text>Pourquoi travailler chez Beauséjour?</h2>
+          <p class="section-subtitle">Un milieu de travail humain, flexible et stimulant, où la progression se bâtit sur le terrain.</p>
         </div>
-        <div class="grid gap-6 md:grid-cols-2">
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           <div class="feature-card">
             <h3 class="card-title">Horaires flexibles</h3>
             <p class="body-text mt-3">Des horaires adaptés à votre réalité — que vous soyez étudiant, parent ou à la recherche d'un emploi à temps plein.</p>
@@ -55,24 +65,41 @@
       </div>
     </section>
 
-    <!-- Recruitment Video -->
+    <!-- Team Snapshot -->
     <section class="section">
-      <div class="container py-20">
-        <div class="intro-center">
-          <span class="eyebrow">Notre équipe</span>
-          <h2 class="section-title">Découvrez l'ambiance Beauséjour</h2>
-          <p class="section-subtitle">Une journée dans la vie de notre équipe.</p>
+      <div class="container py-[var(--space-section-md)]">
+        <div class="editorial-split">
+          <div class="editorial-split-copy">
+            <span class="eyebrow">Notre équipe</span>
+            <h2 class="section-title mt-3" data-reveal-text>Un quotidien vivant, jamais générique.</h2>
+            <p class="section-subtitle mt-4">Entre service, cuisine, caisse et gestion, chaque journée est différente. On aime les gens capables d'apporter de l'énergie, du soin et de la constance.</p>
+            <div class="editorial-chip-row mt-6">
+              <span class="editorial-chip">Service client</span>
+              <span class="editorial-chip">Cuisine</span>
+              <span class="editorial-chip">Gestion</span>
+              <span class="editorial-chip">Nuit et jour</span>
+            </div>
+          </div>
+          <div class="editorial-split-media md:grid-cols-2">
+            <div class="editorial-media-card min-h-[22rem]">
+              <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Gestionnaire Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+            </div>
+            <div class="editorial-note-card self-end">
+              <p class="editorial-note-kicker">Évolution</p>
+              <p class="editorial-note-title">Plusieurs gestionnaires ont commencé au plancher.</p>
+              <p class="editorial-note-body">Le terrain compte. L'autonomie, l'attitude et la rigueur ouvrent rapidement la porte à davantage de responsabilités.</p>
+            </div>
+          </div>
         </div>
-        <div class="media-placeholder">Vidéo de recrutement — YouTube</div>
       </div>
     </section>
 
     <!-- Job Postings -->
     <section id="postes" class="section-alt">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-left">
           <span class="eyebrow">Postes disponibles</span>
-          <h2 class="section-title">Trouvez votre place dans l'équipe</h2>
+          <h2 class="section-title" data-reveal-text>Trouvez votre place dans l'équipe.</h2>
           <p class="section-subtitle">Consultez nos postes ouverts et postulez dès aujourd'hui.</p>
         </div>
         <div class="grid gap-4">
@@ -127,10 +154,10 @@
 
     <!-- Application Form -->
     <section id="candidature" class="section">
-      <div class="container py-20">
+      <div class="container py-[var(--space-section-md)]">
         <div class="intro-center">
           <span class="eyebrow">Candidature</span>
-          <h2 class="section-title">Postulez dès maintenant</h2>
+          <h2 class="section-title" data-reveal-text>Postulez dès maintenant.</h2>
           <p class="section-subtitle">Remplissez le formulaire ci-dessous et notre équipe vous contactera rapidement.</p>
         </div>
         <div class="mx-auto max-w-[40rem]">
