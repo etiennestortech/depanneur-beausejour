@@ -38,14 +38,6 @@ html.lenis, html.lenis body { height: auto; }
     padding-inline: var(--layout-gutter-inline);
   }
 
-  /* ── Two Column Layouts ── */
-  .two-col {
-    @apply grid gap-12 md:grid-cols-2 lg:gap-16;
-  }
-  .two-col-center {
-    @apply grid gap-12 md:grid-cols-2 md:items-center lg:gap-16;
-  }
-
   /* ── Intro Blocks ──
        Centered or left-aligned intro with automatic spacing between
        eyebrow → title → subtitle → actions via gap.                       */
@@ -65,10 +57,6 @@ html.lenis, html.lenis body { height: auto; }
   .intro-actions {
     @apply flex flex-wrap gap-3;
   }
-  .detail-stack {
-    @apply flex flex-col items-start;
-  }
-
   /* ── Border Radius Utilities ── */
   .rounded-card    { border-radius: var(--radius-card); }
   .rounded-card-lg { border-radius: var(--radius-card-lg); }
@@ -192,7 +180,7 @@ html.lenis, html.lenis body { height: auto; }
      ══════════════════════════════════════════════════════════════════════════ */
 
   .btn-primary {
-    @apply inline-flex min-h-11 items-center justify-center px-7 py-[18px] font-medium no-underline bg-primary text-text-on-primary transition-transform transition-colors duration-200;
+    @apply inline-flex min-h-11 items-center justify-center px-7 py-[18px] font-medium no-underline bg-primary text-text-on-primary transition-[transform,color,background-color,border-color] duration-200;
     border-radius: var(--radius-btn);
     font-family: var(--font-heading);
     font-size: var(--type-size-ui);
@@ -202,7 +190,7 @@ html.lenis, html.lenis body { height: auto; }
     --button-hover-fg: var(--color-text-on-primary);
   }
   .btn-secondary {
-    @apply inline-flex min-h-11 items-center justify-center px-7 py-[18px] font-medium no-underline text-text-inverse backdrop-blur-sm transition-transform transition-colors duration-200;
+    @apply inline-flex min-h-11 items-center justify-center px-7 py-[18px] font-medium no-underline text-text-inverse backdrop-blur-sm transition-[transform,color,background-color,border-color] duration-200;
     background: var(--overlay-white-10);
     border-radius: var(--radius-btn);
     font-family: var(--font-heading);
@@ -213,7 +201,7 @@ html.lenis, html.lenis body { height: auto; }
     --button-hover-fg: var(--color-text-on-primary);
   }
   .btn-neutral {
-    @apply inline-flex min-h-11 items-center justify-center px-7 py-[18px] font-medium no-underline bg-surface-alt text-text-heading transition-transform transition-colors duration-200;
+    @apply inline-flex min-h-11 items-center justify-center px-7 py-[18px] font-medium no-underline bg-surface-alt text-text-heading transition-[transform,color,background-color,border-color] duration-200;
     border-radius: var(--radius-btn);
     font-family: var(--font-heading);
     font-size: var(--type-size-ui);
@@ -308,10 +296,6 @@ html.lenis, html.lenis body { height: auto; }
     outline: 2px solid var(--color-border-primary);
     outline-offset: 3px;
   }
-  .hero-bg .btn-primary     { @apply bg-surface-card text-text-heading hover:bg-surface-alt; }
-  .hero-bg .btn-secondary   { @apply border-white/40 text-text-inverse; }
-  .section-dark .btn-primary   { @apply bg-surface-card text-text-heading hover:bg-surface-alt; }
-  .section-dark .btn-secondary { @apply border-white/30 text-text-inverse hover:bg-white/5; }
 
   /* ══════════════════════════════════════════════════════════════════════════
      CARDS
@@ -354,16 +338,6 @@ html.lenis, html.lenis body { height: auto; }
     @apply flex h-full flex-col px-6 py-6;
   }
 
-  /* ── Location Card ── */
-  .location-card {
-    @apply overflow-hidden border border-border bg-surface-card;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-  }
-  .location-grid        { @apply grid gap-6; }
-  .location-grid--multi { @apply md:grid-cols-2; }
-  .location-card-body   { @apply p-6; }
   .store-finder {
     @apply pt-8;
   }
@@ -413,10 +387,10 @@ html.lenis, html.lenis body { height: auto; }
     z-index: 1;
     padding: 0.55rem 0.85rem;
     border: 1px solid rgba(12, 20, 24, 0.14);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(12px);
-    font-size: 0.95rem;
+    font-size: var(--type-size-ui);
     line-height: 1.1;
   }
   .store-finder-card-body {
@@ -444,8 +418,8 @@ html.lenis, html.lenis body { height: auto; }
   .store-finder-pill {
     @apply inline-flex items-center border border-border bg-surface-alt text-text-body;
     padding: 0.4rem 0.7rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--type-size-ui);
     line-height: 1;
   }
   .store-finder-card:hover,
@@ -472,7 +446,7 @@ html.lenis, html.lenis body { height: auto; }
   .store-map-marker {
     width: 1rem;
     height: 1rem;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     border: 2px solid var(--color-surface-page);
     background: var(--color-primary);
     box-shadow: 0 10px 24px rgba(69, 203, 181, 0.32);
@@ -543,12 +517,6 @@ html.lenis, html.lenis body { height: auto; }
     }
   }
 
-  /* ── Feature Card (same as card-padded, explicit name for semantics) ── */
-  .feature-card {
-    @apply border border-border bg-surface-card p-6;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-  }
   .editorial-note-card {
     @apply border border-border bg-surface-alt p-5;
     border-radius: var(--radius-card);
@@ -726,7 +694,7 @@ html.lenis, html.lenis body { height: auto; }
     @apply flex items-center gap-8;
   }
   .hero-v2-cta {
-    @apply inline-flex items-center gap-2 no-underline bg-primary text-text-on-primary font-medium shrink-0 transition-transform transition-colors duration-200;
+    @apply inline-flex items-center gap-2 no-underline bg-primary text-text-on-primary font-medium shrink-0 transition-[transform,color,background-color,border-color] duration-200;
     font-family: var(--font-heading);
     font-size: var(--type-size-ui);
     line-height: 1;
@@ -749,8 +717,8 @@ html.lenis, html.lenis body { height: auto; }
   }
   .hero-v2-right {
     @apply flex min-w-0 flex-col items-end gap-8;
-    flex: 0 1 clamp(17.5rem, 35%, 30.5625rem);
-    max-width: 30.5625rem;
+    flex: 0 1 clamp(17.5rem, 40%, 34rem);
+    max-width: 34rem;
     margin-left: auto;
   }
   .hero-v2-description {
@@ -761,14 +729,14 @@ html.lenis, html.lenis body { height: auto; }
     width: 100%;
   }
   .hero-v2-pills {
-    @apply flex gap-4;
+    @apply flex gap-2;
     flex-wrap: nowrap;
   }
   .hero-v2-pill {
-    @apply inline-flex items-center gap-2 no-underline text-text-inverse font-medium backdrop-blur-sm whitespace-nowrap shrink-0 transition-colors duration-200;
+    @apply inline-flex items-center gap-1.5 no-underline text-text-inverse font-medium backdrop-blur-sm whitespace-nowrap transition-colors duration-200;
     background: var(--overlay-white-15);
     border-radius: var(--radius-btn);
-    padding: 12px 20px;
+    padding: 10px 16px;
     font-family: var(--font-heading);
     font-size: var(--type-size-ui);
     line-height: 1;
@@ -778,10 +746,9 @@ html.lenis, html.lenis body { height: auto; }
     background: rgba(255, 255, 255, 0.24);
   }
 
-  @media (max-width: 1279px) {
+  @media (max-width: 1023px) {
     .hero-v2-pills {
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
   }
 
@@ -815,9 +782,6 @@ html.lenis, html.lenis body { height: auto; }
     .hero-v2-description {
       @apply text-left;
     }
-    .hero-v2-pills {
-      @apply flex-wrap;
-    }
   }
 
   @media (max-width: 639px) {
@@ -832,42 +796,9 @@ html.lenis, html.lenis body { height: auto; }
     }
     .hero-v2-pill {
       padding: 8px 14px;
-      font-size: 0.8125rem;
+      font-size: var(--type-size-ui);
     }
   }
-
-  /* ── Hero V1 (legacy, kept for reference) ── */
-  .hero-bg {
-    @apply relative overflow-hidden border-b border-border-dark bg-surface-dark;
-  }
-  .hero-bg-media {
-    @apply absolute inset-0 bg-cover bg-center;
-    transform: translate3d(0, -16px, 0) scale(1.12);
-    will-change: transform;
-    pointer-events: none;
-  }
-  @media (max-width: 47.99rem) {
-    .hero-bg-media {
-      transform: translate3d(0, -10px, 0) scale(1.1);
-    }
-  }
-  .hero-bg-overlay {
-    @apply absolute inset-0;
-    background-image:
-      linear-gradient(-60deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.64) 98%),
-      linear-gradient(90deg, rgba(31, 31, 31, 0.3) 0%, rgba(31, 31, 31, 0.3) 100%);
-  }
-  .hero-bg-content {
-    @apply relative grid grid-rows-[minmax(0,1fr)_auto] gap-14 pt-20 pb-12 lg:pt-24 lg:pb-14 xl:pt-28 xl:pb-16;
-    min-height: calc(100svh - var(--header-h, 6.75rem));
-  }
-  .hero-bg-copy {
-    @apply flex h-full self-stretch flex-col items-start justify-center;
-    max-width: var(--layout-measure-hero);
-  }
-  .hero-bg .page-title     { @apply text-text-inverse; }
-  .hero-bg .body-text-lg   { @apply text-white/80; }
-  .hero-bg .eyebrow        { @apply text-white/70; }
 
   .inner-hero-shell {
     @apply grid gap-8 py-[var(--space-section-lg)] lg:grid-cols-12 lg:items-end;
@@ -1279,10 +1210,6 @@ html.lenis, html.lenis body { height: auto; }
     max-width: 53.25rem;
     gap: 1.5rem;
   }
-  .about-page {
-    background-color: var(--color-surface-page);
-    background-image: none !important;
-  }
   .about-hero-ribbon {
     @apply overflow-hidden;
     padding-inline: clamp(1rem, 4vw, 4rem);
@@ -1362,7 +1289,7 @@ html.lenis, html.lenis body { height: auto; }
     height: 100%;
     left: 3.9375rem;
     width: 3px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--color-primary);
     transform-origin: top center;
     transform: scaleY(0);
@@ -1381,7 +1308,7 @@ html.lenis, html.lenis body { height: auto; }
     bottom: 0;
     left: 3.9375rem;
     width: 3px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--color-surface-alt);
   }
   .about-timeline-dot {
@@ -1433,7 +1360,7 @@ html.lenis, html.lenis body { height: auto; }
   .about-timeline-title {
     @apply font-normal text-text-heading;
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: var(--type-size-title-md);
     line-height: 1.4;
     letter-spacing: -0.01em;
   }
@@ -1780,17 +1707,6 @@ html.lenis, html.lenis body { height: auto; }
      MEDIA
      ══════════════════════════════════════════════════════════════════════════ */
 
-  .media-placeholder {
-    @apply flex h-72 items-center justify-center border border-border bg-surface-alt text-text-muted;
-    border-radius: var(--radius-card);
-    font-size: var(--type-size-ui);
-    line-height: var(--type-leading-ui);
-  }
-  .media-placeholder-card {
-    @apply flex h-48 items-center justify-center border-b border-border bg-surface-alt text-text-muted;
-    font-size: var(--type-size-ui);
-    line-height: var(--type-leading-ui);
-  }
   .media-image-cover {
     @apply h-full w-full object-cover;
   }

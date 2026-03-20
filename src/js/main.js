@@ -1,3 +1,11 @@
+function debounce(fn, ms = 100) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), ms);
+  };
+}
+
 function updateHeaderHeight() {
   const header = document.querySelector('header');
 
@@ -16,7 +24,7 @@ function initLenis() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReducedMotion) {
-    return;
+    return null;
   }
 
   const lenis = new window.Lenis({
@@ -167,7 +175,7 @@ function initSlider(root) {
   });
 
   slider.addEventListener('scroll', updateDots, { passive: true });
-  window.addEventListener('resize', updateDots);
+  window.addEventListener('resize', debounce(updateDots));
   updateDots();
 }
 
@@ -371,7 +379,7 @@ function initStoreMap() {
   });
 
   window.addEventListener('load', resizeMap, { once: true });
-  window.addEventListener('resize', resizeMap);
+  window.addEventListener('resize', debounce(resizeMap));
   resizeMap();
 }
 
@@ -703,7 +711,7 @@ function initRevealAnimations(lenis) {
 }
 
 updateHeaderHeight();
-window.addEventListener('resize', updateHeaderHeight);
+window.addEventListener('resize', debounce(updateHeaderHeight));
 
 const lenis = initLenis();
 initMobileMenu();

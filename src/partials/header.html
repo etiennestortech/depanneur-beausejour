@@ -4,7 +4,7 @@
       <a href="./index.html" class="flex-1 shrink-0">
         <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto">
       </a>
-      <nav class="hidden md:flex items-center gap-4 shrink-0">
+      <nav class="hidden md:flex items-center gap-4 shrink-0" aria-label="Navigation principale">
         <a href="./nos-magasins.html" class="{{nav:nos-magasins}}">Nos magasins</a>
         <a href="./pret-a-manger.html" class="{{nav:pret-a-manger}}">Prêt-à-manger</a>
         <a href="./lave-auto.html" class="{{nav:lave-auto}}">Lave-auto</a>
@@ -24,13 +24,13 @@
         </div>
         <a href="./contact.html" class="{{nav:contact}}">Contact</a>
       </nav>
-      <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu">
+      <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
         <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
       </button>
     </div>
     <div id="mobile-menu" class="site-mobile-menu" hidden>
       <div class="site-mobile-menu-inner">
-        <nav class="site-mobile-nav">
+        <nav class="site-mobile-nav" aria-label="Navigation mobile">
           <a href="./nos-magasins.html" class="{{nav-mobile:nos-magasins}}">Nos magasins</a>
           <a href="./pret-a-manger.html" class="{{nav-mobile:pret-a-manger}}">Prêt-à-manger</a>
           <a href="./lave-auto.html" class="{{nav-mobile:lave-auto}}">Lave-auto</a>

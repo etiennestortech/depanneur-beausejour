@@ -73,6 +73,7 @@
   --radius-btn: 80px;                  /* Figma: pill buttons */
   --radius-card: 8px;                  /* Figma: Radius / Small */
   --radius-card-lg: 16px;              /* Figma: Radius / Medium */
+  --radius-pill: 999px;
   --radius-input: 8px;
 
   /* ── Shadows ── */
@@ -87,7 +88,7 @@
   --layout-measure-text: 48rem;
   --layout-measure-copy: 28rem;        /* Figma: Max Width XSmall ≈ 400–445px */
   --layout-measure-hero: 56rem;
-  --layout-gutter-inline: 4rem;        /* Figma: Page Padding = 64px */
+  --layout-gutter-inline: clamp(1.25rem, 5vw, 4rem); /* Figma: Page Padding = 64px */
 
   /* ── Logo ── */
   --logo-h: 2rem;
@@ -98,6 +99,7 @@
   --type-size-ui: 0.875rem;            /* 14px — Figma: Text Small */
   --type-size-body: 1rem;              /* 16px — Figma: Text Regular */
   --type-size-body-lg: 1.125rem;       /* 18px — Figma: Text Medium */
+  --type-size-title-xs: 1.125rem;      /* 18px */
   --type-size-title-sm: 1.375rem;      /* 22px — Figma: Heading 6 */
   --type-size-title-md: 1.75rem;       /* 28px */
   --type-size-title-lg: clamp(2rem, 2vw + 1.5rem, 2.75rem);    /* ~44px */
