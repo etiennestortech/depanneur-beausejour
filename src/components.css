@@ -1524,10 +1524,10 @@ html.lenis, html.lenis body { height: auto; }
 
   /* ── Slider Controls ── */
   .slider-btn {
-    @apply inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-surface-alt text-text-heading transition-colors duration-200;
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-full bg-surface-alt border border-black/10 text-text-heading transition-colors duration-200;
   }
   .slider-btn:hover {
-    @apply bg-surface-card;
+    @apply bg-primary text-text-on-primary border-primary;
   }
   .slider-dot {
     @apply h-2 w-2 rounded-full bg-text-caption transition-all duration-200;
