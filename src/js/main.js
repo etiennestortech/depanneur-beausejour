@@ -641,6 +641,116 @@ function initAboutStatementScrub(gsap, ScrollTrigger) {
   });
 }
 
+function initHeroIntro() {
+  const card = document.querySelector('[data-hero-intro]');
+  if (!card || !window.gsap) return;
+
+  const gsap = window.gsap;
+  const media = card.querySelector('.hero-v2-media');
+  const content = card.querySelector('.hero-v2-content');
+  const title = card.querySelector('.hero-v2-title');
+  const bottom = card.querySelector('.hero-v2-bottom');
+  const description = card.querySelector('.hero-v2-description');
+  const pills = card.querySelectorAll('.hero-v2-pill');
+  const line = card.querySelector('.hero-v2-line');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    card.removeAttribute('data-hero-intro');
+    return;
+  }
+
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  // 1. Image scales down from 1.05 → 1 (settles into place)
+  tl.to(media, {
+    scale: 1,
+    duration: 1.6,
+    ease: 'power2.out',
+  });
+
+  // 2. Content container fades in
+  tl.to(content, {
+    opacity: 1,
+    duration: 0.5,
+  }, 0.4);
+
+  // 4. Title words stagger in (reuse reveal-word-inner if split already happened)
+  if (title) {
+    const words = title.querySelectorAll('.reveal-word-inner');
+    if (words.length) {
+      gsap.set(words, { yPercent: 110, opacity: 0 });
+      tl.to(words, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.04,
+        ease: 'power2.out',
+      }, 0.6);
+    }
+  }
+
+  // 5. Bottom row slides up
+  if (bottom) {
+    gsap.set(bottom, { yPercent: 30, opacity: 0 });
+    tl.to(bottom, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.6,
+    }, 1.0);
+  }
+
+  // 6. Line grows
+  if (line) {
+    gsap.set(line, { scaleX: 0, transformOrigin: 'left center' });
+    tl.to(line, {
+      scaleX: 1,
+      duration: 0.8,
+      ease: 'power2.inOut',
+    }, 1.1);
+  }
+
+  // 7. Description fades in
+  if (description) {
+    gsap.set(description, { yPercent: 20, opacity: 0 });
+    tl.to(description, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.6,
+    }, 1.0);
+  }
+
+  // 8. Pills stagger in
+  if (pills?.length) {
+    gsap.set(pills, { yPercent: 20, opacity: 0 });
+    tl.to(pills, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.5,
+      stagger: 0.08,
+    }, 1.2);
+  }
+
+  // Mark intro as complete then set up scroll parallax
+  tl.call(() => {
+    card.removeAttribute('data-hero-intro');
+
+    // Parallax picks up from where intro left off (scale 1)
+    if (window.ScrollTrigger) {
+      gsap.to(media, {
+        yPercent: 6,
+        scale: 1.05,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    }
+  });
+}
+
 function initRevealAnimations(lenis) {
   if (!window.gsap || !window.ScrollTrigger) {
     return;
@@ -664,6 +774,9 @@ function initRevealAnimations(lenis) {
   }
 
   document.querySelectorAll('[data-reveal-text]').forEach((element) => {
+    // Skip hero title — already animated by initHeroIntro
+    if (element.closest('[data-hero-intro]') || element.closest('.hero-v2-card')) return;
+
     splitRevealText(element);
 
     const words = element.querySelectorAll('.reveal-word-inner');
@@ -685,6 +798,9 @@ function initRevealAnimations(lenis) {
   });
 
   document.querySelectorAll('[data-parallax]').forEach((element) => {
+    // Skip hero image — its parallax is handled after the intro timeline
+    if (element.closest('[data-hero-intro]') || element.closest('.hero-v2-card')) return;
+
     const trigger = element.closest('[data-parallax-container]') || element;
 
     gsap.fromTo(element, {
@@ -719,4 +835,8 @@ initNavDropdowns();
 initSliders();
 initStoreMap();
 initButtonEffects();
+// Split hero title text before hero intro so word spans exist
+const heroTitle = document.querySelector('[data-hero-intro] [data-reveal-text]');
+if (heroTitle) splitRevealText(heroTitle);
+initHeroIntro();
 initRevealAnimations(lenis);

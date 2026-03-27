@@ -653,7 +653,12 @@ html.lenis, html.lenis body { height: auto; }
     @apply absolute inset-0 h-full w-full object-cover;
     transform: scale(1.05);
     pointer-events: none;
+    will-change: transform;
   }
+
+  /* Hero intro — hide elements until GSAP runs */
+  .hero-v2-card[data-hero-intro] .hero-v2-media { transform: scale(1.05); }
+  .hero-v2-card[data-hero-intro] .hero-v2-content { opacity: 0; }
   .hero-v2-overlay {
     @apply absolute inset-0;
     border-radius: var(--radius-card-lg);
@@ -673,15 +678,20 @@ html.lenis, html.lenis body { height: auto; }
     z-index: 1;
   }
   .hero-v2-content {
-    @apply relative flex items-end h-full w-full;
+    @apply relative flex flex-col justify-end h-full w-full;
     z-index: 2;
     max-width: none;
     padding-inline: clamp(1.5rem, 4vw, 3.5rem);
     padding-block: clamp(1.5rem, 4vw, 3.5rem);
+    gap: clamp(1.5rem, 3vw, 2rem);
+  }
+  .hero-v2-top {
+    @apply flex items-end w-full;
     gap: clamp(2rem, 5vw, 5rem);
   }
-  .hero-v2-left {
-    @apply flex flex-col gap-8 flex-1 min-w-0;
+  .hero-v2-bottom {
+    @apply flex items-center w-full;
+    gap: clamp(1rem, 2vw, 1.5rem);
   }
   .hero-v2-title {
     @apply font-medium text-text-inverse;
@@ -689,9 +699,6 @@ html.lenis, html.lenis body { height: auto; }
     font-size: clamp(2.85rem, 4.8vw + 0.55rem, 5rem);
     line-height: 1;
     letter-spacing: var(--type-tracking-display);
-  }
-  .hero-v2-cta-row {
-    @apply flex items-center gap-8;
   }
   .hero-v2-cta {
     @apply inline-flex items-center gap-2 no-underline bg-primary text-text-on-primary font-medium shrink-0 transition-[transform,color,background-color,border-color] duration-200;
@@ -710,26 +717,19 @@ html.lenis, html.lenis body { height: auto; }
     height: 40px;
   }
   .hero-v2-line {
-    @apply hidden lg:block;
-    width: 300px;
+    @apply hidden lg:block mx-auto;
+    width: 24rem;
     height: 1px;
-    background: rgba(255, 255, 255, 0.3);
-  }
-  .hero-v2-right {
-    @apply flex min-w-0 flex-col items-end gap-8;
-    flex: 0 1 clamp(17.5rem, 40%, 34rem);
-    max-width: 34rem;
-    margin-left: auto;
+    background: rgba(255, 255, 255, 0.15);
   }
   .hero-v2-description {
-    @apply text-text-inverse text-right;
+    @apply text-text-inverse text-right ml-auto;
     font-size: var(--type-size-body-lg);
     line-height: var(--type-leading-body);
     max-width: 20.4375rem;
-    width: 100%;
   }
   .hero-v2-pills {
-    @apply flex gap-2;
+    @apply flex gap-2 ml-auto;
     flex-wrap: nowrap;
   }
   .hero-v2-pill {
@@ -758,7 +758,8 @@ html.lenis, html.lenis body { height: auto; }
   }
   .reveal-word {
     display: inline-block;
-    overflow: hidden;
+    overflow: clip;
+    overflow-clip-margin: 0.05em;
     vertical-align: top;
     margin-right: 0.18em;
     padding-bottom: 0.08em;
@@ -772,12 +773,12 @@ html.lenis, html.lenis body { height: auto; }
 
   /* Mobile adjustments for hero v2 */
   @media (max-width: 1023px) {
-    .hero-v2-content {
-      @apply flex-col items-start justify-end;
+    .hero-v2-top {
+      @apply flex-col items-start;
       gap: 1.5rem;
     }
-    .hero-v2-right {
-      @apply items-start w-full;
+    .hero-v2-bottom {
+      @apply flex-wrap gap-4;
     }
     .hero-v2-description {
       @apply text-left;

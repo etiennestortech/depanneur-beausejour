@@ -13,7 +13,7 @@
   <main>
     <!-- Hero -->
     <section class="hero-v2">
-      <div class="hero-v2-card">
+      <div class="hero-v2-card" data-hero-intro>
         <!-- Background image -->
         <img
           src="./assets/hero-bg-v2.jpg"
@@ -33,24 +33,22 @@
         <img src="./assets/beausejour-icon.svg" alt="" aria-hidden="true" class="hero-v2-watermark">
         <!-- Content -->
         <div class="hero-v2-content">
-          <!-- Left column -->
-          <div class="hero-v2-left">
+          <!-- Top: title left, description right -->
+          <div class="hero-v2-top">
             <div class="hero-v2-title-wrap">
               <h1 class="hero-v2-title max-w-[11.5ch]" data-reveal-text>Propager la bonne humeur, un client à la fois.</h1>
             </div>
-            <div class="hero-v2-cta-row">
-              <a href="./nos-magasins.html" class="hero-v2-cta">
-                <span>Trouver un magasin</span>
-                <span class="hero-v2-cta-icon">
-                  <img src="./assets/icon-hero-arrow.svg" alt="" class="w-[18px] h-[18px]">
-                </span>
-              </a>
-              <div class="hero-v2-line"></div>
-            </div>
-          </div>
-          <!-- Right column -->
-          <div class="hero-v2-right">
             <p class="hero-v2-description">Cinq magasins de proximité en Abitibi, au service de notre communauté depuis les années 60.</p>
+          </div>
+          <!-- Bottom: CTA — line — pills -->
+          <div class="hero-v2-bottom">
+            <a href="./nos-magasins.html" class="hero-v2-cta">
+              <span>Trouver un magasin</span>
+              <span class="hero-v2-cta-icon">
+                <img src="./assets/icon-hero-arrow.svg" alt="" class="w-[18px] h-[18px]">
+              </span>
+            </a>
+            <div class="hero-v2-line"></div>
             <div class="hero-v2-pills">
               <a href="./nos-magasins.html" class="hero-v2-pill">
                 <img src="./assets/icon-hero-store.svg" alt="" class="w-5 h-5">
@@ -117,7 +115,7 @@
     <section class="section overflow-hidden py-[var(--space-section-lg)]">
       <div class="container mb-[var(--space-section-lg)] flex flex-col items-center gap-[var(--space-section-lg)] text-center">
         <img src="./assets/beausejour-icon-teal.svg" alt="" class="h-[76px] w-[83px] object-contain">
-        <div class="flex max-w-2xl flex-col items-center gap-4 text-center">
+        <div class="flex max-w-3xl flex-col items-center gap-4 text-center">
           <span class="eyebrow">Nos magasins</span>
           <h2 class="section-title" data-reveal-text>Trouvez votre magasin de proximité.</h2>
           <p class="section-subtitle text-center">Cinq magasins de proximité en Abitibi, au service de notre communauté depuis les années 60.</p>
