@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prêt-à-manger — Groupe Beauséjour</title>
+  <meta name="description" content="Pâtisseries maison, repas chauds, produits Cari & Gingembre et plus encore dans nos magasins en Abitibi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body class="bg-surface-page text-text-body font-body">
+
+    <!-- Navbar -->
+  <header class="z-50 bg-surface-card px-9 py-8">
+    <div class="flex items-center gap-8">
+      <a href="./index.html" class="flex-1 shrink-0">
+        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-4 shrink-0" aria-label="Navigation principale">
+        <a href="#" class="nav-link">Nos magasins</a>
+        <a href="#" class="nav-link-active">Prêt-à-manger</a>
+        <a href="#" class="nav-link">Lave-auto</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Le groupe
+            <svg class="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="nav-dropdown-panel">
+              <a href="#" class="nav-dropdown-link">À propos</a>
+              <a href="#" class="nav-dropdown-link">Carrières</a>
+              <a href="#" class="nav-dropdown-link">Fournisseurs</a>
+              <a href="#" class="nav-dropdown-link">FAQ</a>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+      <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+        <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="site-mobile-menu" hidden>
+      <div class="site-mobile-menu-inner">
+        <nav class="site-mobile-nav" aria-label="Navigation mobile">
+          <a href="#" class="nav-mobile-link">Nos magasins</a>
+          <a href="#" class="nav-mobile-link-active">Prêt-à-manger</a>
+          <a href="#" class="nav-mobile-link">Lave-auto</a>
+          <a href="#" class="nav-mobile-link">À propos</a>
+          <a href="#" class="nav-mobile-link">Carrières</a>
+          <a href="#" class="nav-mobile-link">Fournisseurs</a>
+          <a href="#" class="nav-mobile-link">FAQ</a>
+          <a href="#" class="nav-mobile-link">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="section">
+      <div class="container inner-hero-shell">
+        <div class="inner-hero-copy inner-hero-copy--narrow">
+          <span class="tag">Prêt-à-manger</span>
+          <h1 class="page-title max-w-[12ch]">Savourez nos produits frais.</h1>
+          <p class="page-description max-w-[40rem]">Des pâtisseries maison aux repas chauds en passant par les produits Cari &amp; Gingembre, nos magasins vous offrent une variété de choix gourmands pour tous les moments de la journée.</p>
+          <div class="editorial-chip-row mt-6">
+            <span class="editorial-chip">Pâtisseries</span>
+            <span class="editorial-chip">Repas chauds</span>
+            <span class="editorial-chip">Déjeuners</span>
+            <span class="editorial-chip">Café</span>
+          </div>
+        </div>
+        <div class="inner-hero-aside inner-hero-aside--wide md:grid-cols-2">
+          <div class="inner-hero-media min-h-[20rem] md:row-span-2">
+            <img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Comptoir de prêt-à-manger Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="editorial-media-tile min-h-[12rem]">
+            <img src="./assets/food-patisseries.jpg" width="1800" height="1199" alt="Pâtisseries maison" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+          <div class="editorial-media-tile min-h-[12rem]">
+            <img src="./assets/food-repas-chauds.jpg" width="1800" height="1199" alt="Repas chauds" class="media-image-cover" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section-alt">
+      <div class="container py-[var(--space-section-md)]">
+        <div class="intro-left">
+          <span class="eyebrow">Notre offre</span>
+          <h2 class="section-title" data-reveal-text>Tout pour satisfaire vos envies.</h2>
+          <p class="section-subtitle">Découvrez nos six catégories de produits frais disponibles en magasin.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div class="solution-card">
+            <div class="h-56 overflow-hidden"><img src="./assets/food-patisseries.jpg" width="1800" height="1199" alt="Pâtisseries" class="media-image-cover" loading="lazy" decoding="async"></div>
+            <div class="solution-card-body">
+              <h3 class="card-title">Pâtisseries</h3>
+              <p class="body-text mt-2">Viennoiseries, muffins, biscuits et autres douceurs préparées chaque jour.</p>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="h-56 overflow-hidden"><img src="./assets/food-repas-chauds.jpg" width="1800" height="1199" alt="Repas chauds" class="media-image-cover" loading="lazy" decoding="async"></div>
+            <div class="solution-card-body">
+              <h3 class="card-title">Repas chauds</h3>
+              <p class="body-text mt-2">Repas complets, portions réchauffables et pizza chaude disponibles en magasin.</p>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="h-56 overflow-hidden"><img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Prêt-à-manger" class="media-image-cover" loading="lazy" decoding="async"></div>
+            <div class="solution-card-body">
+              <h3 class="card-title">Prêt-à-manger</h3>
+              <p class="body-text mt-2">Produits Cari &amp; Gingembre en réfrigérateur libre-service.</p>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="h-56 overflow-hidden"><img src="./assets/food-patisseries.jpg" width="1800" height="1199" alt="Déjeuner" class="media-image-cover" loading="lazy" decoding="async"></div>
+            <div class="solution-card-body">
+              <h3 class="card-title">Déjeuner</h3>
+              <p class="body-text mt-2">Muffins anglais, croissants, café et jus frais.</p>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="h-56 overflow-hidden"><img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Café" class="media-image-cover" loading="lazy" decoding="async"></div>
+            <div class="solution-card-body">
+              <h3 class="card-title">Café</h3>
+              <p class="body-text mt-2">Café régulier et spécialité disponibles chaque matin.</p>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="h-56 overflow-hidden"><img src="./assets/food-repas-chauds.jpg" width="1800" height="1199" alt="Slush et collations" class="media-image-cover" loading="lazy" decoding="async"></div>
+            <div class="solution-card-body">
+              <h3 class="card-title">Slush</h3>
+              <p class="body-text mt-2">Partenariat exclusif avec Xtra Slush.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cari & Gingembre Partnership -->
+    <section class="section-alt">
+      <div class="container py-[var(--space-section-md)]">
+        <div class="editorial-split">
+          <div class="editorial-split-copy">
+            <span class="eyebrow">Partenariat local</span>
+            <h2 class="section-title mt-3" data-reveal-text>Cari &amp; Gingembre.</h2>
+            <p class="body-text mt-4">Cari &amp; Gingembre est une entreprise de production alimentaire locale spécialisée dans les repas frais prêts-à-manger. Leurs produits sont disponibles en réfrigérateur libre-service dans nos magasins, offrant à nos clients des repas sains et savoureux préparés avec des ingrédients de qualité.</p>
+            <p class="body-text mt-4">Érick Beauséjour est actionnaire de Cari &amp; Gingembre depuis 2017, renforçant ainsi le lien entre nos deux entreprises et notre engagement envers l'économie locale de l'Abitibi.</p>
+            <a href="./contact.html" class="btn-primary mt-6">Nous contacter</a>
+          </div>
+          <div class="editorial-split-media md:grid-cols-2">
+            <div class="editorial-media-card min-h-[20rem] md:row-span-2">
+              <img src="./assets/food-pret-a-manger.jpg" width="1800" height="1199" alt="Produits Cari et Gingembre" class="media-image-cover" loading="lazy" decoding="async">
+            </div>
+            <div class="editorial-note-card">
+              <p class="editorial-note-kicker">Depuis 2017</p>
+              <p class="editorial-note-title">Un lien direct entre production locale et réseau de proximité.</p>
+              <p class="editorial-note-body">Ce partenariat renforce notre volonté de proposer des produits d'ici, bien exécutés et disponibles au quotidien.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-shell relative overflow-hidden">
+      <div class="brand-pattern brand-pattern-dark" aria-hidden="true"></div>
+      <div class="footer-inner container relative z-10">
+        <div class="flex flex-col gap-16">
+          <div class="grid gap-16 lg:grid-cols-[1fr_auto]">
+            <div class="flex max-w-lg flex-col gap-8">
+              <img src="./assets/beausejour-icon-teal.svg" alt="" class="self-start h-[61px] w-[67px] object-contain">
+              <p class="text-sm leading-relaxed text-text-on-dark">Le Groupe Beauséjour comporte cinq magasins de proximité en Abitibi et œuvre dans le domaine des magasins de proximité depuis plus de 50 ans.</p>
+              <div class="flex flex-col gap-1 text-sm text-text-on-dark">
+                <p class="font-semibold">Contact:</p>
+                <a href="tel:819-825-2525" class="underline">819-825-2525</a>
+                <a href="mailto:info@groupebeausejour.com" class="underline">info@groupebeausejour.com</a>
+              </div>
+              <div class="flex gap-3">
+                <a href="#" class="text-text-on-dark hover:text-text-inverse" aria-label="Facebook">
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                </a>
+                <a href="#" class="text-text-on-dark hover:text-text-inverse" aria-label="Instagram">
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="#" class="text-text-on-dark hover:text-text-inverse" aria-label="TikTok">
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48v-7.15a8.16 8.16 0 005.58 2.2v-3.45a4.85 4.85 0 01-2-.59z"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="flex gap-8">
+              <nav class="flex flex-col" aria-label="Pages du site">
+                <a href="#" class="footer-link">Accueil</a>
+                <a href="#" class="footer-link">À propos</a>
+                <a href="#" class="footer-link">Nos magasins</a>
+                <a href="#" class="footer-link">Prêt-à-manger</a>
+                <a href="#" class="footer-link">Lave-auto</a>
+              </nav>
+              <nav class="flex flex-col" aria-label="Liens secondaires">
+                <a href="#" class="footer-link">Carrières</a>
+                <a href="#" class="footer-link">Fournisseurs</a>
+                <a href="#" class="footer-link">FAQ</a>
+                <a href="#" class="footer-link">Contact</a>
+              </nav>
+            </div>
+          </div>
+
+          <img src="./assets/beausejour-logo-large.svg" alt="" class="h-auto w-full opacity-90">
+
+          <div class="flex flex-wrap items-center justify-between gap-4 border-t border-border-dark pt-8">
+            <p class="text-sm opacity-70 text-text-on-dark">© 2026 Groupe Beauséjour. Tous droits réservés.</p>
+            <div class="flex gap-6 text-sm opacity-70 text-text-on-dark">
+              <a href="#" class="underline hover:no-underline">Politique de confidentialité</a>
+              <a href="#" class="underline hover:no-underline">Gestion des cookies</a>
+              <span>Site par <a href="https://laruche.co" class="font-medium hover:underline">La Ruche</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+  <script src="./js/main.js"></script>
+
+</body>
+</html>
