@@ -1019,7 +1019,7 @@ html.lenis, html.lenis body { height: auto; }
     line-height: var(--type-leading-ui);
   }
   .contact-split-section {
-    @apply grid gap-12 py-20 lg:grid-cols-[minmax(0,0.95fr)_minmax(28rem,0.85fr)] lg:items-start;
+    @apply grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(28rem,0.85fr)] lg:items-start;
   }
   .contact-copy-column {
     @apply flex flex-col items-start;
@@ -1101,7 +1101,7 @@ html.lenis, html.lenis body { height: auto; }
      ══════════════════════════════════════════════════════════════════════════ */
 
   .faq-shell {
-    @apply py-20;
+    /* padding handled by section py token */
   }
   .faq-header {
     max-width: var(--layout-measure-text);
