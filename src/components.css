@@ -1003,8 +1003,8 @@ html.lenis, html.lenis body { height: auto; }
     @apply py-12 lg:py-14;
   }
   .footer-link {
-    @apply inline-flex min-h-10 min-w-10 items-center pr-2 text-text-on-dark no-underline hover:text-text-inverse font-semibold;
-    font-size: var(--type-size-body);
+    @apply inline-flex min-h-10 min-w-10 items-center pr-2 text-text-on-dark no-underline hover:text-text-inverse font-medium;
+    font-size: var(--type-size-ui);
     line-height: var(--type-leading-body);
   }
 
@@ -1557,6 +1557,11 @@ html.lenis, html.lenis body { height: auto; }
   }
   .intro-mosaic-title {
     max-width: 11ch;
+  }
+  .intro-mosaic-aerial,
+  .intro-mosaic-shell,
+  .intro-mosaic-erick {
+    background: var(--color-surface-alt, #f0f0f0);
   }
   .intro-mosaic-aerial {
     aspect-ratio: 349 / 415;

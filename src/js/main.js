@@ -819,6 +819,94 @@ function initRevealAnimations(lenis) {
     });
   });
 
+  // Mosaic image clip-reveal
+  const mosaicImages = [
+    { selector: '.intro-mosaic-aerial', clipFrom: 'inset(0 100% 0 0)', clipTo: 'inset(0 0% 0 0)' },
+    { selector: '.intro-mosaic-erick',  clipFrom: 'inset(100% 0 0 0)', clipTo: 'inset(0% 0 0 0)' },
+    { selector: '.intro-mosaic-shell',  clipFrom: 'inset(0 0 100% 0)', clipTo: 'inset(0 0 0% 0)' },
+  ];
+
+  mosaicImages.forEach(({ selector, clipFrom, clipTo }) => {
+    const wrapper = document.querySelector(selector);
+    if (!wrapper) return;
+    const img = wrapper.querySelector('img');
+
+    gsap.set(img, { clipPath: clipFrom, scale: 1.15 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrapper,
+        start: 'top 85%',
+        once: true,
+      },
+    });
+
+    tl.to(img, {
+      clipPath: clipTo,
+      duration: 1.8,
+      ease: 'power3.inOut',
+    });
+    tl.to(img, {
+      scale: 1,
+      duration: 2.2,
+      ease: 'power2.out',
+    }, 0);
+  });
+
+  // Generic image reveal (top-to-bottom clip, staggered)
+  const revealImages = document.querySelectorAll('[data-reveal-image]');
+  revealImages.forEach((wrapper) => {
+    const img = wrapper.querySelector('img');
+    if (!img) return;
+    gsap.set(img, { clipPath: 'inset(0 0 100% 0)', scale: 1.15 });
+  });
+
+  ScrollTrigger.batch('[data-reveal-image]', {
+    start: 'top 85%',
+    once: true,
+    onEnter: (batch) => {
+      batch.forEach((wrapper, i) => {
+        const img = wrapper.querySelector('img');
+        const delay = i * 0.15;
+
+        gsap.to(img, {
+          clipPath: 'inset(0 0 0% 0)',
+          duration: 1.8,
+          ease: 'power3.inOut',
+          delay,
+        });
+        gsap.to(img, {
+          scale: 1,
+          duration: 2.2,
+          ease: 'power2.out',
+          delay,
+        });
+      });
+    },
+  });
+
+  // Split icon — U-shape and half-circle scrub together
+  const iconSplit = document.querySelector('[data-icon-split]');
+  if (iconSplit) {
+    const top = iconSplit.querySelector('[data-icon-top]');
+    const bottom = iconSplit.querySelector('[data-icon-bottom]');
+
+    gsap.set(top, { yPercent: -40 });
+    gsap.set(bottom, { yPercent: 60 });
+
+    const iconTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: iconSplit,
+        start: 'top 80%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+    });
+
+    iconTl.to(top, { yPercent: 0, ease: 'none' }, 0);
+    iconTl.to(bottom, { yPercent: 0, ease: 'none' }, 0);
+  }
+
   initStatCounters(gsap, ScrollTrigger);
   initAboutTimelineProgress(gsap, ScrollTrigger);
   initAboutStatementScrub(gsap, ScrollTrigger);
