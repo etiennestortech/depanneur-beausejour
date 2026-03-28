@@ -802,7 +802,7 @@ html.lenis, html.lenis body { height: auto; }
   }
 
   .inner-hero-shell {
-    @apply grid gap-8 py-[var(--space-section-lg)] lg:grid-cols-12 lg:items-end;
+    @apply grid gap-8 lg:grid-cols-12 lg:items-end;
   }
   .inner-hero-copy {
     @apply flex flex-col items-start lg:col-span-7;
@@ -873,7 +873,7 @@ html.lenis, html.lenis body { height: auto; }
     @apply flex flex-wrap gap-2;
   }
   .editorial-chip {
-    @apply inline-flex items-center rounded-full bg-surface-alt px-3 py-2 text-text-body;
+    @apply inline-flex items-center rounded-full border border-border bg-surface-card px-3 py-1.5 text-text-muted;
     font-size: var(--type-size-ui);
     line-height: var(--type-leading-ui);
   }
