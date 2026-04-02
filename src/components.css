@@ -849,6 +849,29 @@ html.lenis, html.lenis body { height: auto; }
       padding-inline: 0.5rem;
     }
   }
+
+  /* ── Simple Hero (white bg, centered text) ── */
+  .simple-hero {
+    @apply flex flex-col items-center text-center;
+    padding: var(--space-section-lg) var(--layout-gutter-inline) var(--space-section-md);
+  }
+  .simple-hero .eyebrow {
+    @apply mb-4;
+  }
+  .simple-hero-title {
+    @apply font-medium text-text-heading;
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 4rem);
+    line-height: 1;
+    letter-spacing: var(--type-tracking-display);
+  }
+  .simple-hero-desc {
+    @apply mt-3 text-text-muted;
+    font-size: var(--type-size-body-lg);
+    line-height: var(--type-leading-body);
+    max-width: 36ch;
+  }
+
   .statement-panel {
     @apply relative overflow-hidden border border-border bg-surface-dark text-text-inverse;
     border-radius: var(--radius-card-lg);
@@ -1220,6 +1243,7 @@ html.lenis, html.lenis body { height: auto; }
   }
   .about-hero-ribbon {
     @apply overflow-hidden;
+    margin-top: var(--space-section-md);
     padding-inline: clamp(1rem, 4vw, 4rem);
     padding-bottom: clamp(1rem, 3vw, 2rem);
     mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
