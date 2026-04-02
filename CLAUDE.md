@@ -121,8 +121,11 @@ Never hardcode `rounded-2xl` or `border-radius: 999px`.
 - Don't create page-specific component classes (`.faq-shell`, `.store-finder-wrapper`, etc.) — use the shared layout classes
 - Don't use inline styles (`style="padding: ..."`) — use Tailwind utilities with tokens
 - Don't hardcode colors — use `text-text-heading`, `text-text-muted`, `bg-surface-alt`, etc.
-- Don't use different hero patterns per page — inner pages use `.inner-hero-shell`, homepage uses `.hero-v2`
+- Don't use different hero patterns per page — inner pages use `.inner-hero` or `.simple-hero`, homepage uses `.hero-v2`
 - Don't duplicate component markup — if a pattern exists in `components.css`, use it
+- Don't place `.editorial-note-card` side-by-side with an image inside `.editorial-split-media` — always stack vertically (note card below the image)
+- Don't use `.section-alt` (grey background) as the last section before the footer — the footer is dark, so the last section must be `.section` (white) for a clean transition
+- First section after an `.inner-hero` should use `.intro-center`, not `.intro-left` — the hero card has different inset padding than the container, so left-aligned titles feel misaligned
 
 ## File Structure
 - `src/pages/` — source HTML pages (edit these, not `dist/`)
