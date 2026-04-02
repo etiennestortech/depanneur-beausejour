@@ -847,6 +847,46 @@ html.lenis, html.lenis body { height: auto; }
   .editorial-split-media {
     @apply grid gap-4 lg:col-span-7;
   }
+  /* ── CTA Banner (image bg, centered text + button) ── */
+  .cta-banner {
+    @apply relative overflow-hidden;
+    border-radius: var(--radius-card-lg);
+    min-height: clamp(18rem, 35vh, 28rem);
+  }
+  .cta-banner-bg {
+    @apply absolute inset-0 h-full w-full object-cover;
+    pointer-events: none;
+  }
+  .cta-banner-overlay {
+    @apply absolute inset-0;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 100%),
+      rgba(0, 0, 0, 0.25);
+  }
+  .cta-banner-content {
+    @apply relative flex flex-col items-center justify-center text-center h-full w-full;
+    z-index: 2;
+    padding: clamp(2rem, 5vw, 4rem);
+    gap: 1rem;
+  }
+  .cta-banner .eyebrow {
+    @apply text-white/65;
+  }
+  .cta-banner-title {
+    @apply font-medium text-text-inverse;
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw + 0.5rem, 3rem);
+    line-height: 1.05;
+    letter-spacing: var(--type-tracking-heading);
+    max-width: 20ch;
+  }
+  .cta-banner-desc {
+    @apply text-white/75;
+    font-size: var(--type-size-body-lg);
+    line-height: var(--type-leading-body);
+    max-width: 40ch;
+  }
+
   .editorial-chip-row {
     @apply flex flex-wrap gap-2;
   }
