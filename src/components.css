@@ -199,12 +199,29 @@ html.lenis, html.lenis body { height: auto; }
     line-height: var(--type-leading-ui);
   }
 
+  /* ── Button icon modifier ──
+       Add gap and size icons consistently inside any button variant.
+       Usage: <a class="btn-primary btn-icon">…</a>                         */
+  .btn-icon {
+    gap: 0.5rem;
+  }
+  .btn-icon svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
   /* ── Button context overrides ── */
   .btn-primary,
   .btn-secondary,
   .btn-neutral,
   .hero-v2-cta {
     @apply relative overflow-hidden;
+  }
+  .btn-primary.btn-icon,
+  .btn-secondary.btn-icon,
+  .btn-neutral.btn-icon {
+    overflow: visible;
   }
   .button-label-stack {
     display: block;
@@ -488,6 +505,41 @@ html.lenis, html.lenis body { height: auto; }
     .store-finder-map-shell {
       min-height: 26rem;
     }
+  }
+
+  /* ── Store Location Card (nos-magasins vertical cards) ── */
+  .store-location-card {
+    @apply overflow-hidden border border-border bg-surface-card;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+  .store-location-media {
+    position: relative;
+    overflow: hidden;
+  }
+  .store-location-media img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+  }
+  .store-location-body {
+    @apply min-w-0;
+    padding: 1.5rem;
+    flex: 1;
+  }
+  .store-social-link {
+    @apply inline-flex items-center justify-center text-text-muted;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .store-social-link:hover {
+    @apply text-text-heading;
+    border-color: var(--color-text-heading);
   }
 
   .editorial-note-card {
@@ -1018,6 +1070,46 @@ html.lenis, html.lenis body { height: auto; }
   }
 
   /* ══════════════════════════════════════════════════════════════════════════
+     MODAL
+     ══════════════════════════════════════════════════════════════════════════ */
+
+  .modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-6;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .modal-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal-panel {
+    @apply relative w-full bg-surface-page overflow-y-auto;
+    max-width: 40rem;
+    max-height: calc(100vh - 3rem);
+    border-radius: var(--radius-card-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(1rem);
+    transition: transform 0.25s ease;
+  }
+  .modal-backdrop.is-open .modal-panel {
+    transform: translateY(0);
+  }
+  .modal-body {
+    @apply p-8 md:p-10;
+  }
+  .modal-close {
+    @apply absolute top-4 right-4 flex h-10 w-10 items-center justify-center text-text-muted;
+    border-radius: var(--radius-pill);
+    transition: background-color 0.15s ease;
+  }
+  .modal-close:hover {
+    @apply bg-surface-alt;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════════
      FORMS
      ══════════════════════════════════════════════════════════════════════════ */
 
@@ -1327,7 +1419,7 @@ html.lenis, html.lenis body { height: auto; }
     @apply mt-5 text-text-inverse;
     width: 100%;
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 2.8vw, 3.35rem);
+    font-size: clamp(2.25rem, 3.5vw, 4rem);
     line-height: 1.12;
     letter-spacing: -0.05em;
     max-width: none;
@@ -1622,6 +1714,35 @@ html.lenis, html.lenis body { height: auto; }
       mask-image: none;
     }
     .careers-marquee-track {
+      animation: none;
+    }
+  }
+
+  /* ── Food Marquee (smaller variant) ── */
+  .food-marquee {
+    @apply relative overflow-hidden;
+    mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  }
+  .food-marquee-track {
+    display: flex;
+    gap: 0.75rem;
+    width: max-content;
+    animation: careers-marquee-scroll 30s linear infinite;
+  }
+  .food-marquee-card {
+    @apply shrink-0 overflow-hidden rounded-card bg-surface-alt;
+    width: clamp(10rem, 16vw, 14rem);
+    height: clamp(10rem, 16vw, 14rem);
+  }
+  .food-marquee-image {
+    @apply h-full w-full object-cover;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .food-marquee {
+      overflow-x: auto;
+      mask-image: none;
+    }
+    .food-marquee-track {
       animation: none;
     }
   }
