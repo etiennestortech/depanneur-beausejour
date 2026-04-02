@@ -1,0 +1,512 @@
+<!-- @set title Style Guide — Groupe Beauséjour -->
+<!-- @set description Design system reference for Groupe Beauséjour website. -->
+<!-- @set activeNav  -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- @include partials/head.html -->
+  <style>
+    .sg-section { border-top: 1px solid rgba(0,0,0,0.1); }
+    .sg-label { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #7f7f7f; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .sg-swatch { width: 4rem; height: 4rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); }
+    .sg-token-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 1.5rem; }
+    .sg-token-item { display: flex; flex-direction: column; gap: 0.5rem; }
+    .sg-token-name { font-family: 'Inter', monospace; font-size: 0.75rem; color: #4c4c4c; }
+    .sg-token-value { font-family: 'Inter', monospace; font-size: 0.6875rem; color: #b2b2b2; }
+    .sg-radius-box { width: 5rem; height: 5rem; background: #f2f2f2; border: 1px solid rgba(0,0,0,0.1); }
+    .sg-spacing-bar { height: 2rem; background: #45cbb5; border-radius: 4px; opacity: 0.3; }
+    .sg-component-demo { background: #f9f9f9; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 2rem; }
+  </style>
+</head>
+<body class="bg-surface-page text-text-body font-body">
+
+  <!-- @include partials/header.html -->
+
+  <main>
+    <!-- Hero -->
+    <section class="simple-hero">
+      <span class="eyebrow">Design System</span>
+      <h1 class="simple-hero-title">Style Guide.</h1>
+      <p class="simple-hero-desc">Tokens, typographie, composants et patterns du site Groupe Beauséjour.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- COLORS                                      -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Tokens</span>
+          <h2 class="section-title">Couleurs</h2>
+        </div>
+
+        <h3 class="card-title mb-4">Brand</h3>
+        <div class="sg-token-grid mb-10">
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-primary)"></div>
+            <span class="sg-token-name">--color-primary</span>
+            <span class="sg-token-value">#45cbb5</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-primary-hover)"></div>
+            <span class="sg-token-name">--color-primary-hover</span>
+            <span class="sg-token-value">#3ab8a3</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-primary-light)"></div>
+            <span class="sg-token-name">--color-primary-light</span>
+            <span class="sg-token-value">#cff8ed</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-secondary)"></div>
+            <span class="sg-token-name">--color-secondary</span>
+            <span class="sg-token-value">#000000</span>
+          </div>
+        </div>
+
+        <h3 class="card-title mb-4">Surfaces</h3>
+        <div class="sg-token-grid mb-10">
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-surface-page)"></div>
+            <span class="sg-token-name">--color-surface-page</span>
+            <span class="sg-token-value">#ffffff</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-surface-alt)"></div>
+            <span class="sg-token-name">--color-surface-alt</span>
+            <span class="sg-token-value">#f2f2f2</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-surface-dark)"></div>
+            <span class="sg-token-name">--color-surface-dark</span>
+            <span class="sg-token-value">#000000</span>
+          </div>
+        </div>
+
+        <h3 class="card-title mb-4">Texte</h3>
+        <div class="sg-token-grid mb-10">
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-text-heading)"></div>
+            <span class="sg-token-name">--color-text-heading</span>
+            <span class="sg-token-value">#000000</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-text-body)"></div>
+            <span class="sg-token-name">--color-text-body</span>
+            <span class="sg-token-value">#4c4c4c</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-text-muted)"></div>
+            <span class="sg-token-name">--color-text-muted</span>
+            <span class="sg-token-value">#7f7f7f</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: var(--color-text-caption)"></div>
+            <span class="sg-token-name">--color-text-caption</span>
+            <span class="sg-token-value">#b2b2b2</span>
+          </div>
+        </div>
+
+        <h3 class="card-title mb-4">Bordures</h3>
+        <div class="sg-token-grid">
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: rgba(0,0,0,0.15)"></div>
+            <span class="sg-token-name">--color-border</span>
+            <span class="sg-token-value">rgba(0,0,0,0.15)</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-swatch" style="background: rgba(0,0,0,0.25)"></div>
+            <span class="sg-token-name">--color-border-strong</span>
+            <span class="sg-token-value">rgba(0,0,0,0.25)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- TYPOGRAPHY                                  -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section-alt py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Tokens</span>
+          <h2 class="section-title">Typographie</h2>
+        </div>
+
+        <h3 class="card-title mb-6">Échelle typographique</h3>
+        <div class="flex flex-col gap-6 mb-12">
+          <div>
+            <p class="sg-label">Display — clamp(3rem, 3.7vw + 1rem, 4.5rem)</p>
+            <p class="font-medium text-text-heading" style="font-family: var(--font-heading); font-size: var(--type-size-display); line-height: 1; letter-spacing: var(--type-tracking-display);">Propager la bonne humeur.</p>
+          </div>
+          <div>
+            <p class="sg-label">Page Title — clamp(3rem, 2.45vw + 1.35rem, 4.25rem)</p>
+            <p class="page-title">Titre de page.</p>
+          </div>
+          <div>
+            <p class="sg-label">Section Title — clamp(2rem, 2vw + 1.5rem, 2.75rem)</p>
+            <p class="section-title">Titre de section.</p>
+          </div>
+          <div>
+            <p class="sg-label">Title MD — 1.75rem (28px)</p>
+            <p class="font-medium text-text-heading" style="font-family: var(--font-heading); font-size: var(--type-size-title-md); line-height: var(--type-leading-heading); letter-spacing: var(--type-tracking-heading);">Titre moyen.</p>
+          </div>
+          <div>
+            <p class="sg-label">Title SM — 1.375rem (22px)</p>
+            <p class="card-title">Titre de carte.</p>
+          </div>
+          <div>
+            <p class="sg-label">Body Large — 1.125rem (18px)</p>
+            <p class="body-text-lg">Texte de corps large. Utilisé pour les descriptions de sections et le texte d'accroche.</p>
+          </div>
+          <div>
+            <p class="sg-label">Body — 1rem (16px)</p>
+            <p class="body-text">Texte de corps standard. Utilisé pour le contenu principal des pages.</p>
+          </div>
+          <div>
+            <p class="sg-label">UI / Small — 0.875rem (14px)</p>
+            <p style="font-size: var(--type-size-ui); line-height: var(--type-leading-ui);">Texte d'interface, labels, badges et métadonnées.</p>
+          </div>
+          <div>
+            <p class="sg-label">Eyebrow</p>
+            <span class="eyebrow">Section label</span>
+          </div>
+        </div>
+
+        <h3 class="card-title mb-6">Familles de polices</h3>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="card-padded">
+            <p class="sg-label">Heading — Loew Next Arabic</p>
+            <p class="font-medium text-text-heading text-2xl" style="font-family: var(--font-heading);">AaBbCcDdEeFf 0123456789</p>
+            <p class="mt-2 text-text-muted" style="font-size: var(--type-size-ui);">Utilisé pour les titres, boutons, et éléments d'accentuation.</p>
+          </div>
+          <div class="card-padded">
+            <p class="sg-label">Body — Inter</p>
+            <p class="text-text-heading text-2xl" style="font-family: var(--font-body);">AaBbCcDdEeFf 0123456789</p>
+            <p class="mt-2 text-text-muted" style="font-size: var(--type-size-ui);">Utilisé pour le texte de corps, descriptions, et formulaires.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SPACING & RADIUS                            -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Tokens</span>
+          <h2 class="section-title">Espacement et rayons</h2>
+        </div>
+
+        <h3 class="card-title mb-6">Section Spacing</h3>
+        <div class="flex flex-col gap-4 mb-12">
+          <div class="flex items-center gap-4">
+            <div class="sg-spacing-bar" style="width: var(--space-section-lg)"></div>
+            <span class="sg-token-name">--space-section-lg</span>
+            <span class="sg-token-value">7rem (112px)</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="sg-spacing-bar" style="width: var(--space-section-md)"></div>
+            <span class="sg-token-name">--space-section-md</span>
+            <span class="sg-token-value">5rem (80px)</span>
+          </div>
+        </div>
+
+        <h3 class="card-title mb-6">Border Radius</h3>
+        <div class="sg-token-grid">
+          <div class="sg-token-item">
+            <div class="sg-radius-box" style="border-radius: var(--radius-card)"></div>
+            <span class="sg-token-name">--radius-card</span>
+            <span class="sg-token-value">8px</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-radius-box" style="border-radius: var(--radius-card-lg)"></div>
+            <span class="sg-token-name">--radius-card-lg</span>
+            <span class="sg-token-value">16px</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-radius-box" style="border-radius: var(--radius-btn)"></div>
+            <span class="sg-token-name">--radius-btn</span>
+            <span class="sg-token-value">80px</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-radius-box" style="border-radius: var(--radius-pill)"></div>
+            <span class="sg-token-name">--radius-pill</span>
+            <span class="sg-token-value">999px</span>
+          </div>
+          <div class="sg-token-item">
+            <div class="sg-radius-box" style="border-radius: var(--radius-input)"></div>
+            <span class="sg-token-name">--radius-input</span>
+            <span class="sg-token-value">8px</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- BUTTONS                                     -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section-alt py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Composants</span>
+          <h2 class="section-title">Boutons</h2>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 mb-8">
+          <a href="#" class="btn-primary">Bouton primaire</a>
+          <a href="#" class="btn-neutral">Bouton neutre</a>
+          <a href="#" class="btn-link">Lien bouton →</a>
+        </div>
+
+        <div class="p-8 bg-surface-dark rounded-card-lg inline-flex flex-wrap items-center gap-4">
+          <a href="#" class="btn-primary">Sur fond sombre</a>
+          <a href="#" class="btn-neutral" style="border-color: rgba(255,255,255,0.2); color: white;">Neutre inversé</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- CARDS                                       -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Composants</span>
+          <h2 class="section-title">Cartes</h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3 mb-12">
+          <div>
+            <p class="sg-label mb-3">.card-padded</p>
+            <div class="card-padded">
+              <h3 class="card-title">Titre de carte</h3>
+              <p class="body-text mt-2">Carte avec bordure, rayon et padding standard. Utilisée pour les avantages, valeurs, etc.</p>
+            </div>
+          </div>
+          <div>
+            <p class="sg-label mb-3">.card-compact</p>
+            <div class="card-compact">
+              <p class="font-medium text-text-heading" style="font-family: var(--font-heading); font-size: var(--type-size-title-xs);">Titre compact</p>
+              <p class="body-text mt-1">Carte compacte pour les listes d'éléments.</p>
+            </div>
+          </div>
+          <div>
+            <p class="sg-label mb-3">.editorial-note-card</p>
+            <div class="editorial-note-card">
+              <p class="editorial-note-kicker">Depuis 2017</p>
+              <p class="editorial-note-title">Un titre accrocheur</p>
+              <p class="editorial-note-body">Description courte pour une note éditoriale.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <div>
+            <p class="sg-label mb-3">.solution-card</p>
+            <div class="solution-card">
+              <div class="solution-card-media">
+                <img src="./assets/food-patisseries.jpg" alt="Pâtisseries" class="media-image-cover" loading="lazy" decoding="async">
+              </div>
+              <div class="solution-card-body">
+                <h3 class="card-title">Pâtisseries</h3>
+                <p class="body-text mt-1">Viennoiseries, muffins, biscuits.</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="sg-label mb-3">.editorial-media-card</p>
+            <div class="editorial-media-card" style="height: 16rem;">
+              <img src="./assets/food-repas-chauds.jpg" alt="Repas chauds" class="media-image-cover" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div>
+            <p class="sg-label mb-3">.contact-form-panel</p>
+            <div class="contact-form-panel">
+              <h3 class="contact-form-title">Formulaire</h3>
+              <div class="contact-form-field mt-4">
+                <label class="contact-form-label">Nom</label>
+                <input type="text" class="form-input contact-form-input" placeholder="Votre nom">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION BACKGROUNDS                         -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Composants</span>
+          <h2 class="section-title">Sections</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="rounded-card-lg overflow-hidden border border-border">
+            <div class="bg-surface-page p-8 text-center">
+              <p class="sg-label">.section</p>
+              <p class="body-text">Fond blanc par défaut</p>
+            </div>
+          </div>
+          <div class="rounded-card-lg overflow-hidden border border-border">
+            <div class="bg-surface-alt p-8 text-center">
+              <p class="sg-label">.section-alt</p>
+              <p class="body-text">Fond gris clair alterné</p>
+            </div>
+          </div>
+          <div class="rounded-card-lg overflow-hidden">
+            <div class="bg-surface-dark p-8 text-center">
+              <p class="sg-label" style="color: rgba(255,255,255,0.5)">.section-dark</p>
+              <p class="text-text-inverse">Fond sombre inversé</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- INTRO BLOCKS                                -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section-alt py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Composants</span>
+          <h2 class="section-title">Blocs d'introduction</h2>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div>
+            <p class="sg-label mb-3">.intro-center</p>
+            <div class="sg-component-demo">
+              <div class="intro-center">
+                <span class="eyebrow">Section label</span>
+                <h3 class="section-title">Titre de section centré.</h3>
+                <p class="section-subtitle">Description courte sous le titre, centrée et contrainte en largeur.</p>
+                <a href="#" class="btn-neutral mt-2">Action</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="sg-label mb-3">.intro-left</p>
+            <div class="sg-component-demo">
+              <div class="intro-left">
+                <span class="eyebrow">Section label</span>
+                <h3 class="section-title">Titre de section aligné à gauche.</h3>
+                <p class="section-subtitle">Description courte sous le titre, alignée à gauche.</p>
+                <a href="#" class="btn-primary mt-2">Action</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- HEROES                                      -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Composants</span>
+          <h2 class="section-title">Héros</h2>
+        </div>
+
+        <div class="flex flex-col gap-8">
+          <div>
+            <p class="sg-label mb-3">.inner-hero — Pages avec image</p>
+            <div class="inner-hero" style="padding: 0;">
+              <div class="inner-hero-card" style="min-height: 20rem;">
+                <img src="./assets/hero-bg-v2.jpg" alt="" class="inner-hero-bg" loading="lazy" decoding="async">
+                <div class="inner-hero-overlay"></div>
+                <div class="inner-hero-content">
+                  <span class="eyebrow">Eyebrow</span>
+                  <h3 class="inner-hero-title">Titre de la page.</h3>
+                  <p class="inner-hero-desc">Description courte de la page pour donner du contexte.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="sg-label mb-3">.simple-hero — Pages texte uniquement</p>
+            <div class="sg-component-demo">
+              <div class="simple-hero" style="padding: 3rem 1rem;">
+                <span class="eyebrow">Eyebrow</span>
+                <h3 class="simple-hero-title">Titre de la page.</h3>
+                <p class="simple-hero-desc">Description courte centrée.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- EDITORIAL SPLIT                             -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section-alt py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Composants</span>
+          <h2 class="section-title">Editorial Split</h2>
+          <p class="section-subtitle">Layout deux colonnes (5/7) pour contenu + média.</p>
+        </div>
+
+        <div class="editorial-split">
+          <div class="editorial-split-copy">
+            <span class="eyebrow">Label</span>
+            <h3 class="section-title mt-3">Titre de section avec contenu éditorial.</h3>
+            <p class="body-text mt-4">Texte descriptif qui accompagne le média ou l'image à droite. Utilisé pour les sections de contenu détaillé.</p>
+            <a href="#" class="btn-primary mt-6">En savoir plus</a>
+          </div>
+          <div class="editorial-split-media">
+            <div class="editorial-media-card" style="height: 20rem;">
+              <img src="./assets/food-pret-a-manger.jpg" alt="Exemple" class="media-image-cover" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- FAQ ACCORDION                               -->
+    <!-- ════════════════════════════════════════════ -->
+    <section class="sg-section section py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-left mb-12">
+          <span class="eyebrow">Composants</span>
+          <h2 class="section-title">Accordéon FAQ</h2>
+        </div>
+
+        <div class="max-w-3xl">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Question d'exemple numéro un?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Réponse d'exemple avec du contenu descriptif. L'accordéon utilise l'élément natif HTML5 <code>&lt;details&gt;</code> pour l'accessibilité.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Question d'exemple numéro deux?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Une autre réponse d'exemple pour montrer le comportement de l'accordéon.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- @include partials/footer.html -->
+  <!-- @include partials/scripts.html -->
+</body>
+</html>
