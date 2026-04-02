@@ -132,6 +132,56 @@ Never hardcode `rounded-2xl` or `border-radius: 999px`.
 - `dist/` — built output (do not edit directly)
 - `dist/assets/` — images, fonts, icons
 
+## Component Inventory
+
+All reusable patterns defined in `src/components.css`, organized by section:
+
+### Heroes
+- **`.hero-v2`** — Homepage hero: rounded inset card with background image, overlay, title, CTA, and pills
+- **`.inner-hero`** — Inner page hero (image card): used on nos-magasins, carrieres, fournisseurs, lave-auto, pret-a-manger
+- **`.simple-hero`** — Text-only hero (white background, centered): used on contact, faq, legal pages
+
+### Layouts
+- **`.editorial-split`** — Two-column content layout (copy + media, 5/7 grid)
+- **`.intro-center`** — Centered section header (eyebrow + title + subtitle + CTA)
+- **`.intro-left`** — Left-aligned section header
+- **`.statement-panel`** — Dark background panel with large quote text
+
+### Cards
+- **`.card-padded`** — Padded card with border, radius, and shadow
+- **`.card-compact`** — Smaller padded card (lists, job postings)
+- **`.solution-card`** — Image + title + description card
+- **`.editorial-note-card`** — Small note card with kicker, title, and body
+- **`.editorial-media-card`** — Overflow-hidden image card with border and shadow
+- **`.carwash-card`** — Icon + text card for car wash features (homepage)
+- **`.store-card`** — Full-bleed image overlay card (homepage slider)
+- **`.store-finder-card`** — Bordered list card with metadata (nos-magasins)
+- **`.about-value-card`** — Values card with icon (a-propos)
+- **`.about-timeline-card`** — Timeline entry card (a-propos)
+- **`.partner-logo`** — Logo display card (a-propos)
+
+### Sections
+- **`.section`** — Default page background
+- **`.section-alt`** — Alternate (light gray) background
+- **`.section-dark`** — Dark background with inverse text
+
+### Forms
+- **`.contact-form-panel`** — Form container card with border and shadow
+- **`.contact-form-title`** — Form heading (h3)
+- **`.contact-form-fields`** — Grid layout for form fields
+- **`.contact-form-field`** — Label + input wrapper
+- **`.contact-form-label`** — Form label
+- **`.contact-form-input`** — Form input (used alongside `.form-input`)
+- **`.contact-form-textarea`** — Textarea variant
+- **`.contact-form-submit`** — Full-width submit button
+
+### Interactive
+- **`.faq-item`** — Accordion item using `<details>`/`<summary>`
+- **`.store-slider`** — Horizontal scroll carousel for store cards
+- **`.slider-btn` / `.slider-dot`** — Carousel navigation controls
+- **`.careers-marquee`** — Auto-scrolling image marquee
+- **`.about-hero-ribbon`** — Auto-scrolling tilted card ribbon (a-propos)
+
 ## Git & Workflow
 - Remote: `origin` → `https://github.com/etiennestortech/depanneur-beausejour.git`
 - Commit after completing work — don't batch up multiple unrelated changes

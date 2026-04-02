@@ -25,16 +25,10 @@ html.lenis, html.lenis body { height: auto; }
   .section-dark   { @apply bg-surface-dark text-text-inverse; }
 
   /* ── Container — centered box with max-width + inline padding ──
-       Use padding utilities (py-20, py-24, etc.) for vertical spacing.
-       Modifier: .container-narrow for 64rem max-width.                    */
+       Use padding utilities (py-20, py-24, etc.) for vertical spacing.    */
   .container {
     @apply mx-auto w-full;
     max-width: var(--layout-shell-main);
-    padding-inline: var(--layout-gutter-inline);
-  }
-  .container-narrow {
-    @apply mx-auto w-full;
-    max-width: var(--layout-shell-narrow);
     padding-inline: var(--layout-gutter-inline);
   }
 
@@ -51,9 +45,6 @@ html.lenis, html.lenis body { height: auto; }
     max-width: var(--layout-measure-copy);
     margin-bottom: var(--space-intro-block-content);
   }
-  .intro-stack {
-    @apply flex flex-col items-start;
-  }
   .intro-actions {
     @apply flex flex-wrap gap-3;
   }
@@ -63,28 +54,20 @@ html.lenis, html.lenis body { height: auto; }
 
   /* ── Intro Spacing Relationships ──
        Automatic margins between siblings inside intro blocks.              */
-  .intro-stack > .eyebrow + :is(.page-title, .faq-title, .contact-title),
-  .intro-stack > .tag + :is(.page-title, .faq-title, .contact-title),
   .intro-left > .eyebrow + .section-title,
-  .intro-center > .eyebrow + .section-title,
-  .about-story-copy > .eyebrow + .section-title {
+  .intro-center > .eyebrow + .section-title {
     margin-top: var(--space-intro-eyebrow-title);
   }
-  .intro-stack > :is(.page-title, .faq-title, .contact-title) + :is(.page-description, .faq-description, .contact-description, .body-text-lg),
   .intro-left > .section-title + .section-subtitle,
-  .intro-center > .section-title + .section-subtitle,
-  .about-story-copy > .section-title + .section-subtitle {
+  .intro-center > .section-title + .section-subtitle {
     margin-top: var(--space-intro-title-body);
   }
-  .intro-stack > :is(.page-description, .faq-description, .contact-description, .body-text-lg) + .intro-actions,
   .intro-left > :is(.page-description, .body-text-lg, .section-subtitle) + .intro-actions,
   .intro-center > :is(.section-subtitle) + .intro-actions {
     margin-top: var(--space-intro-body-action);
   }
   .intro-left > .section-subtitle + .btn-link,
-  .intro-center > .section-subtitle + .btn-link,
-  .about-story-copy > .section-subtitle + .btn-link,
-  .about-story-copy > .section-title + .btn-link {
+  .intro-center > .section-subtitle + .btn-link {
     margin-top: var(--space-intro-body-action);
   }
 
@@ -338,6 +321,11 @@ html.lenis, html.lenis body { height: auto; }
     @apply flex h-full flex-col px-6 py-6;
   }
 
+  /* ── Store Finder (nos-magasins page) ──
+       Related to .store-card (homepage slider) — both display store
+       locations but differ in layout: .store-finder-card is a bordered
+       list card with metadata, while .store-card is a full-bleed
+       image overlay card for the homepage carousel.                       */
   .store-finder {
     @apply pt-8;
   }
@@ -427,21 +415,6 @@ html.lenis, html.lenis body { height: auto; }
   .store-finder-card.is-active {
     border-color: rgba(69, 203, 181, 0.35);
     box-shadow: 0 18px 48px rgba(12, 20, 24, 0.12);
-  }
-  .store-map-list-item {
-    @apply border border-border bg-surface-alt px-4 py-4;
-    border-radius: var(--radius-card);
-  }
-  .store-map-list-title {
-    @apply font-medium text-text-heading;
-    font-family: var(--font-heading);
-    font-size: var(--type-size-title-xs);
-    line-height: var(--type-leading-heading);
-  }
-  .store-map-list-copy {
-    @apply mt-1 text-text-muted;
-    font-size: var(--type-size-ui);
-    line-height: var(--type-leading-body);
   }
   .store-map-marker {
     width: 1rem;
@@ -541,37 +514,11 @@ html.lenis, html.lenis body { height: auto; }
     font-size: var(--type-size-body);
     line-height: var(--type-leading-body);
   }
-  .editorial-metric-grid {
-    @apply grid gap-4 sm:grid-cols-2;
-  }
-  .editorial-metric-card {
-    @apply border border-border bg-surface-card p-5;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-  }
-  .editorial-metric-value {
-    @apply font-medium text-text-heading;
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 2.2vw, 2.8rem);
-    line-height: 1;
-    letter-spacing: -0.05em;
-  }
-  .editorial-metric-copy {
-    @apply mt-2 text-text-caption;
-    font-size: var(--type-size-ui);
-    line-height: var(--type-leading-body);
-  }
   .editorial-media-card {
     @apply overflow-hidden border border-border bg-surface-card;
     border-radius: var(--radius-card-lg);
     box-shadow: var(--shadow-card);
   }
-  .editorial-media-tile {
-    @apply overflow-hidden border border-border bg-surface-card;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-  }
-
   /* ── Carwash Card (homepage) ── */
   .carwash-card {
     @apply bg-surface-card border border-border overflow-hidden flex flex-col gap-6 p-6;
@@ -792,9 +739,6 @@ html.lenis, html.lenis body { height: auto; }
     .hero-v2-card {
       height: calc(100svh - var(--header-h, 6.75rem) - 0.5rem);
     }
-    .hero-v2-left {
-      gap: 1.25rem;
-    }
     .hero-v2-pill {
       padding: 8px 14px;
       font-size: var(--type-size-ui);
@@ -872,6 +816,10 @@ html.lenis, html.lenis body { height: auto; }
     max-width: 36ch;
   }
 
+  /* ══════════════════════════════════════════════════════════════════════════
+     SECTIONS — Editorial Splits, Statement Panels, Chips
+     ══════════════════════════════════════════════════════════════════════════ */
+
   .statement-panel {
     @apply relative overflow-hidden border border-border bg-surface-dark text-text-inverse;
     border-radius: var(--radius-card-lg);
@@ -907,15 +855,6 @@ html.lenis, html.lenis body { height: auto; }
     font-size: var(--type-size-ui);
     line-height: var(--type-leading-ui);
   }
-  .editorial-list {
-    @apply grid gap-4;
-  }
-  .editorial-list-card {
-    @apply border border-border bg-surface-card p-6;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-  }
-
   /* ══════════════════════════════════════════════════════════════════════════
      NAVIGATION
      ══════════════════════════════════════════════════════════════════════════ */
@@ -1054,20 +993,6 @@ html.lenis, html.lenis body { height: auto; }
   .contact-copy-column {
     @apply flex flex-col items-start;
   }
-  .contact-title {
-    @apply font-medium text-text-heading;
-    font-family: var(--font-heading);
-    max-width: var(--layout-measure-text);
-    font-size: var(--type-size-page);
-    line-height: var(--type-leading-heading);
-    letter-spacing: var(--type-tracking-heading);
-  }
-  .contact-description {
-    @apply text-text-muted;
-    max-width: var(--layout-measure-copy);
-    font-size: var(--type-size-body-lg);
-    line-height: var(--type-leading-body);
-  }
   .contact-method-list {
     @apply mt-12 grid w-full gap-3;
     max-width: var(--layout-measure-copy);
@@ -1130,26 +1055,6 @@ html.lenis, html.lenis body { height: auto; }
      FAQ
      ══════════════════════════════════════════════════════════════════════════ */
 
-  .faq-shell {
-    /* padding handled by section py token */
-  }
-  .faq-header {
-    max-width: var(--layout-measure-text);
-    margin-bottom: var(--space-intro-block-content);
-  }
-  .faq-title {
-    @apply font-medium text-text-heading;
-    font-family: var(--font-heading);
-    font-size: var(--type-size-display);
-    line-height: var(--type-leading-heading);
-    letter-spacing: var(--type-tracking-heading);
-  }
-  .faq-description {
-    @apply text-text-muted;
-    max-width: var(--layout-measure-copy);
-    font-size: var(--type-size-body-lg);
-    line-height: var(--type-leading-body);
-  }
   .faq-groups {
     @apply mt-12 border-t border-border;
   }
@@ -1255,40 +1160,18 @@ html.lenis, html.lenis body { height: auto; }
     width: max-content;
     animation: about-hero-ribbon-scroll 34s linear infinite;
   }
+  /* Card dimensions set via --card-w, --card-h, --card-mt, --card-tilt
+     custom properties on each HTML element. Desktop overrides use
+     --card-w-lg, --card-h-lg, --card-mt-lg (applied in 64rem+ breakpoint). */
   .about-hero-ribbon-card {
     @apply shrink-0 overflow-hidden;
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
     background: var(--color-surface-card);
-  }
-  .about-hero-ribbon-card-edge {
-    width: 12rem;
-    height: 18rem;
-  }
-  .about-hero-ribbon-card-portrait {
-    width: 12rem;
-    height: 15rem;
-  }
-  .about-hero-ribbon-card-feature {
-    width: 18rem;
-    height: 12.5rem;
-    margin-top: 1rem;
-  }
-  .about-hero-ribbon-card-tall {
-    width: 12rem;
-    height: 18rem;
-    margin-top: 0.5rem;
-  }
-  .about-hero-ribbon-card-wide {
-    width: 15rem;
-    height: 12rem;
-    margin-top: 0.75rem;
-  }
-  .about-hero-ribbon-card-tilt-left {
-    transform: rotate(-3deg);
-  }
-  .about-hero-ribbon-card-tilt-right {
-    transform: rotate(3deg);
+    width: var(--card-w);
+    height: var(--card-h);
+    margin-top: var(--card-mt, 0px);
+    transform: rotate(var(--card-tilt, 0deg));
   }
   @keyframes about-hero-ribbon-scroll {
     from {
@@ -1365,28 +1248,10 @@ html.lenis, html.lenis body { height: auto; }
     box-shadow: var(--shadow-card);
   }
   @media (min-width: 64rem) {
-    .about-hero-ribbon-card-edge {
-      width: 19.1875rem;
-      height: 30.4375rem;
-    }
-    .about-hero-ribbon-card-portrait {
-      width: 18.8125rem;
-      height: 23.75rem;
-    }
-    .about-hero-ribbon-card-feature {
-      width: 31.5625rem;
-      height: 19.40625rem;
-      margin-top: 1.0625rem;
-    }
-    .about-hero-ribbon-card-tall {
-      width: 19.1875rem;
-      height: 30.4375rem;
-      margin-top: 0.5rem;
-    }
-    .about-hero-ribbon-card-wide {
-      width: 25.6875rem;
-      height: 20.5rem;
-      margin-top: 0.25rem;
+    .about-hero-ribbon-card {
+      width: var(--card-w-lg, var(--card-w));
+      height: var(--card-h-lg, var(--card-h));
+      margin-top: var(--card-mt-lg, var(--card-mt, 0px));
     }
   }
   .about-timeline-title {
@@ -1457,27 +1322,6 @@ html.lenis, html.lenis body { height: auto; }
     .about-hero-ribbon-track {
       gap: 1rem;
     }
-    .about-hero-ribbon-card-edge {
-      width: 12rem;
-      height: 18rem;
-    }
-    .about-hero-ribbon-card-portrait {
-      width: 12rem;
-      height: 15rem;
-    }
-    .about-hero-ribbon-card-feature {
-      width: 18rem;
-      height: 12.5rem;
-    }
-    .about-hero-ribbon-card-tall {
-      width: 12rem;
-      height: 18rem;
-      margin-top: 0;
-    }
-    .about-hero-ribbon-card-wide {
-      width: 15rem;
-      height: 12rem;
-    }
     .about-timeline-list::before {
       display: none;
     }
@@ -1499,7 +1343,9 @@ html.lenis, html.lenis body { height: auto; }
      HOMEPAGE-SPECIFIC
      ══════════════════════════════════════════════════════════════════════════ */
 
-  /* ── Store Slider ── */
+  /* ── Store Slider ──
+       Related to .store-finder-card (nos-magasins page) — see CARDS
+       section. Both show store locations with different card styles.       */
   .store-slider {
     padding-left: var(--layout-gutter-inline);
     scroll-padding-left: var(--layout-gutter-inline);
