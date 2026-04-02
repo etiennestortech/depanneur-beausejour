@@ -89,6 +89,7 @@
   --layout-measure-copy: 28rem;        /* Figma: Max Width XSmall ≈ 400–445px */
   --layout-measure-hero: 56rem;
   --layout-gutter-inline: clamp(1.25rem, 5vw, 4rem); /* Figma: Page Padding = 64px */
+  --layout-gutter-outer: 1rem;         /* Outer shell padding for heroes, card sections, footer */
 
   /* ── Logo ── */
   --logo-h: 2rem;
@@ -120,6 +121,7 @@
   /* ── Section Spacing ── */
   --space-section-md: 5rem;            /* Figma: 80px */
   --space-section-lg: 7rem;            /* Figma: 112px */
+  --space-section-gap: 0.75rem;        /* Gutter between stacked section cards */
 
   /* ── Intro Spacing ── */
   --space-intro-eyebrow-title: 1rem;

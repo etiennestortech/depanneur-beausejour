@@ -19,10 +19,33 @@ html.lenis, html.lenis body { height: auto; }
      LAYOUT
      ══════════════════════════════════════════════════════════════════════════ */
 
-  /* ── Section Backgrounds ── */
+  /* ── Section Backgrounds ──
+       White sections use standard padding. Card sections (alt, dark) use
+       px-6 outer + rounded inner panel, with --space-section-gap gutter.  */
   .section        { @apply bg-surface-page; }
-  .section-alt    { @apply bg-surface-alt; }
-  .section-dark   { @apply bg-surface-dark text-text-inverse; }
+  .section-alt {
+    @apply bg-surface-page;
+    padding-inline: var(--layout-gutter-outer);
+    padding-block: var(--space-section-gap);
+  }
+  .section-alt-inner {
+    @apply bg-surface-alt;
+    border-radius: var(--radius-card-lg);
+  }
+  .section-dark {
+    @apply bg-surface-page;
+    padding-inline: var(--layout-gutter-outer);
+    padding-block: var(--space-section-gap);
+  }
+  .section-dark-inner {
+    @apply bg-surface-dark text-text-inverse;
+    border-radius: var(--radius-card-lg);
+  }
+  .section-cta {
+    @apply bg-surface-page;
+    padding-inline: var(--layout-gutter-outer);
+    padding-block: var(--space-section-gap);
+  }
 
   /* ── Container — centered box with max-width + inline padding ──
        Use padding utilities (py-20, py-24, etc.) for vertical spacing.    */
@@ -640,7 +663,7 @@ html.lenis, html.lenis body { height: auto; }
 
   /* ── Hero V2 (rounded, inset, bottom-aligned) ── */
   .hero-v2 {
-    @apply px-6;
+    padding-inline: var(--layout-gutter-outer);
     padding-top: 0;
   }
   .hero-v2-card {
@@ -799,13 +822,13 @@ html.lenis, html.lenis body { height: auto; }
 
   /* ── Inner Hero (image card, like homepage but shorter) ── */
   .inner-hero {
-    @apply px-6;
+    padding-inline: var(--layout-gutter-outer);
     padding-top: 0;
   }
   .inner-hero-card {
     @apply relative overflow-hidden flex;
     border-radius: var(--radius-card-lg);
-    min-height: clamp(24rem, 45vh, 36rem);
+    min-height: clamp(26rem, 52vh, 40rem);
   }
   .inner-hero-bg {
     @apply absolute inset-0 h-full w-full object-cover;
@@ -1054,7 +1077,9 @@ html.lenis, html.lenis body { height: auto; }
      ══════════════════════════════════════════════════════════════════════════ */
 
   .footer {
-    @apply bg-surface-page px-6 pb-6 pt-2;
+    @apply bg-surface-page pt-2;
+    padding-inline: var(--layout-gutter-outer);
+    padding-bottom: var(--layout-gutter-outer);
   }
   .footer-shell {
     @apply bg-surface-dark;

@@ -26,15 +26,33 @@ The **homepage (`src/pages/index.html`)** is the reference implementation. All i
 
 ### Section structure
 Every section follows this wrapper pattern:
+**White sections** (standard):
 ```html
 <section class="section py-[var(--space-section-lg)]">
-  <div class="container">
-    <!-- content -->
+  <div class="container"><!-- content --></div>
+</section>
+```
+
+**Grey / dark card sections** (rounded panel with gutter):
+```html
+<section class="section-alt"><!-- or section-dark -->
+  <div class="section-alt-inner py-[var(--space-section-lg)]"><!-- or section-dark-inner -->
+    <div class="container"><!-- content --></div>
   </div>
 </section>
 ```
-- Always use `py-[var(--space-section-lg)]` for main sections, `py-[var(--space-section-md)]` only for compact subsections
-- Never use custom wrapper classes like `.faq-shell`, `.store-finder` — always `.section` > `.container`
+
+**CTA banner sections** (edge-to-edge rounded banner):
+```html
+<section class="section-cta">
+  <div class="cta-banner"><!-- content --></div>
+</section>
+```
+
+- White sections use `py-[var(--space-section-lg)]` for main sections, `py-[var(--space-section-md)]` only for compact subsections
+- Card sections (`.section-alt`, `.section-dark`, `.section-cta`) have `--space-section-gap` gutter built in — do NOT add `py-*` on the outer `<section>`
+- Inner panels (`.section-alt-inner`, `.section-dark-inner`) handle their own content padding via `py-[var(--space-section-lg)]`
+- Never use custom wrapper classes like `.faq-shell`, `.store-finder` — use the shared section classes
 - Never use inline `style=""` for spacing — always use token-based Tailwind classes
 
 ### Inner page heroes
@@ -72,6 +90,7 @@ Never hardcode font sizes like `text-[1.75rem]` or `font-size: 0.95rem`. Use tok
 | Use case | Token |
 |----------|-------|
 | Section vertical padding | `py-[var(--space-section-lg)]` or `py-[var(--space-section-md)]` |
+| Card section gutter | `--space-section-gap` (built into `.section-alt`, `.section-dark`, `.section-cta`) |
 | Gap between section header and content | `gap-[var(--space-section-md)]` |
 | Inner component gaps | Tailwind utilities: `gap-2`, `gap-4`, `gap-8` |
 
