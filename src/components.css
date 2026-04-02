@@ -332,15 +332,27 @@ html.lenis, html.lenis body { height: auto; }
   }
   /* Card with standard p-6 padding */
   .card-padded {
-    @apply border border-border bg-surface-card p-6;
+    @apply bg-surface-card-hover p-6;
     border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
   }
+  /* Icon wrapper for cards — fixed box so all icons align regardless of SVG content */
+  .card-icon {
+    @apply flex items-center justify-center;
+    width: 3rem;
+    height: 3rem;
+  }
+  .card-icon svg {
+    width: 2.625rem;
+    height: 2.625rem;
+  }
+  .card-icon + .card-title {
+    margin-top: 1rem;
+  }
+
   /* Compact card (lists, job postings) */
   .card-compact {
-    @apply border border-border bg-surface-card px-5 py-4;
+    @apply bg-surface-card-hover px-5 py-4;
     border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
   }
 
   /* ── Tag / Eyebrow Pill ── */
@@ -1312,7 +1324,7 @@ html.lenis, html.lenis body { height: auto; }
   }
   .about-hero-ribbon-track {
     --about-ribbon-gap: clamp(1.25rem, 3vw, 6.0625rem);
-    @apply flex items-start;
+    @apply flex items-center;
     gap: var(--about-ribbon-gap);
     width: max-content;
     animation: about-hero-ribbon-scroll 34s linear infinite;
@@ -1339,11 +1351,10 @@ html.lenis, html.lenis body { height: auto; }
     }
   }
   .about-timeline-layout {
-    @apply grid gap-10 xl:grid-cols-[minmax(0,36rem)_minmax(0,1fr)];
+    @apply grid gap-10 xl:grid-cols-2;
   }
   .about-timeline-copy {
     @apply flex flex-col items-start;
-    max-width: 36rem;
   }
   @media (min-width: 80rem) {
     .about-timeline-copy {
@@ -1354,6 +1365,19 @@ html.lenis, html.lenis body { height: auto; }
   }
   .about-timeline-list {
     @apply relative grid gap-0;
+  }
+  .about-timeline-list::after {
+    content: "";
+    position: absolute;
+    left: calc(3.9375rem - 0.5rem);
+    width: 1.5rem;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(to bottom, var(--color-surface-page) 0%, transparent 4rem),
+      linear-gradient(to top, var(--color-surface-page) 0%, transparent 4rem);
   }
   .about-timeline-progress {
     position: absolute;
@@ -1691,17 +1715,47 @@ html.lenis, html.lenis body { height: auto; }
 
   /* ── Partner Logo ── */
   .partner-logo {
-    @apply flex min-h-24 items-center justify-center overflow-hidden border border-border bg-surface-card p-4;
+    @apply flex min-h-24 items-center justify-center bg-surface-card-hover p-6;
     border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
   }
   .partner-logo img {
-    max-height: 3.25rem;
+    max-height: 4rem;
     max-width: 100%;
     width: auto;
     object-fit: contain;
-    transform: scale(2.35);
-    transform-origin: center;
+  }
+
+  /* ── Partner Marquee ── */
+  .partner-marquee {
+    @apply relative overflow-hidden;
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+  .partner-marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    width: max-content;
+    animation: careers-marquee-scroll 25s linear infinite;
+  }
+  .partner-marquee-logo {
+    height: 5rem;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  .partner-marquee-logo:hover {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .partner-marquee {
+      overflow-x: auto;
+      mask-image: none;
+    }
+    .partner-marquee-track {
+      animation: none;
+    }
   }
 
   /* ── Careers Marquee ── */
@@ -1741,6 +1795,46 @@ html.lenis, html.lenis body { height: auto; }
     .careers-marquee-track {
       animation: none;
     }
+  }
+
+  /* ── Video Thumbnail ── */
+  .video-thumbnail {
+    @apply relative cursor-pointer overflow-hidden;
+    aspect-ratio: 18 / 9;
+  }
+  .video-thumbnail-img {
+    @apply absolute inset-0 h-full w-full object-cover;
+    transition: transform 0.4s ease;
+  }
+  .video-thumbnail:hover .video-thumbnail-img {
+    transform: scale(1.03);
+  }
+  .video-thumbnail-overlay {
+    @apply absolute inset-0;
+    background: rgba(0, 0, 0, 0.25);
+    transition: background 0.3s ease;
+  }
+  .video-thumbnail:hover .video-thumbnail-overlay {
+    background: rgba(0, 0, 0, 0.15);
+  }
+  .video-thumbnail-play {
+    @apply absolute flex flex-col items-center justify-center text-white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+    height: 3rem;
+    padding: 0.125rem;
+    border-radius: 2.5rem;
+    background: linear-gradient(152deg, rgba(255, 255, 255, 0.40) 13.05%, rgba(255, 255, 255, 0.00) 89.85%), rgba(255, 255, 255, 0.10);
+    box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.50) inset, 0 0 0 1px rgba(158, 157, 155, 0.25), 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(5px);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .video-thumbnail:hover .video-thumbnail-play {
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.60) inset, 0 0 0 1px rgba(158, 157, 155, 0.35), 0 4px 8px 0 rgba(0, 0, 0, 0.10);
   }
 
   /* ── Food Marquee (smaller variant) ── */
