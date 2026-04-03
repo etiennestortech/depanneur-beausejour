@@ -751,6 +751,72 @@ function initHeroIntro() {
   });
 }
 
+function initInnerHeroIntro() {
+  const card = document.querySelector('.inner-hero-card');
+  if (!card || !window.gsap) return null;
+  // Skip if homepage hero exists (it has its own intro)
+  if (document.querySelector('[data-hero-intro]')) return null;
+
+  const gsap = window.gsap;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+
+  const bg = card.querySelector('.inner-hero-bg');
+  const content = card.querySelector('.inner-hero-content');
+  const eyebrow = content?.querySelector('.eyebrow');
+  const title = content?.querySelector('.inner-hero-title');
+  const desc = content?.querySelector('.inner-hero-desc');
+
+  const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+  // 1. Image zoom settles (1.08 → 1)
+  if (bg) {
+    gsap.set(bg, { scale: 1.08 });
+    tl.to(bg, { scale: 1, duration: 1.6, ease: 'power2.out' });
+  }
+
+  // 2. Eyebrow fades in
+  if (eyebrow) {
+    gsap.set(eyebrow, { y: 12, autoAlpha: 0 });
+    tl.to(eyebrow, { y: 0, autoAlpha: 1, duration: 0.5 }, 0.3);
+  }
+
+  // 3. Title words stagger in
+  if (title) {
+    splitRevealText(title);
+    const words = title.querySelectorAll('.reveal-word-inner');
+    if (words.length) {
+      gsap.set(words, { yPercent: 110, opacity: 0 });
+      tl.to(words, { yPercent: 0, opacity: 1, duration: 0.7, stagger: 0.04 }, 0.5);
+    }
+  }
+
+  // 4. Description fades in
+  if (desc) {
+    gsap.set(desc, { y: 16, autoAlpha: 0 });
+    tl.to(desc, { y: 0, autoAlpha: 1, duration: 0.6 }, 0.9);
+  }
+
+  // After intro, set up parallax on scroll
+  tl.call(() => {
+    if (bg && window.ScrollTrigger) {
+      gsap.to(bg, {
+        yPercent: 8,
+        scale: 1.05,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    }
+  });
+
+  return tl;
+}
+
 function initRevealAnimations(lenis) {
   if (!window.gsap || !window.ScrollTrigger) {
     return;
@@ -774,8 +840,8 @@ function initRevealAnimations(lenis) {
   }
 
   document.querySelectorAll('[data-reveal-text]').forEach((element) => {
-    // Skip hero title — already animated by initHeroIntro
-    if (element.closest('[data-hero-intro]') || element.closest('.hero-v2-card')) return;
+    // Skip hero titles — already animated by initHeroIntro / initInnerHeroIntro
+    if (element.closest('[data-hero-intro]') || element.closest('.hero-v2-card') || element.closest('.inner-hero-card')) return;
 
     splitRevealText(element);
 
@@ -791,7 +857,7 @@ function initRevealAnimations(lenis) {
       stagger: 0.03,
       scrollTrigger: {
         trigger: element,
-        start: 'top 88%',
+        start: 'clamp(top 88%)',
         once: true,
       },
     });
@@ -911,7 +977,110 @@ function initRevealAnimations(lenis) {
   initAboutTimelineProgress(gsap, ScrollTrigger);
   initAboutStatementScrub(gsap, ScrollTrigger);
 
+  // Content fade-ups (subtitles, eyebrows, section CTAs)
+  // Skip elements inside hero cards — already animated by hero intros
+  const fadeUpEls = Array.from(document.querySelectorAll(
+    'main .section-subtitle, main .eyebrow'
+  )).filter((el) => !el.closest('.inner-hero-card') && !el.closest('.hero-v2-card') && !el.closest('[data-hero-intro]'));
+
+  if (fadeUpEls.length) {
+    gsap.set(fadeUpEls, { y: 16, autoAlpha: 0 });
+    ScrollTrigger.batch(fadeUpEls, {
+      start: 'clamp(top 90%)',
+      once: true,
+      onEnter: (batch) => {
+        gsap.to(batch, { y: 0, autoAlpha: 1, duration: 0.6, ease: 'power2.out', stagger: 0.06, overwrite: true });
+      },
+    });
+  }
+
+  // Card stagger entrances
+  [document.querySelectorAll('.carwash-card'), document.querySelectorAll('[data-stagger-cards] > *')].forEach((nodeList) => {
+    const cards = Array.from(nodeList);
+    if (cards.length === 0) return;
+    gsap.set(cards, { y: 24, autoAlpha: 0 });
+    ScrollTrigger.batch(cards, {
+      start: 'clamp(top 85%)',
+      once: true,
+      onEnter: (batch) => {
+        gsap.to(batch, { y: 0, autoAlpha: 1, duration: 0.55, ease: 'power2.out', stagger: 0.1, overwrite: true });
+      },
+    });
+  });
+
+  // Store slider entrance
+  const sliderRoot = document.querySelector('[data-slider-root]');
+  if (sliderRoot) {
+    gsap.set(sliderRoot, { y: 30, autoAlpha: 0 });
+    gsap.to(sliderRoot, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: sliderRoot, start: 'top 85%', once: true } });
+  }
+
+  // Footer logo entrance
+  const footerLogo = document.querySelector('.footer-inner img[src*="logo-large"]');
+  if (footerLogo) {
+    gsap.set(footerLogo, { y: 20, autoAlpha: 0 });
+    gsap.to(footerLogo, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: footerLogo, start: 'top 92%', once: true } });
+  }
+
   ScrollTrigger.refresh();
+}
+
+function initNavbarScroll() {
+  const header = document.querySelector('header');
+  if (!header) return;
+
+  const inner = document.createElement('div');
+  while (header.firstChild) inner.appendChild(header.firstChild);
+
+  const headerStyles = getComputedStyle(header);
+  inner.style.padding = headerStyles.padding;
+  inner.style.backgroundColor = 'var(--color-surface-card)';
+  inner.style.borderRadius = 'var(--radius-card-lg)';
+  inner.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+  inner.style.border = '1px solid transparent';
+
+  header.style.position = 'sticky';
+  header.style.top = '0';
+  header.style.zIndex = '50';
+  header.style.padding = '0';
+  header.style.paddingInline = 'calc(var(--layout-gutter-outer) + 0.5rem)';
+  header.style.paddingBlock = 'var(--space-section-gap)';
+  header.style.backgroundColor = 'transparent';
+
+  header.appendChild(inner);
+
+  // Logo crossfade: full wordmark → icon mark on scroll
+  const logoFull = header.querySelector('[data-nav-logo-full]');
+  const logoIcon = header.querySelector('[data-nav-logo-icon]');
+  let logoState = 'full';
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 10;
+
+    inner.style.borderColor = scrolled ? 'rgba(0, 0, 0, 0.06)' : 'transparent';
+    inner.style.boxShadow = scrolled ? '0 1px 4px rgba(0, 0, 0, 0.04)' : 'none';
+
+    if (logoFull && logoIcon) {
+      const shouldSwap = window.scrollY > 80;
+      if (shouldSwap && logoState === 'full') {
+        logoState = 'icon';
+        logoFull.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+        logoIcon.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+        logoFull.style.opacity = '0';
+        logoFull.style.visibility = 'hidden';
+        logoIcon.style.opacity = '1';
+        logoIcon.style.visibility = 'visible';
+      } else if (!shouldSwap && logoState === 'icon') {
+        logoState = 'full';
+        logoFull.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+        logoIcon.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+        logoFull.style.opacity = '1';
+        logoFull.style.visibility = 'visible';
+        logoIcon.style.opacity = '0';
+        logoIcon.style.visibility = 'hidden';
+      }
+    }
+  }, { passive: true });
 }
 
 updateHeaderHeight();
@@ -923,8 +1092,37 @@ initNavDropdowns();
 initSliders();
 initStoreMap();
 initButtonEffects();
-// Split hero title text before hero intro so word spans exist
 const heroTitle = document.querySelector('[data-hero-intro] [data-reveal-text]');
 if (heroTitle) splitRevealText(heroTitle);
 initHeroIntro();
-initRevealAnimations(lenis);
+const innerHeroTl = initInnerHeroIntro();
+
+// Hide scroll-animated elements immediately so they don't flash.
+// ScrollTriggers are created after the hero intro finishes.
+if (innerHeroTl && window.gsap) {
+  const gsapRef = window.gsap;
+
+  // Immediately hide everything that will animate on scroll
+  document.querySelectorAll('[data-reveal-text]').forEach((el) => {
+    if (el.closest('.inner-hero-card') || el.closest('.hero-v2-card') || el.closest('[data-hero-intro]')) return;
+    splitRevealText(el);
+    gsapRef.set(el.querySelectorAll('.reveal-word-inner'), { yPercent: 110, opacity: 0 });
+  });
+
+  const fadeEls = Array.from(document.querySelectorAll(
+    'main .section-subtitle, main .eyebrow'
+  )).filter((el) => !el.closest('.inner-hero-card') && !el.closest('.hero-v2-card') && !el.closest('[data-hero-intro]'));
+  gsapRef.set(fadeEls, { y: 16, autoAlpha: 0 });
+
+  document.querySelectorAll('.carwash-card').forEach((el) => gsapRef.set(el, { y: 24, autoAlpha: 0 }));
+  document.querySelectorAll('[data-stagger-cards] > *').forEach((el) => gsapRef.set(el, { y: 24, autoAlpha: 0 }));
+
+  // After hero finishes, create the ScrollTriggers
+  innerHeroTl.call(() => {
+    initRevealAnimations(lenis);
+  });
+} else {
+  initRevealAnimations(lenis);
+}
+
+initNavbarScroll();

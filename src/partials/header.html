@@ -1,8 +1,9 @@
   <!-- Navbar -->
-  <header class="z-50 bg-surface-card px-9 py-8">
+  <header class="z-50 bg-surface-card px-6 py-5">
     <div class="flex items-center gap-8">
-      <a href="./index.html" class="flex-1 shrink-0">
-        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto">
+      <a href="./index.html" class="flex-1 shrink-0 relative" data-nav-logo>
+        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto" data-nav-logo-full>
+        <img src="./assets/beausejour-icon-black.svg" alt="Groupe Beauséjour" class="h-[28px] w-auto absolute left-0 top-1/2 -translate-y-1/2" data-nav-logo-icon style="opacity: 0; visibility: hidden;">
       </a>
       <nav class="hidden md:flex items-center gap-4 shrink-0" aria-label="Navigation principale">
         <a href="./nos-magasins.html" class="{{nav:nos-magasins}}">Nos magasins</a>
