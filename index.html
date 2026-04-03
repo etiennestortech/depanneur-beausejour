@@ -10,21 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
   <link rel="stylesheet" href="./styles.css">
 
 </head>
 <body class="bg-surface-page text-text-body font-body">
 
     <!-- Navbar -->
-  <header class="z-50 bg-surface-card px-9 py-8">
+  <header class="z-50 bg-surface-card px-6 py-5">
     <div class="flex items-center gap-8">
-      <a href="./index.html" class="flex-1 shrink-0">
-        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto">
+      <a href="./index.html" class="flex-1 shrink-0 relative" data-nav-logo>
+        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto" data-nav-logo-full>
+        <img src="./assets/beausejour-icon-black.svg" alt="Groupe Beauséjour" class="h-[28px] w-auto absolute left-0 top-1/2 -translate-y-1/2" data-nav-logo-icon style="opacity: 0; visibility: hidden;">
       </a>
       <nav class="hidden md:flex items-center gap-4 shrink-0" aria-label="Navigation principale">
-        <a href="#" class="nav-link">Nos magasins</a>
-        <a href="#" class="nav-link">Prêt-à-manger</a>
-        <a href="#" class="nav-link">Lave-auto</a>
+        <a href="./nos-magasins.html" class="nav-link">Nos magasins</a>
+        <a href="./pret-a-manger.html" class="nav-link">Prêt-à-manger</a>
+        <a href="./lave-auto.html" class="nav-link">Lave-auto</a>
+        <a href="./carrieres.html" class="nav-link">Carrières</a>
         <div class="nav-dropdown" data-nav-dropdown>
           <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
             Le groupe
@@ -32,14 +35,13 @@
           </button>
           <div class="nav-dropdown-menu">
             <div class="nav-dropdown-panel">
-              <a href="#" class="nav-dropdown-link">À propos</a>
-              <a href="#" class="nav-dropdown-link">Carrières</a>
-              <a href="#" class="nav-dropdown-link">Fournisseurs</a>
-              <a href="#" class="nav-dropdown-link">FAQ</a>
+              <a href="./a-propos.html" class="nav-dropdown-link">À propos</a>
+              <a href="./fournisseurs.html" class="nav-dropdown-link">Fournisseurs</a>
+              <a href="./faq.html" class="nav-dropdown-link">FAQ</a>
             </div>
           </div>
         </div>
-        <a href="#" class="nav-link">Contact</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
       </nav>
       <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
         <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
@@ -48,14 +50,14 @@
     <div id="mobile-menu" class="site-mobile-menu" hidden>
       <div class="site-mobile-menu-inner">
         <nav class="site-mobile-nav" aria-label="Navigation mobile">
-          <a href="#" class="nav-mobile-link">Nos magasins</a>
-          <a href="#" class="nav-mobile-link">Prêt-à-manger</a>
-          <a href="#" class="nav-mobile-link">Lave-auto</a>
-          <a href="#" class="nav-mobile-link">À propos</a>
-          <a href="#" class="nav-mobile-link">Carrières</a>
-          <a href="#" class="nav-mobile-link">Fournisseurs</a>
-          <a href="#" class="nav-mobile-link">FAQ</a>
-          <a href="#" class="nav-mobile-link">Contact</a>
+          <a href="./nos-magasins.html" class="nav-mobile-link">Nos magasins</a>
+          <a href="./pret-a-manger.html" class="nav-mobile-link">Prêt-à-manger</a>
+          <a href="./lave-auto.html" class="nav-mobile-link">Lave-auto</a>
+          <a href="./a-propos.html" class="nav-mobile-link">À propos</a>
+          <a href="./carrieres.html" class="nav-mobile-link">Carrières</a>
+          <a href="./fournisseurs.html" class="nav-mobile-link">Fournisseurs</a>
+          <a href="./faq.html" class="nav-mobile-link">FAQ</a>
+          <a href="./contact.html" class="nav-mobile-link">Contact</a>
         </nav>
       </div>
     </div>
@@ -89,11 +91,11 @@
             <div class="hero-v2-title-wrap">
               <h1 class="hero-v2-title max-w-[11.5ch]" data-reveal-text>Propager la bonne humeur, un client à la fois.</h1>
             </div>
-            <p class="hero-v2-description">Cinq magasins de proximité en Abitibi, au service de notre communauté depuis les années 60.</p>
+            <p class="hero-v2-description">Magasin de proximité ouvert 24 heures sur 24, lave-auto manuel et automatique, prêt-à-manger.</p>
           </div>
           <!-- Bottom: CTA — line — pills -->
           <div class="hero-v2-bottom">
-            <a href="#" class="hero-v2-cta">
+            <a href="./nos-magasins.html" class="hero-v2-cta">
               <span>Trouver un magasin</span>
               <span class="hero-v2-cta-icon">
                 <img src="./assets/icon-hero-arrow.svg" alt="" class="w-[18px] h-[18px]">
@@ -101,15 +103,15 @@
             </a>
             <div class="hero-v2-line"></div>
             <div class="hero-v2-pills">
-              <a href="#" class="hero-v2-pill">
+              <a href="./nos-magasins.html" class="hero-v2-pill">
                 <img src="./assets/icon-hero-store.svg" alt="" class="w-5 h-5">
                 <span>5 magasins</span>
               </a>
-              <a href="#" class="hero-v2-pill">
+              <a href="./lave-auto.html" class="hero-v2-pill">
                 <img src="./assets/icon-hero-carwash.svg" alt="" class="w-5 h-5">
                 <span>Lave-auto</span>
               </a>
-              <a href="#" class="hero-v2-pill">
+              <a href="./pret-a-manger.html" class="hero-v2-pill">
                 <img src="./assets/icon-hero-food.svg" alt="" class="w-5 h-5">
                 <span>Prêt-à-manger</span>
               </a>
@@ -140,7 +142,7 @@
 
         <!-- Row 2: Érick photo + Shell photo + Stats -->
         <div class="intro-mosaic-erick overflow-hidden rounded-card-lg">
-          <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Érick devant un magasin Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
+          <img src="./assets/intro-erick-2.jpg" width="1800" height="1199" alt="Érick devant un magasin Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
         </div>
         <div class="intro-mosaic-shell overflow-hidden rounded-card-lg">
           <img src="./assets/intro-shell-historique.jpg" width="665" height="841" alt="Station Shell historique" class="media-image-cover" loading="lazy" decoding="async">
@@ -173,13 +175,13 @@
           <span class="eyebrow">Nos magasins</span>
           <h2 class="section-title" data-reveal-text>Trouvez votre magasin de proximité.</h2>
           <p class="section-subtitle text-center">Cinq magasins de proximité en Abitibi, au service de notre communauté depuis les années 60.</p>
-          <a href="#" class="btn-neutral mt-2">Nos magasins</a>
+          <a href="./nos-magasins.html" class="btn-neutral mt-2">Nos magasins</a>
         </div>
       </div>
 
       <div data-slider-root>
         <div class="store-slider flex gap-2 overflow-x-auto snap-x snap-mandatory" data-slider>
-          <a href="#" class="store-card group snap-start" data-slider-item>
+          <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
           <img
             src="./assets/stores/store-202-3e-avenue.jpg"
             sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
@@ -202,7 +204,7 @@
             </div>
           </div>
           </a>
-          <a href="#" class="store-card group snap-start" data-slider-item>
+          <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
           <img
             src="./assets/stores/store-1697-3e-avenue.jpg"
             sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
@@ -225,7 +227,7 @@
             </div>
           </div>
           </a>
-          <a href="#" class="store-card group snap-start" data-slider-item>
+          <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
           <img
             src="./assets/stores/store-315-rte-117.jpg"
             sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
@@ -248,7 +250,7 @@
             </div>
           </div>
           </a>
-          <a href="#" class="store-card group snap-start" data-slider-item>
+          <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
           <img
             src="./assets/stores/store-586-av-lariviere.jpg"
             sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
@@ -271,7 +273,7 @@
             </div>
           </div>
           </a>
-          <a href="#" class="store-card group snap-start" data-slider-item>
+          <a href="./nos-magasins.html" class="store-card group snap-start" data-slider-item>
           <img
             src="./assets/stores/store-2965-chem-sullivan.jpg"
             sizes="(min-width: 1280px) 42rem, calc(100vw - 2rem)"
@@ -318,12 +320,12 @@
         <div class="intro-center max-w-2xl">
           <h2 class="section-title" data-reveal-text>Frais et savoureux, chaque jour</h2>
           <p class="section-subtitle text-center">Repas préparés, pâtisseries et café de spécialité — disponibles dans tous nos magasins.</p>
-          <a href="#" class="btn-neutral mt-6">Prêt-à-manger</a>
+          <a href="./pret-a-manger.html" class="btn-neutral mt-6">Prêt-à-manger</a>
         </div>
 
-        <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
+        <div class="grid grid-cols-1 gap-2 md:grid-cols-3" data-stagger-cards>
           <div class="flex flex-col gap-3">
-            <div class="h-[278px] overflow-hidden rounded-card bg-surface-alt" data-reveal-image>
+            <div class="h-[278px] overflow-hidden rounded-card bg-surface-alt">
               <img src="./assets/food-patisseries.jpg" width="1440" height="1800" alt="Pâtisseries" class="media-image-cover" loading="lazy" decoding="async">
             </div>
             <div>
@@ -332,7 +334,7 @@
             </div>
           </div>
           <div class="flex flex-col gap-3">
-            <div class="h-[278px] overflow-hidden rounded-card bg-surface-alt" data-reveal-image>
+            <div class="h-[278px] overflow-hidden rounded-card bg-surface-alt">
               <img src="./assets/food-repas-chauds.jpg" width="1536" height="2048" alt="Repas chauds" class="media-image-cover" loading="lazy" decoding="async">
             </div>
             <div>
@@ -341,7 +343,7 @@
             </div>
           </div>
           <div class="flex flex-col gap-3">
-            <div class="h-[278px] overflow-hidden rounded-card bg-surface-alt" data-reveal-image>
+            <div class="h-[278px] overflow-hidden rounded-card bg-surface-alt">
               <img src="./assets/food-pret-a-manger.jpg" width="1600" height="1068" alt="Prêt-à-manger" class="media-image-cover" loading="lazy" decoding="async">
             </div>
             <div>
@@ -393,7 +395,7 @@
             </div>
           </div>
 
-          <a href="#" class="btn-neutral">Nos lave-autos</a>
+          <a href="./lave-auto.html" class="btn-neutral">Nos lave-autos</a>
         </div>
       </div>
     </section>
@@ -442,7 +444,7 @@
       </div>
 
       <div class="mt-16 flex justify-center">
-        <a href="#" class="btn-neutral">Voir les postes disponibles</a>
+        <a href="./carrieres.html" class="btn-neutral">Voir les postes disponibles</a>
       </div>
     </section>
   </main>
@@ -476,17 +478,17 @@
             </div>
             <div class="flex gap-8">
               <nav class="flex flex-col" aria-label="Pages du site">
-                <a href="#" class="footer-link">Accueil</a>
-                <a href="#" class="footer-link">À propos</a>
-                <a href="#" class="footer-link">Nos magasins</a>
-                <a href="#" class="footer-link">Prêt-à-manger</a>
-                <a href="#" class="footer-link">Lave-auto</a>
+                <a href="./index.html" class="footer-link">Accueil</a>
+                <a href="./a-propos.html" class="footer-link">À propos</a>
+                <a href="./nos-magasins.html" class="footer-link">Nos magasins</a>
+                <a href="./pret-a-manger.html" class="footer-link">Prêt-à-manger</a>
+                <a href="./lave-auto.html" class="footer-link">Lave-auto</a>
               </nav>
               <nav class="flex flex-col" aria-label="Liens secondaires">
-                <a href="#" class="footer-link">Carrières</a>
-                <a href="#" class="footer-link">Fournisseurs</a>
-                <a href="#" class="footer-link">FAQ</a>
-                <a href="#" class="footer-link">Contact</a>
+                <a href="./carrieres.html" class="footer-link">Carrières</a>
+                <a href="./fournisseurs.html" class="footer-link">Fournisseurs</a>
+                <a href="./faq.html" class="footer-link">FAQ</a>
+                <a href="./contact.html" class="footer-link">Contact</a>
               </nav>
             </div>
           </div>
@@ -496,8 +498,8 @@
           <div class="flex flex-wrap items-center justify-between gap-4 border-t border-border-dark pt-8">
             <p class="text-sm opacity-70 text-text-on-dark">© 2026 Groupe Beauséjour. Tous droits réservés.</p>
             <div class="flex gap-6 text-sm opacity-70 text-text-on-dark">
-              <a href="#" class="underline hover:no-underline">Politique de confidentialité</a>
-              <a href="#" class="underline hover:no-underline">Gestion des cookies</a>
+              <a href="./politique-de-confidentialite.html" class="underline hover:no-underline">Politique de confidentialité</a>
+              <a href="./conditions-utilisation.html" class="underline hover:no-underline">Conditions d'utilisation</a>
               <span>Site par <a href="https://laruche.co" class="font-medium hover:underline">La Ruche</a></span>
             </div>
           </div>

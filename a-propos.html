@@ -10,21 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
   <link rel="stylesheet" href="./styles.css">
 
 </head>
-<body class="about-page bg-surface-page text-text-body font-body">
+<body class="bg-surface-page text-text-body font-body">
 
     <!-- Navbar -->
-  <header class="z-50 bg-surface-card px-9 py-8">
+  <header class="z-50 bg-surface-card px-6 py-5">
     <div class="flex items-center gap-8">
-      <a href="./index.html" class="flex-1 shrink-0">
-        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto">
+      <a href="./index.html" class="flex-1 shrink-0 relative" data-nav-logo>
+        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto" data-nav-logo-full>
+        <img src="./assets/beausejour-icon-black.svg" alt="Groupe Beauséjour" class="h-[28px] w-auto absolute left-0 top-1/2 -translate-y-1/2" data-nav-logo-icon style="opacity: 0; visibility: hidden;">
       </a>
       <nav class="hidden md:flex items-center gap-4 shrink-0" aria-label="Navigation principale">
-        <a href="#" class="nav-link">Nos magasins</a>
-        <a href="#" class="nav-link">Prêt-à-manger</a>
-        <a href="#" class="nav-link">Lave-auto</a>
+        <a href="./nos-magasins.html" class="nav-link">Nos magasins</a>
+        <a href="./pret-a-manger.html" class="nav-link">Prêt-à-manger</a>
+        <a href="./lave-auto.html" class="nav-link">Lave-auto</a>
+        <a href="./carrieres.html" class="nav-link">Carrières</a>
         <div class="nav-dropdown" data-nav-dropdown>
           <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
             Le groupe
@@ -32,14 +35,13 @@
           </button>
           <div class="nav-dropdown-menu">
             <div class="nav-dropdown-panel">
-              <a href="#" class="nav-dropdown-link-active">À propos</a>
-              <a href="#" class="nav-dropdown-link">Carrières</a>
-              <a href="#" class="nav-dropdown-link">Fournisseurs</a>
-              <a href="#" class="nav-dropdown-link">FAQ</a>
+              <a href="./a-propos.html" class="nav-dropdown-link-active">À propos</a>
+              <a href="./fournisseurs.html" class="nav-dropdown-link">Fournisseurs</a>
+              <a href="./faq.html" class="nav-dropdown-link">FAQ</a>
             </div>
           </div>
         </div>
-        <a href="#" class="nav-link">Contact</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
       </nav>
       <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
         <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
@@ -48,14 +50,14 @@
     <div id="mobile-menu" class="site-mobile-menu" hidden>
       <div class="site-mobile-menu-inner">
         <nav class="site-mobile-nav" aria-label="Navigation mobile">
-          <a href="#" class="nav-mobile-link">Nos magasins</a>
-          <a href="#" class="nav-mobile-link">Prêt-à-manger</a>
-          <a href="#" class="nav-mobile-link">Lave-auto</a>
-          <a href="#" class="nav-mobile-link-active">À propos</a>
-          <a href="#" class="nav-mobile-link">Carrières</a>
-          <a href="#" class="nav-mobile-link">Fournisseurs</a>
-          <a href="#" class="nav-mobile-link">FAQ</a>
-          <a href="#" class="nav-mobile-link">Contact</a>
+          <a href="./nos-magasins.html" class="nav-mobile-link">Nos magasins</a>
+          <a href="./pret-a-manger.html" class="nav-mobile-link">Prêt-à-manger</a>
+          <a href="./lave-auto.html" class="nav-mobile-link">Lave-auto</a>
+          <a href="./a-propos.html" class="nav-mobile-link-active">À propos</a>
+          <a href="./carrieres.html" class="nav-mobile-link">Carrières</a>
+          <a href="./fournisseurs.html" class="nav-mobile-link">Fournisseurs</a>
+          <a href="./faq.html" class="nav-mobile-link">FAQ</a>
+          <a href="./contact.html" class="nav-mobile-link">Contact</a>
         </nav>
       </div>
     </div>
@@ -63,49 +65,50 @@
 
   <main>
     <!-- Hero -->
-    <section class="section overflow-hidden">
-      <div class="container py-[var(--space-section-lg)]">
+    <section class="section py-[var(--space-section-lg)] overflow-hidden">
+      <div class="container">
         <div class="about-hero-copy">
-          <h1 class="page-title max-w-[14ch] text-center">Entreprise familiale depuis plus de 50 ans.</h1>
-          <p class="page-description max-w-[53rem] text-center">Entreprise régionale établie depuis 1971, nous opérons cinq magasins de proximité à Val-d'Or, Rouyn-Noranda et Louvicourt. Nous offrons une gamme complète de services incluant le prêt-à-manger, l'épicerie, la loterie, le carburant, ainsi que des services de lave-auto et de lave-chien. Ouverts 24 heures sur 24, nous maintenons des standards élevés de qualité et de service. Reconnus comme une référence dans notre région, nous sommes une entreprise proactive, en constante innovation afin de répondre aux besoins de notre clientèle.</p>
+          <h1 class="page-title max-w-prose text-center" data-reveal-text>Entreprise familiale depuis plus de 50 ans.</h1>
+          <p class="page-description max-w-3xl text-center">Entreprise régionale établie depuis 1971, nous opérons cinq magasins de proximité à Val-d'Or, Rouyn-Noranda et Louvicourt. Nous offrons une gamme complète de services incluant le prêt-à-manger, l'épicerie, la loterie, le carburant, ainsi que des services de lave-auto et de lave-chien.</p>
+          <p class="page-description max-w-3xl text-center mt-4">Ouverts 24 heures sur 24, nous maintenons des standards élevés de qualité et de service. Reconnus comme une référence dans notre région, nous sommes une entreprise proactive, en constante innovation afin de répondre aux besoins de notre clientèle.</p>
         </div>
       </div>
       <div class="about-hero-ribbon" aria-label="Moments du Groupe Beauséjour">
         <div class="about-hero-ribbon-track">
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-edge">
+          <figure class="about-hero-ribbon-card" style="--card-w:12rem; --card-h:18rem; --card-w-lg:19.1875rem; --card-h-lg:30.4375rem">
             <img src="./assets/about-histoire-station.jpg" width="1084" height="723" alt="Station Beauséjour historique" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-portrait about-hero-ribbon-card-tilt-left">
+          <figure class="about-hero-ribbon-card" style="--card-w:12rem; --card-h:15rem; --card-w-lg:18.8125rem; --card-h-lg:23.75rem; --card-tilt:-3deg">
             <img src="./assets/store-card-bg.jpg" width="2200" height="1236" alt="Magasin Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-feature about-hero-ribbon-card-tilt-right">
+          <figure class="about-hero-ribbon-card" style="--card-w:18rem; --card-h:12.5rem; --card-mt:1rem; --card-w-lg:31.5625rem; --card-h-lg:19.40625rem; --card-mt-lg:1.0625rem; --card-tilt:3deg">
             <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Érick Beauséjour devant un magasin" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-tall about-hero-ribbon-card-tilt-left">
+          <figure class="about-hero-ribbon-card" style="--card-w:12rem; --card-h:18rem; --card-w-lg:19.1875rem; --card-h-lg:30.4375rem; --card-mt-lg:0.5rem; --card-tilt:-3deg">
             <img src="./assets/about-histoire-station.jpg" width="1084" height="723" alt="Moment d'archive du Groupe Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-wide about-hero-ribbon-card-tilt-right">
+          <figure class="about-hero-ribbon-card" style="--card-w:15rem; --card-h:12rem; --card-w-lg:25.6875rem; --card-h-lg:20.5rem; --card-mt-lg:0.25rem; --card-tilt:3deg">
             <img src="./assets/intro-station-aerial.jpg" width="2200" height="1236" alt="Vue aérienne d'une station Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-edge">
+          <figure class="about-hero-ribbon-card" style="--card-w:12rem; --card-h:18rem; --card-w-lg:19.1875rem; --card-h-lg:30.4375rem">
             <img src="./assets/store-card-bg.jpg" width="2200" height="1236" alt="Façade Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-edge" aria-hidden="true">
+          <figure class="about-hero-ribbon-card" style="--card-w:12rem; --card-h:18rem; --card-w-lg:19.1875rem; --card-h-lg:30.4375rem" aria-hidden="true">
             <img src="./assets/about-histoire-station.jpg" width="1084" height="723" alt="" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-portrait about-hero-ribbon-card-tilt-left" aria-hidden="true">
+          <figure class="about-hero-ribbon-card" style="--card-w:12rem; --card-h:15rem; --card-w-lg:18.8125rem; --card-h-lg:23.75rem; --card-tilt:-3deg" aria-hidden="true">
             <img src="./assets/store-card-bg.jpg" width="2200" height="1236" alt="" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-feature about-hero-ribbon-card-tilt-right" aria-hidden="true">
+          <figure class="about-hero-ribbon-card" style="--card-w:18rem; --card-h:12.5rem; --card-mt:1rem; --card-w-lg:31.5625rem; --card-h-lg:19.40625rem; --card-mt-lg:1.0625rem; --card-tilt:3deg" aria-hidden="true">
             <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-tall about-hero-ribbon-card-tilt-left" aria-hidden="true">
+          <figure class="about-hero-ribbon-card" style="--card-w:12rem; --card-h:18rem; --card-w-lg:19.1875rem; --card-h-lg:30.4375rem; --card-mt-lg:0.5rem; --card-tilt:-3deg" aria-hidden="true">
             <img src="./assets/about-histoire-station.jpg" width="1084" height="723" alt="" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-wide about-hero-ribbon-card-tilt-right" aria-hidden="true">
+          <figure class="about-hero-ribbon-card" style="--card-w:15rem; --card-h:12rem; --card-w-lg:25.6875rem; --card-h-lg:20.5rem; --card-mt-lg:0.25rem; --card-tilt:3deg" aria-hidden="true">
             <img src="./assets/intro-station-aerial.jpg" width="2200" height="1236" alt="" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
-          <figure class="about-hero-ribbon-card about-hero-ribbon-card-edge" aria-hidden="true">
+          <figure class="about-hero-ribbon-card" style="--card-w:12rem; --card-h:18rem; --card-w-lg:19.1875rem; --card-h-lg:30.4375rem" aria-hidden="true">
             <img src="./assets/store-card-bg.jpg" width="2200" height="1236" alt="" class="media-image-cover" loading="lazy" decoding="async">
           </figure>
         </div>
@@ -113,8 +116,8 @@
     </section>
 
     <!-- Timeline -->
-    <section class="section">
-      <div class="container py-[var(--space-section-lg)]">
+    <section class="section py-[var(--space-section-lg)]">
+      <div class="container">
         <div class="about-timeline-layout">
           <div class="about-timeline-copy">
             <h2 class="section-title" data-reveal-text>Notre histoire et nos moments clés</h2>
@@ -192,8 +195,7 @@
     </section>
 
     <!-- Vision -->
-    <section class="section">
-      <div class="container py-[var(--space-section-md)]">
+    <section class="section-cta">
         <div class="about-statement-panel" data-about-statement>
           <div class="about-statement-watermark" aria-hidden="true" data-about-statement-watermark>
             <img src="./assets/beausejour-icon.svg" alt="" class="h-full w-full object-contain">
@@ -203,94 +205,106 @@
             <p class="about-statement-copy" data-about-statement-copy>Nous distinguer par notre service rapide et chaleureux, nos offres et nos sites. En répondant à notre clientèle avec un assortiment de produits à la hauteur de leurs attentes. Dans des emplacements aussi avant-gardistes que sécuritaires. Tout en maintenant des standards de propreté au plus haut niveau.</p>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- Values -->
-    <section class="section">
-      <div class="container py-[var(--space-section-md)]">
-        <div class="intro-left">
+    <section class="section py-[var(--space-section-md)]">
+      <div class="container">
+        <div class="intro-center">
           <h2 class="section-title" data-reveal-text>Nos valeurs</h2>
         </div>
-        <div class="about-values-grid">
-          <div class="about-value-card">
-            <span class="about-value-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor" stroke-width="1.6">
-                <path d="M12 3l7 4v5c0 4.5-2.8 7.4-7 9-4.2-1.6-7-4.5-7-9V7l7-4Z" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="m9.5 12 1.7 1.7 3.3-3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="overflow-hidden rounded-card-lg mb-4">
+          <img src="./assets/about-histoire-station.jpg" alt="Station Beauséjour" class="w-full object-cover" style="aspect-ratio: 3/1;" loading="lazy" decoding="async">
+        </div>
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="card-padded">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l7 4v5c0 4.5-2.8 7.4-7 9-4.2-1.6-7-4.5-7-9V7l7-4Z"/>
+                <path d="m9.5 12 1.7 1.7 3.3-3.4"/>
               </svg>
-            </span>
+            </div>
             <h3 class="card-title">Respect et intégrité</h3>
-            <p class="about-value-card-body">Envers nos employés, nos clients, nos fournisseurs et surtout nous-mêmes. Faire preuve d'honnêteté dans nos communications et d'ouverture d'esprit afin de s'adapter aux opportunités dans notre milieu de travail.</p>
+            <p class="body-text mt-3">Envers nos employés, nos clients, nos fournisseurs et surtout nous-mêmes. Faire preuve d'honnêteté dans nos communications et d'ouverture d'esprit afin de s'adapter aux opportunités dans notre milieu de travail.</p>
           </div>
-          <div class="about-value-card">
-            <span class="about-value-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor" stroke-width="1.6">
-                <path d="M6 13.5 10 17l8-10" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M4 6h16M4 10h8" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="card-padded">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 13.5 10 17l8-10"/>
+                <path d="M4 6h16M4 10h8"/>
               </svg>
-            </span>
+            </div>
             <h3 class="card-title">Qualité</h3>
-            <p class="about-value-card-body">Se positionner solidement à travers les marchés concurrentiels en s'appuyant sur le perfectionnement et l'épanouissement de nos employés qui veulent grandir avec nous.</p>
+            <p class="body-text mt-3">Se positionner solidement à travers les marchés concurrentiels en s'appuyant sur le perfectionnement et l'épanouissement de nos employés qui veulent grandir avec nous.</p>
           </div>
-          <div class="about-value-card">
-            <span class="about-value-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor" stroke-width="1.6">
-                <path d="M6 15 10 11l3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M18 18H6" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="card-padded">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 15 10 11l3 3 5-6"/>
+                <path d="M18 18H6"/>
               </svg>
-            </span>
+            </div>
             <h3 class="card-title">Efficacité</h3>
-            <p class="about-value-card-body">Vibrer à l'idée d'accomplir et de mettre à terme des défis dans le but d'assurer la pérennité et la rentabilité de l'entreprise.</p>
+            <p class="body-text mt-3">Vibrer à l'idée d'accomplir et de mettre à terme des défis dans le but d'assurer la pérennité et la rentabilité de l'entreprise.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Partners -->
-    <section class="section">
-      <div class="container py-[var(--space-section-md)]">
+    <section class="section py-[var(--space-section-md)]">
+      <div class="container">
         <div class="intro-center">
           <span class="eyebrow">Ils nous font confiance</span>
           <h2 class="section-title" data-reveal-text>Nos principaux partenaires.</h2>
         </div>
-        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          <div class="partner-logo"><img src="./assets/partners/voisin.png" alt="Voisin" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="./assets/partners/loto-quebec.png" alt="Loto Québec" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="./assets/partners/xtra-slush.png" alt="Xtra Slush" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="./assets/partners/air-miles.png" alt="Air Miles" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="./assets/partners/shell.png" alt="Shell" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="./assets/partners/zone-bonbons.png" alt="Zone Bonbons" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="./assets/partners/ultramar.png" alt="Ultramar" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="./assets/partners/cari-gingembre.png" alt="Cari &amp; Gingembre" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="./assets/partners/circuit-electrique.png" alt="Circuit électrique" loading="lazy" decoding="async"></div>
+        <div class="partner-marquee">
+          <div class="partner-marquee-track">
+            <img src="./assets/partners/voisin.png" alt="Voisin" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <img src="./assets/partners/loto-quebec.png" alt="Loto Québec" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <img src="./assets/partners/xtra-slush.png" alt="Xtra Slush" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <img src="./assets/partners/air-miles.png" alt="Air Miles" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <img src="./assets/partners/shell.png" alt="Shell" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <img src="./assets/partners/zone-bonbons.svg" alt="Zone Bonbons" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <img src="./assets/partners/ultramar.png" alt="Ultramar" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <img src="./assets/partners/cari-gingembre.png" alt="Cari &amp; Gingembre" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <img src="./assets/partners/circuit-electrique.png" alt="Circuit électrique" class="partner-marquee-logo" loading="lazy" decoding="async">
+            <!-- Duplicate for seamless loop -->
+            <img src="./assets/partners/voisin.png" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="./assets/partners/loto-quebec.png" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="./assets/partners/xtra-slush.png" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="./assets/partners/air-miles.png" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="./assets/partners/shell.png" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="./assets/partners/zone-bonbons.svg" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="./assets/partners/ultramar.png" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="./assets/partners/cari-gingembre.png" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="./assets/partners/circuit-electrique.png" alt="" class="partner-marquee-logo" aria-hidden="true" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CTAs -->
-    <section class="section-alt">
-      <div class="container py-[var(--space-section-md)]">
-        <div class="intro-left">
-          <span class="eyebrow">La suite</span>
-          <h2 class="section-title" data-reveal-text>Poursuivre avec nous.</h2>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2">
-          <div class="card-padded">
+    <section class="section-cta">
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="cta-banner">
+          <img src="./assets/intro-erick.jpg" alt="" aria-hidden="true" class="cta-banner-bg" loading="lazy" decoding="async">
+          <div class="cta-banner-overlay"></div>
+          <div class="cta-banner-content">
             <span class="eyebrow">Carrières</span>
-            <h3 class="card-title-lg mt-4">Joignez notre équipe</h3>
-            <p class="body-text mt-3">On cherche des gens passionnés qui veulent propager la bonne humeur avec nous. Joignez-vous à une équipe dynamique où chaque journée est différente.</p>
-            <div class="mt-6">
-              <a href="./carrieres.html" class="btn-primary">Voir les postes disponibles</a>
-            </div>
+            <h2 class="cta-banner-title" data-reveal-text>Joignez notre équipe</h2>
+            <p class="cta-banner-desc">On cherche des gens passionnés qui veulent propager la bonne humeur avec nous.</p>
+            <a href="./carrieres.html" class="btn-primary mt-4">Voir les postes disponibles</a>
           </div>
-          <div class="card-padded">
+        </div>
+        <div class="cta-banner">
+          <img src="./assets/food-pret-a-manger.jpg" alt="" aria-hidden="true" class="cta-banner-bg" loading="lazy" decoding="async">
+          <div class="cta-banner-overlay"></div>
+          <div class="cta-banner-content">
             <span class="eyebrow">Fournisseurs</span>
-            <h3 class="card-title-lg mt-4">Devenez fournisseur</h3>
-            <p class="body-text mt-3">Nous sommes toujours à la recherche de fournisseurs locaux et régionaux qui partagent nos valeurs de qualité et d'authenticité.</p>
-            <div class="mt-6">
-              <a href="./fournisseurs.html" class="btn-secondary">En savoir plus</a>
-            </div>
+            <h2 class="cta-banner-title" data-reveal-text>Devenez fournisseur</h2>
+            <p class="cta-banner-desc">Nous sommes toujours à la recherche de fournisseurs locaux et régionaux qui partagent nos valeurs de qualité et d'authenticité.</p>
+            <a href="./fournisseurs.html" class="btn-primary mt-4">En savoir plus</a>
           </div>
         </div>
       </div>
@@ -326,17 +340,17 @@
             </div>
             <div class="flex gap-8">
               <nav class="flex flex-col" aria-label="Pages du site">
-                <a href="#" class="footer-link">Accueil</a>
-                <a href="#" class="footer-link">À propos</a>
-                <a href="#" class="footer-link">Nos magasins</a>
-                <a href="#" class="footer-link">Prêt-à-manger</a>
-                <a href="#" class="footer-link">Lave-auto</a>
+                <a href="./index.html" class="footer-link">Accueil</a>
+                <a href="./a-propos.html" class="footer-link">À propos</a>
+                <a href="./nos-magasins.html" class="footer-link">Nos magasins</a>
+                <a href="./pret-a-manger.html" class="footer-link">Prêt-à-manger</a>
+                <a href="./lave-auto.html" class="footer-link">Lave-auto</a>
               </nav>
               <nav class="flex flex-col" aria-label="Liens secondaires">
-                <a href="#" class="footer-link">Carrières</a>
-                <a href="#" class="footer-link">Fournisseurs</a>
-                <a href="#" class="footer-link">FAQ</a>
-                <a href="#" class="footer-link">Contact</a>
+                <a href="./carrieres.html" class="footer-link">Carrières</a>
+                <a href="./fournisseurs.html" class="footer-link">Fournisseurs</a>
+                <a href="./faq.html" class="footer-link">FAQ</a>
+                <a href="./contact.html" class="footer-link">Contact</a>
               </nav>
             </div>
           </div>
@@ -346,8 +360,8 @@
           <div class="flex flex-wrap items-center justify-between gap-4 border-t border-border-dark pt-8">
             <p class="text-sm opacity-70 text-text-on-dark">© 2026 Groupe Beauséjour. Tous droits réservés.</p>
             <div class="flex gap-6 text-sm opacity-70 text-text-on-dark">
-              <a href="#" class="underline hover:no-underline">Politique de confidentialité</a>
-              <a href="#" class="underline hover:no-underline">Gestion des cookies</a>
+              <a href="./politique-de-confidentialite.html" class="underline hover:no-underline">Politique de confidentialité</a>
+              <a href="./conditions-utilisation.html" class="underline hover:no-underline">Conditions d'utilisation</a>
               <span>Site par <a href="https://laruche.co" class="font-medium hover:underline">La Ruche</a></span>
             </div>
           </div>

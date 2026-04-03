@@ -10,21 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
   <link rel="stylesheet" href="./styles.css">
 
 </head>
 <body class="bg-surface-page text-text-body font-body">
 
     <!-- Navbar -->
-  <header class="z-50 bg-surface-card px-9 py-8">
+  <header class="z-50 bg-surface-card px-6 py-5">
     <div class="flex items-center gap-8">
-      <a href="./index.html" class="flex-1 shrink-0">
-        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto">
+      <a href="./index.html" class="flex-1 shrink-0 relative" data-nav-logo>
+        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto" data-nav-logo-full>
+        <img src="./assets/beausejour-icon-black.svg" alt="Groupe Beauséjour" class="h-[28px] w-auto absolute left-0 top-1/2 -translate-y-1/2" data-nav-logo-icon style="opacity: 0; visibility: hidden;">
       </a>
       <nav class="hidden md:flex items-center gap-4 shrink-0" aria-label="Navigation principale">
-        <a href="#" class="nav-link">Nos magasins</a>
-        <a href="#" class="nav-link">Prêt-à-manger</a>
-        <a href="#" class="nav-link">Lave-auto</a>
+        <a href="./nos-magasins.html" class="nav-link">Nos magasins</a>
+        <a href="./pret-a-manger.html" class="nav-link">Prêt-à-manger</a>
+        <a href="./lave-auto.html" class="nav-link">Lave-auto</a>
+        <a href="./carrieres.html" class="nav-link-active">Carrières</a>
         <div class="nav-dropdown" data-nav-dropdown>
           <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
             Le groupe
@@ -32,14 +35,13 @@
           </button>
           <div class="nav-dropdown-menu">
             <div class="nav-dropdown-panel">
-              <a href="#" class="nav-dropdown-link">À propos</a>
-              <a href="#" class="nav-dropdown-link-active">Carrières</a>
-              <a href="#" class="nav-dropdown-link">Fournisseurs</a>
-              <a href="#" class="nav-dropdown-link">FAQ</a>
+              <a href="./a-propos.html" class="nav-dropdown-link">À propos</a>
+              <a href="./fournisseurs.html" class="nav-dropdown-link">Fournisseurs</a>
+              <a href="./faq.html" class="nav-dropdown-link">FAQ</a>
             </div>
           </div>
         </div>
-        <a href="#" class="nav-link">Contact</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
       </nav>
       <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
         <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
@@ -48,14 +50,14 @@
     <div id="mobile-menu" class="site-mobile-menu" hidden>
       <div class="site-mobile-menu-inner">
         <nav class="site-mobile-nav" aria-label="Navigation mobile">
-          <a href="#" class="nav-mobile-link">Nos magasins</a>
-          <a href="#" class="nav-mobile-link">Prêt-à-manger</a>
-          <a href="#" class="nav-mobile-link">Lave-auto</a>
-          <a href="#" class="nav-mobile-link">À propos</a>
-          <a href="#" class="nav-mobile-link-active">Carrières</a>
-          <a href="#" class="nav-mobile-link">Fournisseurs</a>
-          <a href="#" class="nav-mobile-link">FAQ</a>
-          <a href="#" class="nav-mobile-link">Contact</a>
+          <a href="./nos-magasins.html" class="nav-mobile-link">Nos magasins</a>
+          <a href="./pret-a-manger.html" class="nav-mobile-link">Prêt-à-manger</a>
+          <a href="./lave-auto.html" class="nav-mobile-link">Lave-auto</a>
+          <a href="./a-propos.html" class="nav-mobile-link">À propos</a>
+          <a href="./carrieres.html" class="nav-mobile-link-active">Carrières</a>
+          <a href="./fournisseurs.html" class="nav-mobile-link">Fournisseurs</a>
+          <a href="./faq.html" class="nav-mobile-link">FAQ</a>
+          <a href="./contact.html" class="nav-mobile-link">Contact</a>
         </nav>
       </div>
     </div>
@@ -63,204 +65,239 @@
 
   <main>
     <!-- Hero -->
-    <section class="section">
-      <div class="container inner-hero-shell">
-        <div class="inner-hero-copy inner-hero-copy--wide">
-          <span class="tag">Carrières</span>
-          <h1 class="page-title max-w-[13ch]">Propager la bonne humeur, un client à la fois.</h1>
-          <p class="page-description max-w-[44rem]">Joignez une équipe passionnée qui place le service et la bonne humeur au coeur de chaque interaction. Chez Beauséjour, chaque membre de l'équipe contribue à faire de nos magasins des lieux accueillants pour la communauté.</p>
-          <div class="intro-actions">
-            <a href="#postes" class="btn-primary">Voir les postes</a>
-            <a href="#candidature" class="btn-neutral">Postuler maintenant</a>
-          </div>
-        </div>
-        <div class="inner-hero-aside">
-          <div class="inner-hero-media">
-            <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Membre de l'équipe Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
-          </div>
-          <div class="editorial-note-card">
-            <p class="editorial-note-kicker">Culture</p>
-            <p class="editorial-note-title">Un rythme rapide, une équipe soudée.</p>
-            <p class="editorial-note-body">Horaires flexibles, évolution interne et environnement humain. On cherche des gens fiables, chaleureux et fiers du service qu'ils offrent.</p>
-          </div>
+    <section class="inner-hero">
+      <div class="inner-hero-card">
+        <img src="./assets/intro-erick.jpg" alt="" aria-hidden="true" class="inner-hero-bg" loading="eager" fetchpriority="high" decoding="async">
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content">
+          <span class="eyebrow">Carrières</span>
+          <h1 class="inner-hero-title" data-reveal-text>Propagez la bonne humeur avec nous.</h1>
+          <p class="inner-hero-desc">Joignez-vous à une équipe dynamique où chaque journée est différente. On cherche des gens passionnés qui veulent faire une différence dans leur communauté.</p>
         </div>
       </div>
     </section>
 
     <!-- Benefits -->
-    <section class="section-alt">
-      <div class="container py-[var(--space-section-md)]">
-        <div class="intro-left">
+    <section class="section py-[var(--space-section-lg)]">
+      <div class="container">
+        <div class="intro-center">
           <span class="eyebrow">Avantages</span>
-          <h2 class="section-title" data-reveal-text>Pourquoi travailler chez Beauséjour?</h2>
-          <p class="section-subtitle">Un milieu de travail humain, flexible et stimulant, où la progression se bâtit sur le terrain.</p>
+          <h2 class="section-title" data-reveal-text>Avantages à travailler chez nous.</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div class="overflow-hidden rounded-card-lg mb-4">
+          <div class="video-thumbnail" data-video-id="hxhxW3vjIbc">
+            <img src="./assets/careers-video-thumb.jpg" alt="Campagne recrutement Beauséjour" class="video-thumbnail-img" loading="lazy" decoding="async">
+            <div class="video-thumbnail-overlay"></div>
+            <button type="button" class="video-thumbnail-play" aria-label="Lire la vidéo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" style="width:0.82069rem;height:1rem;flex-shrink:0;"><path d="M2.60428e-06 1.29436V14.7038C2.60428e-06 15.7264 1.12609 16.3477 1.9933 15.7911L12.5293 9.08635C12.7138 8.96961 12.8657 8.80812 12.971 8.61689C13.0763 8.42566 13.1315 8.21092 13.1315 7.99262C13.1315 7.77433 13.0763 7.55958 12.971 7.36835C12.8657 7.17712 12.7138 7.01563 12.5293 6.89889L1.9933 0.207101C1.79807 0.0808301 1.57238 0.00959213 1.34004 0.000902643C1.1077 -0.00778684 0.877315 0.0463941 0.673199 0.15773C0.469083 0.269066 0.298801 0.433429 0.180316 0.633479C0.0618309 0.833529 -0.000464198 1.06185 2.60428e-06 1.29436Z" fill="white"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           <div class="card-padded">
-            <h3 class="card-title">Horaires flexibles</h3>
-            <p class="body-text mt-3">Des horaires adaptés à votre réalité — que vous soyez étudiant, parent ou à la recherche d'un emploi à temps plein.</p>
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="var(--color-primary)" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round"><path d="M8.39559 2.55196C9.8705 1.63811 11.1578 2.00638 11.9311 2.59299C12.2482 2.83351 12.4067 2.95378 12.5 2.95378C12.5933 2.95378 12.7518 2.83351 13.0689 2.59299C13.8422 2.00638 15.1295 1.63811 16.6044 2.55196C18.5401 3.75128 18.9781 7.7079 14.5133 11.046C13.6629 11.6818 13.2377 11.9996 12.5 11.9996C11.7623 11.9996 11.3371 11.6818 10.4867 11.046C6.02195 7.7079 6.45994 3.75128 8.39559 2.55196Z"/><path d="M4 14H6.39482C6.68897 14 6.97908 14.0663 7.24217 14.1936L9.28415 15.1816C9.54724 15.3089 9.83735 15.3751 10.1315 15.3751H11.1741C12.1825 15.3751 13 16.1662 13 17.142C13 17.1814 12.973 17.2161 12.9338 17.2269L10.3929 17.9295C9.93707 18.0555 9.449 18.0116 9.025 17.8064L6.84211 16.7503"/><path d="M13 16.5L17.5928 15.0889C18.407 14.8352 19.2871 15.136 19.7971 15.8423C20.1659 16.3529 20.0157 17.0842 19.4785 17.3942L11.9629 21.7305C11.4849 22.0063 10.9209 22.0736 10.3952 21.9176L4 20.0199"/></svg></div>
+            <h3 class="card-title">Entreprise familiale</h3>
+            <p class="body-text mt-3">Nous sommes une entreprise familiale pour qui la proximité avec nos employés est essentielle. Nous plaçons l'humain en priorité numéro un dans toutes nos interventions et décisions.</p>
           </div>
           <div class="card-padded">
-            <h3 class="card-title">Environnement familial</h3>
-            <p class="body-text mt-3">Une équipe soudée où règne le respect, l'entraide et la bonne humeur au quotidien.</p>
-          </div>
-          <div class="card-padded">
-            <h3 class="card-title">Formation continue</h3>
-            <p class="body-text mt-3">Un accompagnement dès votre arrivée et des occasions d'apprentissage pour développer vos compétences.</p>
-          </div>
-          <div class="card-padded">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="var(--color-primary)" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linejoin="round"><path d="M20.5 10.5V19.5C20.5 19.9659 20.5 20.1989 20.4239 20.3827C20.3224 20.6277 20.1277 20.8224 19.8827 20.9239C19.6989 21 19.4659 21 19 21C18.5341 21 18.3011 21 18.1173 20.9239C17.8723 20.8224 17.6776 20.6277 17.5761 20.3827C17.5 20.1989 17.5 19.9659 17.5 19.5V10.5C17.5 10.0341 17.5 9.80109 17.5761 9.61732C17.6776 9.37229 17.8723 9.17761 18.1173 9.07612C18.3011 9 18.5341 9 19 9C19.4659 9 19.6989 9 19.8827 9.07612C20.1277 9.17761 20.3224 9.37229 20.4239 9.61732C20.5 9.80109 20.5 10.0341 20.5 10.5Z"/><path d="M16.5 3H19.5V6"/><path d="M19 3.5C19 3.5 15 8.5 4.5 12"/><path d="M13.5 14V19.5C13.5 19.9659 13.5 20.1989 13.4239 20.3827C13.3224 20.6277 13.1277 20.8224 12.8827 20.9239C12.6989 21 12.4659 21 12 21C11.5341 21 11.3011 21 11.1173 20.9239C10.8723 20.8224 10.6776 20.6277 10.5761 20.3827C10.5 20.1989 10.5 19.9659 10.5 19.5V14C10.5 13.5341 10.5 13.3011 10.5761 13.1173C10.6776 12.8723 10.8723 12.6776 11.1173 12.5761C11.3011 12.5 11.5341 12.5 12 12.5C12.4659 12.5 12.6989 12.5 12.8827 12.5761C13.1277 12.6776 13.3224 12.8723 13.4239 13.1173C13.5 13.3011 13.5 13.5341 13.5 14Z"/><path d="M6.5 16.5V19.5C6.5 19.9659 6.5 20.1989 6.42388 20.3827C6.32239 20.6277 6.12771 20.8224 5.88268 20.9239C5.69891 21 5.46594 21 5 21C4.53406 21 4.30109 21 4.11732 20.9239C3.87229 20.8224 3.67761 20.6277 3.57612 20.3827C3.5 20.1989 3.5 19.9659 3.5 19.5V16.5C3.5 16.0341 3.5 15.8011 3.57612 15.6173C3.67761 15.3723 3.87229 15.1776 4.11732 15.0761C4.30109 15 4.53406 15 5 15C5.46594 15 5.69891 15 5.88268 15.0761C6.12771 15.1776 6.32239 15.3723 6.42388 15.6173C6.5 15.8011 6.5 16.0341 6.5 16.5Z"/></svg></div>
             <h3 class="card-title">Possibilités d'avancement</h3>
-            <p class="body-text mt-3">Plusieurs de nos gestionnaires ont commencé comme commis. Votre progression est entre vos mains.</p>
+            <p class="body-text mt-3">Nous offrons de réelles possibilités d'avancement, permettant à chaque employé de progresser au sein de nos différents départements et magasins.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team Snapshot -->
-    <section class="section">
-      <div class="container py-[var(--space-section-md)]">
-        <div class="editorial-split">
-          <div class="editorial-split-copy">
-            <span class="eyebrow">Notre équipe</span>
-            <h2 class="section-title mt-3" data-reveal-text>Un quotidien vivant, jamais générique.</h2>
-            <p class="section-subtitle mt-4">Entre service, cuisine, caisse et gestion, chaque journée est différente. On aime les gens capables d'apporter de l'énergie, du soin et de la constance.</p>
-            <div class="editorial-chip-row mt-6">
-              <span class="editorial-chip">Service client</span>
-              <span class="editorial-chip">Cuisine</span>
-              <span class="editorial-chip">Gestion</span>
-              <span class="editorial-chip">Nuit et jour</span>
-            </div>
+          <div class="card-padded">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="var(--color-primary)" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M15 20.3333C15 20.3333 15.875 20.3333 16.75 22C16.75 22 19.5294 17.8333 22 17"/><path d="M12 8V12L14 14"/><path d="M21.9506 13C21.9833 12.6711 22 12.3375 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.1853 5.94668 21.4489 11 21.9506"/></svg></div>
+            <h3 class="card-title">Horaires flexibles</h3>
+            <p class="body-text mt-3">Nous offrons des horaires flexibles afin de mieux concilier travail et vie personnelle.</p>
           </div>
-          <div class="editorial-split-media md:grid-cols-2">
-            <div class="editorial-media-card min-h-[22rem]">
-              <img src="./assets/intro-erick.jpg" width="1800" height="1199" alt="Gestionnaire Beauséjour" class="media-image-cover" loading="lazy" decoding="async">
-            </div>
-            <div class="editorial-note-card self-end">
-              <p class="editorial-note-kicker">Évolution</p>
-              <p class="editorial-note-title">Plusieurs gestionnaires ont commencé au plancher.</p>
-              <p class="editorial-note-body">Le terrain compte. L'autonomie, l'attitude et la rigueur ouvrent rapidement la porte à davantage de responsabilités.</p>
-            </div>
+          <div class="card-padded">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="var(--color-primary)" fill="none" stroke="var(--color-primary)" stroke-width="1"><circle cx="12" cy="6" r="4"/><path d="M5 16C3.7492 16.6327 3 17.4385 3 18.3158C3 20.3505 7.02944 22 12 22C16.9706 22 21 20.3505 21 18.3158C21 17.4385 20.2508 16.6327 19 16"/><path d="M12 10L12 18"/></svg></div>
+            <h3 class="card-title">Impact local</h3>
+            <p class="body-text mt-3">Travailler chez nous contribue directement à un impact local positif.</p>
+          </div>
+          <div class="card-padded">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="var(--color-primary)" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round"><path d="M2 7H4.86503C5.59174 7 6.28868 6.64031 6.80255 6.00005C7.53643 5.08565 8.62195 4.76636 9.60655 5.17529L11 5.75402M2 15.9668H3.62068C4.78017 15.9668 5.35991 15.9668 5.90812 16.1213C5.93477 16.1288 5.96134 16.1366 5.98782 16.1446C6.53259 16.3101 7.01496 16.6209 7.97971 17.2427C9.86787 18.4596 10.812 19.0681 11.8407 18.994C11.8892 18.9905 11.9376 18.9858 11.9859 18.9801C13.0096 18.8577 13.8119 18.0821 15.4166 16.5308L17 15"/><path d="M22 7.23384H19.4832C18.4174 7.23384 17.6649 6.65468 16.9003 5.88258C16.4051 5.38247 15.7731 5.08772 15.1088 5.04713C14.366 5.00175 13.5053 4.93785 12.784 5.13601C11.9811 5.35656 11.451 5.96063 10.8902 6.59196L9.44309 8.22111C8.8523 8.88621 8.8523 9.96455 9.44309 10.6297C9.953 11.2037 10.7519 11.2928 11.3519 10.8424C11.7837 10.5184 12.2743 9.99506 12.7831 9.83025C13.3557 9.64476 13.7109 10.0615 14.0354 10.4999L16.3556 13.6344C17.2167 14.7976 17.6472 15.3793 18.2358 15.6896C18.8244 16 19.4969 16 20.842 16H22"/></svg></div>
+            <h3 class="card-title">Inclusivité</h3>
+            <p class="body-text mt-3">Nous prônons l'inclusivité à travers toute notre entreprise, autant dans nos pratiques que dans notre environnement de travail.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Job Postings -->
-    <section id="postes" class="section-alt">
-      <div class="container py-[var(--space-section-md)]">
-        <div class="intro-left">
+    <section id="postes" class="section py-[var(--space-section-lg)]">
+      <div class="container">
+        <div class="intro-center">
           <span class="eyebrow">Postes disponibles</span>
           <h2 class="section-title" data-reveal-text>Trouvez votre place dans l'équipe.</h2>
-          <p class="section-subtitle">Consultez nos postes ouverts et postulez dès aujourd'hui.</p>
+          <p class="section-subtitle">Voici les postes présentement ouverts au sein du Groupe Beauséjour.</p>
         </div>
         <div class="grid gap-4">
           <div class="card-compact">
             <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
                 <h3 class="card-title">Directeur(trice) de magasin</h3>
-                <p class="body-text mt-1">Gérer les opérations quotidiennes, mobiliser l'équipe et assurer un service à la clientèle exemplaire.</p>
+                <p class="body-text mt-1">Gestion d'un emplacement, leadership d'équipe, opérations quotidiennes.</p>
+                <div class="flex flex-wrap gap-4 mt-3" style="font-size: var(--type-size-ui);">
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Tous les emplacements</span>
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Temps plein</span>
+                </div>
               </div>
-              <a href="#candidature" class="btn-primary shrink-0">Postuler</a>
+              <button type="button" class="btn-primary shrink-0" data-apply-job="Directeur(trice) de magasin">Postuler</button>
             </div>
           </div>
           <div class="card-compact">
             <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
                 <h3 class="card-title">Assistant(e)-directeur(trice)</h3>
-                <p class="body-text mt-1">Appuyer la direction dans la gestion du magasin, superviser le personnel et optimiser les opérations.</p>
+                <p class="body-text mt-1">Appui au directeur dans les opérations et la gestion d'équipe.</p>
+                <div class="flex flex-wrap gap-4 mt-3" style="font-size: var(--type-size-ui);">
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Tous les emplacements</span>
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Temps plein</span>
+                </div>
               </div>
-              <a href="#candidature" class="btn-primary shrink-0">Postuler</a>
+              <button type="button" class="btn-primary shrink-0" data-apply-job="Assistant(e)-directeur(trice)">Postuler</button>
             </div>
           </div>
           <div class="card-compact">
             <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
                 <h3 class="card-title">Commis cuisine — Louvicourt</h3>
-                <p class="body-text mt-1">Préparer les produits de prêt-à-manger, maintenir la propreté et offrir un service chaleureux.</p>
+                <p class="body-text mt-1">Préparation des repas prêt-à-manger à l'emplacement Loubell Voisin.</p>
+                <div class="flex flex-wrap gap-4 mt-3" style="font-size: var(--type-size-ui);">
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Louvicourt</span>
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Temps partiel / plein</span>
+                </div>
               </div>
-              <a href="#candidature" class="btn-primary shrink-0">Postuler</a>
+              <button type="button" class="btn-primary shrink-0" data-apply-job="Commis cuisine — Louvicourt">Postuler</button>
             </div>
           </div>
           <div class="card-compact">
             <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
                 <h3 class="card-title">Commis cuisine — Val-d'Or</h3>
-                <p class="body-text mt-1">Préparer les produits de prêt-à-manger, maintenir la propreté et offrir un service chaleureux.</p>
+                <p class="body-text mt-1">Préparation des repas prêt-à-manger dans nos emplacements de Val-d'Or.</p>
+                <div class="flex flex-wrap gap-4 mt-3" style="font-size: var(--type-size-ui);">
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Val-d'Or</span>
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Temps partiel / plein</span>
+                </div>
               </div>
-              <a href="#candidature" class="btn-primary shrink-0">Postuler</a>
+              <button type="button" class="btn-primary shrink-0" data-apply-job="Commis cuisine — Val-d'Or">Postuler</button>
             </div>
           </div>
           <div class="card-compact">
             <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
                 <h3 class="card-title">Caissier(ère) flottant(e)</h3>
-                <p class="body-text mt-1">Assurer le service aux caisses dans plusieurs succursales selon les besoins, avec polyvalence et entregent.</p>
+                <p class="body-text mt-1">Service à la caisse dans différents emplacements selon les besoins.</p>
+                <div class="flex flex-wrap gap-4 mt-3" style="font-size: var(--type-size-ui);">
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Endroit variable</span>
+                  <span class="flex items-center gap-1.5 text-text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Horaire variable</span>
+                </div>
               </div>
-              <a href="#candidature" class="btn-primary shrink-0">Postuler</a>
+              <button type="button" class="btn-primary shrink-0" data-apply-job="Caissier(ère) flottant(e)">Postuler</button>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Application Form -->
-    <section id="candidature" class="section">
-      <div class="container py-[var(--space-section-md)]">
-        <div class="intro-center">
-          <span class="eyebrow">Candidature</span>
-          <h2 class="section-title" data-reveal-text>Postulez dès maintenant.</h2>
-          <p class="section-subtitle">Remplissez le formulaire ci-dessous et notre équipe vous contactera rapidement.</p>
-        </div>
-        <div class="mx-auto max-w-[40rem]">
-          <div class="contact-form-panel">
-            <h3 class="contact-form-title">Envoyer ma candidature</h3>
-            <form class="contact-form-fields">
-              <div class="grid gap-5 md:grid-cols-2">
-                <div class="contact-form-field">
-                  <label for="prenom" class="contact-form-label">Prénom</label>
-                  <input type="text" id="prenom" name="prenom" class="form-input contact-form-input" required>
-                </div>
-                <div class="contact-form-field">
-                  <label for="nom" class="contact-form-label">Nom</label>
-                  <input type="text" id="nom" name="nom" class="form-input contact-form-input" required>
-                </div>
-              </div>
-              <div class="grid gap-5 md:grid-cols-2">
-                <div class="contact-form-field">
-                  <label for="courriel" class="contact-form-label">Courriel</label>
-                  <input type="email" id="courriel" name="courriel" class="form-input contact-form-input" required>
-                </div>
-                <div class="contact-form-field">
-                  <label for="telephone" class="contact-form-label">Téléphone</label>
-                  <input type="tel" id="telephone" name="telephone" class="form-input contact-form-input">
-                </div>
-              </div>
-              <div class="contact-form-field">
-                <label for="succursale" class="contact-form-label">Succursale souhaitée</label>
-                <select id="succursale" name="succursale" class="form-input contact-form-input">
-                  <option value="">Sélectionnez une succursale</option>
-                  <option value="voisin-202">Beauséjour Voisin 202</option>
-                  <option value="voisin-1697">Beauséjour Voisin 1697</option>
-                  <option value="loubell">Loubell Voisin</option>
-                  <option value="shell-117">Beauséjour Shell 117</option>
-                  <option value="111-sud">Beauséjour 111 Sud</option>
-                </select>
-              </div>
-              <div class="contact-form-field">
-                <label for="cv" class="contact-form-label">CV</label>
-                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" class="form-input contact-form-input">
-              </div>
-              <div class="contact-form-field">
-                <label for="message" class="contact-form-label">Message</label>
-                <textarea id="message" name="message" rows="5" class="form-input contact-form-input contact-form-textarea" placeholder="Parlez-nous de vous et de votre intérêt pour le poste..."></textarea>
-              </div>
-              <button type="submit" class="btn-primary contact-form-submit">Envoyer ma candidature</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
+
+  <!-- Application Modal -->
+  <div class="modal-backdrop" id="apply-modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-labelledby="apply-modal-title">
+      <button type="button" class="modal-close" data-close-modal aria-label="Fermer">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body">
+        <span class="eyebrow">Candidature</span>
+        <h3 class="contact-form-title mt-2" id="apply-modal-title"></h3>
+        <form class="contact-form-fields mt-6">
+          <div class="contact-form-field">
+            <label for="modal-nom" class="contact-form-label">Nom</label>
+            <input type="text" id="modal-nom" name="nom" class="form-input contact-form-input" required>
+          </div>
+          <div class="grid gap-5 md:grid-cols-2">
+            <div class="contact-form-field">
+              <label for="modal-courriel" class="contact-form-label">Courriel</label>
+              <input type="email" id="modal-courriel" name="courriel" class="form-input contact-form-input" required>
+            </div>
+            <div class="contact-form-field">
+              <label for="modal-telephone" class="contact-form-label">Téléphone</label>
+              <input type="tel" id="modal-telephone" name="telephone" class="form-input contact-form-input">
+            </div>
+          </div>
+          <div class="contact-form-field">
+            <label for="modal-succursale" class="contact-form-label">Emplacement souhaité</label>
+            <select id="modal-succursale" name="succursale" class="form-input contact-form-input">
+              <option value="">Sélectionnez un magasin</option>
+              <option value="voisin-202">Beauséjour Voisin 202</option>
+              <option value="voisin-1697">Beauséjour Voisin 1697</option>
+              <option value="loubell">Loubell Voisin</option>
+              <option value="shell-117">Beauséjour Shell 117</option>
+              <option value="111-sud">Beauséjour 111 Sud</option>
+            </select>
+          </div>
+          <div class="contact-form-field">
+            <label for="modal-message" class="contact-form-label">Message (optionnel)</label>
+            <textarea id="modal-message" name="message" rows="4" class="form-input contact-form-input contact-form-textarea" placeholder="Parlez-nous de vous..."></textarea>
+          </div>
+          <div class="contact-form-field">
+            <label for="modal-cv" class="contact-form-label">CV (PDF)</label>
+            <input type="file" id="modal-cv" name="cv" accept=".pdf,.doc,.docx" class="form-input contact-form-input">
+          </div>
+          <button type="submit" class="btn-primary contact-form-submit">Envoyer ma candidature</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const modal = document.getElementById('apply-modal');
+      const title = document.getElementById('apply-modal-title');
+
+      function openModal(jobName) {
+        title.textContent = jobName;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-apply-job]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          openModal(this.getAttribute('data-apply-job'));
+        });
+      });
+
+      modal.querySelector('[data-close-modal]').addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    })();
+
+    // Video thumbnail → iframe swap
+    document.querySelectorAll('.video-thumbnail').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var id = this.getAttribute('data-video-id');
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('src', 'https://www.youtube.com/embed/' + id + '?autoplay=1');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+        this.innerHTML = '';
+        this.style.position = 'relative';
+        this.appendChild(iframe);
+      });
+    });
+  </script>
 
     <!-- Footer -->
   <footer class="footer">
@@ -291,17 +328,17 @@
             </div>
             <div class="flex gap-8">
               <nav class="flex flex-col" aria-label="Pages du site">
-                <a href="#" class="footer-link">Accueil</a>
-                <a href="#" class="footer-link">À propos</a>
-                <a href="#" class="footer-link">Nos magasins</a>
-                <a href="#" class="footer-link">Prêt-à-manger</a>
-                <a href="#" class="footer-link">Lave-auto</a>
+                <a href="./index.html" class="footer-link">Accueil</a>
+                <a href="./a-propos.html" class="footer-link">À propos</a>
+                <a href="./nos-magasins.html" class="footer-link">Nos magasins</a>
+                <a href="./pret-a-manger.html" class="footer-link">Prêt-à-manger</a>
+                <a href="./lave-auto.html" class="footer-link">Lave-auto</a>
               </nav>
               <nav class="flex flex-col" aria-label="Liens secondaires">
-                <a href="#" class="footer-link">Carrières</a>
-                <a href="#" class="footer-link">Fournisseurs</a>
-                <a href="#" class="footer-link">FAQ</a>
-                <a href="#" class="footer-link">Contact</a>
+                <a href="./carrieres.html" class="footer-link">Carrières</a>
+                <a href="./fournisseurs.html" class="footer-link">Fournisseurs</a>
+                <a href="./faq.html" class="footer-link">FAQ</a>
+                <a href="./contact.html" class="footer-link">Contact</a>
               </nav>
             </div>
           </div>
@@ -311,8 +348,8 @@
           <div class="flex flex-wrap items-center justify-between gap-4 border-t border-border-dark pt-8">
             <p class="text-sm opacity-70 text-text-on-dark">© 2026 Groupe Beauséjour. Tous droits réservés.</p>
             <div class="flex gap-6 text-sm opacity-70 text-text-on-dark">
-              <a href="#" class="underline hover:no-underline">Politique de confidentialité</a>
-              <a href="#" class="underline hover:no-underline">Gestion des cookies</a>
+              <a href="./politique-de-confidentialite.html" class="underline hover:no-underline">Politique de confidentialité</a>
+              <a href="./conditions-utilisation.html" class="underline hover:no-underline">Conditions d'utilisation</a>
               <span>Site par <a href="https://laruche.co" class="font-medium hover:underline">La Ruche</a></span>
             </div>
           </div>

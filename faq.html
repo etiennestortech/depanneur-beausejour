@@ -10,21 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 
+  <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
   <link rel="stylesheet" href="./styles.css">
 
 </head>
 <body class="bg-surface-page text-text-body font-body">
 
     <!-- Navbar -->
-  <header class="z-50 bg-surface-card px-9 py-8">
+  <header class="z-50 bg-surface-card px-6 py-5">
     <div class="flex items-center gap-8">
-      <a href="./index.html" class="flex-1 shrink-0">
-        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto">
+      <a href="./index.html" class="flex-1 shrink-0 relative" data-nav-logo>
+        <img src="./assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto" data-nav-logo-full>
+        <img src="./assets/beausejour-icon-black.svg" alt="Groupe Beauséjour" class="h-[28px] w-auto absolute left-0 top-1/2 -translate-y-1/2" data-nav-logo-icon style="opacity: 0; visibility: hidden;">
       </a>
       <nav class="hidden md:flex items-center gap-4 shrink-0" aria-label="Navigation principale">
-        <a href="#" class="nav-link">Nos magasins</a>
-        <a href="#" class="nav-link">Prêt-à-manger</a>
-        <a href="#" class="nav-link">Lave-auto</a>
+        <a href="./nos-magasins.html" class="nav-link">Nos magasins</a>
+        <a href="./pret-a-manger.html" class="nav-link">Prêt-à-manger</a>
+        <a href="./lave-auto.html" class="nav-link">Lave-auto</a>
+        <a href="./carrieres.html" class="nav-link">Carrières</a>
         <div class="nav-dropdown" data-nav-dropdown>
           <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
             Le groupe
@@ -32,14 +35,13 @@
           </button>
           <div class="nav-dropdown-menu">
             <div class="nav-dropdown-panel">
-              <a href="#" class="nav-dropdown-link">À propos</a>
-              <a href="#" class="nav-dropdown-link">Carrières</a>
-              <a href="#" class="nav-dropdown-link">Fournisseurs</a>
-              <a href="#" class="nav-dropdown-link-active">FAQ</a>
+              <a href="./a-propos.html" class="nav-dropdown-link">À propos</a>
+              <a href="./fournisseurs.html" class="nav-dropdown-link">Fournisseurs</a>
+              <a href="./faq.html" class="nav-dropdown-link-active">FAQ</a>
             </div>
           </div>
         </div>
-        <a href="#" class="nav-link">Contact</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
       </nav>
       <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
         <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
@@ -48,28 +50,29 @@
     <div id="mobile-menu" class="site-mobile-menu" hidden>
       <div class="site-mobile-menu-inner">
         <nav class="site-mobile-nav" aria-label="Navigation mobile">
-          <a href="#" class="nav-mobile-link">Nos magasins</a>
-          <a href="#" class="nav-mobile-link">Prêt-à-manger</a>
-          <a href="#" class="nav-mobile-link">Lave-auto</a>
-          <a href="#" class="nav-mobile-link">À propos</a>
-          <a href="#" class="nav-mobile-link">Carrières</a>
-          <a href="#" class="nav-mobile-link">Fournisseurs</a>
-          <a href="#" class="nav-mobile-link-active">FAQ</a>
-          <a href="#" class="nav-mobile-link">Contact</a>
+          <a href="./nos-magasins.html" class="nav-mobile-link">Nos magasins</a>
+          <a href="./pret-a-manger.html" class="nav-mobile-link">Prêt-à-manger</a>
+          <a href="./lave-auto.html" class="nav-mobile-link">Lave-auto</a>
+          <a href="./a-propos.html" class="nav-mobile-link">À propos</a>
+          <a href="./carrieres.html" class="nav-mobile-link">Carrières</a>
+          <a href="./fournisseurs.html" class="nav-mobile-link">Fournisseurs</a>
+          <a href="./faq.html" class="nav-mobile-link-active">FAQ</a>
+          <a href="./contact.html" class="nav-mobile-link">Contact</a>
         </nav>
       </div>
     </div>
   </header>
 
     <main>
-      <section class="section">
-      <div class="faq-shell container">
-        <div class="faq-header intro-stack">
-          <span class="tag">FAQ</span>
-          <h1 class="faq-title">Foire aux questions</h1>
-          <p class="faq-description">Trouvez les réponses aux questions les plus fréquentes concernant nos magasins, services et produits.</p>
-        </div>
+      <!-- Hero -->
+      <section class="simple-hero">
+        <span class="eyebrow">FAQ</span>
+        <h1 class="simple-hero-title" data-reveal-text>Questions fréquentes</h1>
+        <p class="simple-hero-desc">Trouvez rapidement les réponses à vos questions sur nos magasins, services et produits.</p>
+      </section>
 
+      <section class="section py-[var(--space-section-lg)]">
+      <div class="container">
         <div class="faq-groups">
 
           <!-- Group 1: Magasins et horaires -->
@@ -85,7 +88,7 @@
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Trois succursales sont ouvertes 24h/7 (Beauséjour Voisin 202, 1697 et Shell 117). Le Loubell Voisin: lun-sam 6h-21h, dim 7h-21h. Le Beauséjour 111 Sud: lun-sam 6h-23h, dim 7h-23h.</p>
+                  <p class="faq-answer-text">Trois de nos cinq magasins de proximité sont ouverts 24h/7 (Beauséjour 202, Beauséjour 1697 et Beauséjour Shell 117). Les autres emplacements ont des horaires spécifiques — consultez la page « Nos magasins » pour les détails.</p>
                 </div>
               </details>
               <details class="faq-item">
@@ -94,16 +97,16 @@
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">5 magasins en Abitibi: 3 à Val-d'Or, 1 à Louvicourt, 1 à Rouyn-Noranda.</p>
+                  <p class="faq-answer-text">Nous avons cinq magasins de proximité en Abitibi: deux à Val-d'Or sur la 3e Avenue (202 et 1697), un à Louvicourt (Loubell Voisin), un à Rouyn-Noranda (Shell 117), et un au sud de Val-d'Or (111 Sud).</p>
                 </div>
               </details>
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Comment trouver le magasin le plus près?</span>
+                  <span class="faq-question">Comment trouver le magasin le plus proche?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Consultez notre page <a href="./nos-magasins.html">Nos magasins</a> pour les adresses et directions.</p>
+                  <p class="faq-answer-text">Visitez notre page « <a href="./nos-magasins.html">Nos magasins</a> » pour voir la carte et les coordonnées de chaque emplacement, incluant un lien vers l'itinéraire.</p>
                 </div>
               </details>
             </div>
@@ -118,29 +121,29 @@
             <div class="faq-accordion">
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Quelles marques d'essence offrez-vous?</span>
+                  <span class="faq-question">Est-ce que vous offrez de l'essence?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Nos succursales opèrent sous les bannières Voisin (Ultramar), Shell et indépendant.</p>
+                  <p class="faq-answer-text">Oui! Nous offrons de l'essence Shell dans la plupart de nos emplacements, avec Air Miles. Notre succursale de Louvicourt offre de l'essence Ultramar.</p>
                 </div>
               </details>
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Acceptez-vous les cartes Air Miles?</span>
+                  <span class="faq-question">Acceptez-vous Air Miles?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Oui, les cartes Air Miles/Scène+ sont acceptées dans toutes nos succursales.</p>
+                  <p class="faq-answer-text">Oui, les cartes Air Miles sont acceptées dans nos stations Shell (202, 1697 et Shell 117).</p>
                 </div>
               </details>
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Offrez-vous le propane?</span>
+                  <span class="faq-question">Offrez-vous du propane?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Oui, le propane est disponible dans toutes nos succursales.</p>
+                  <p class="faq-answer-text">Oui, le propane est disponible aux emplacements Beauséjour 1697 et Loubell Voisin (Louvicourt).</p>
                 </div>
               </details>
             </div>
@@ -159,25 +162,25 @@
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Automatique (3 succursales), manuel 4 baies (Voisin 202) et lave-chien (Voisin 202).</p>
+                  <p class="faq-answer-text">Nous offrons des lave-autos automatiques (202 et 1697), des lave-autos manuels libre-service (202 avec 4 baies et 111 Sud), ainsi qu'un lave-chien unique au 202, 3e Avenue.</p>
                 </div>
               </details>
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Où est situé le lave-chien?</span>
+                  <span class="faq-question">Où se trouve le lave-chien?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Au Beauséjour Voisin, 202 3e Avenue, Val-d'Or.</p>
+                  <p class="faq-answer-text">Notre lave-chien est disponible uniquement au 202, 3e Avenue à Val-d'Or.</p>
                 </div>
               </details>
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Peut-on réserver en ligne?</span>
+                  <span class="faq-question">Peut-on réserver un lave-auto en ligne?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Cette fonctionnalité sera bientôt disponible.</p>
+                  <p class="faq-answer-text">Pas encore, mais un système de réservation en ligne est prévu pour bientôt. Restez à l'affût!</p>
                 </div>
               </details>
             </div>
@@ -192,20 +195,20 @@
             <div class="faq-accordion">
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Le prêt-à-manger est-il disponible dans tous les magasins?</span>
+                  <span class="faq-question">Est-ce que tous les magasins offrent du prêt-à-manger?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Oui, tous nos magasins offrent une sélection de produits prêt-à-manger.</p>
+                  <p class="faq-answer-text">La majorité de nos emplacements offrent des options prêt-à-manger. L'offre varie selon le magasin — consultez la page de chaque emplacement pour les détails.</p>
                 </div>
               </details>
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Qu'est-ce que Cari &amp; Gingembre?</span>
+                  <span class="faq-question">D'où proviennent vos produits prêt-à-manger?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">C'est une entreprise locale de production alimentaire dont les produits frais sont disponibles dans nos réfrigérateurs.</p>
+                  <p class="faq-answer-text">Plusieurs de nos produits sont préparés par Cari &amp; Gingembre, une entreprise de production alimentaire locale. Nous valorisons les partenariats locaux.</p>
                 </div>
               </details>
             </div>
@@ -220,11 +223,11 @@
             <div class="faq-accordion">
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <span class="faq-question">Comment postuler?</span>
+                  <span class="faq-question">Comment postuler chez Beauséjour?</span>
                   <span class="faq-toggle"></span>
                 </summary>
                 <div class="faq-answer">
-                  <p class="faq-answer-text">Visitez notre page <a href="./carrieres.html">Carrières</a> pour voir les postes disponibles et soumettre votre candidature.</p>
+                  <p class="faq-answer-text">Rendez-vous sur notre page « <a href="./carrieres.html">Carrières</a> » pour voir les postes disponibles et soumettre votre candidature en ligne. Vous pouvez aussi envoyer votre CV directement à rh@groupebeausejour.com.</p>
                 </div>
               </details>
             </div>
@@ -274,17 +277,17 @@
             </div>
             <div class="flex gap-8">
               <nav class="flex flex-col" aria-label="Pages du site">
-                <a href="#" class="footer-link">Accueil</a>
-                <a href="#" class="footer-link">À propos</a>
-                <a href="#" class="footer-link">Nos magasins</a>
-                <a href="#" class="footer-link">Prêt-à-manger</a>
-                <a href="#" class="footer-link">Lave-auto</a>
+                <a href="./index.html" class="footer-link">Accueil</a>
+                <a href="./a-propos.html" class="footer-link">À propos</a>
+                <a href="./nos-magasins.html" class="footer-link">Nos magasins</a>
+                <a href="./pret-a-manger.html" class="footer-link">Prêt-à-manger</a>
+                <a href="./lave-auto.html" class="footer-link">Lave-auto</a>
               </nav>
               <nav class="flex flex-col" aria-label="Liens secondaires">
-                <a href="#" class="footer-link">Carrières</a>
-                <a href="#" class="footer-link">Fournisseurs</a>
-                <a href="#" class="footer-link">FAQ</a>
-                <a href="#" class="footer-link">Contact</a>
+                <a href="./carrieres.html" class="footer-link">Carrières</a>
+                <a href="./fournisseurs.html" class="footer-link">Fournisseurs</a>
+                <a href="./faq.html" class="footer-link">FAQ</a>
+                <a href="./contact.html" class="footer-link">Contact</a>
               </nav>
             </div>
           </div>
@@ -294,8 +297,8 @@
           <div class="flex flex-wrap items-center justify-between gap-4 border-t border-border-dark pt-8">
             <p class="text-sm opacity-70 text-text-on-dark">© 2026 Groupe Beauséjour. Tous droits réservés.</p>
             <div class="flex gap-6 text-sm opacity-70 text-text-on-dark">
-              <a href="#" class="underline hover:no-underline">Politique de confidentialité</a>
-              <a href="#" class="underline hover:no-underline">Gestion des cookies</a>
+              <a href="./politique-de-confidentialite.html" class="underline hover:no-underline">Politique de confidentialité</a>
+              <a href="./conditions-utilisation.html" class="underline hover:no-underline">Conditions d'utilisation</a>
               <span>Site par <a href="https://laruche.co" class="font-medium hover:underline">La Ruche</a></span>
             </div>
           </div>

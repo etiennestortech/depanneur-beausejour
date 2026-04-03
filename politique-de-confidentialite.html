@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Groupe Beauséjour</title>
-  <meta name="description" content="Contactez le Groupe Beauséjour — questions, commentaires ou demandes.">
+  <title>Politique de confidentialité — Groupe Beauséjour</title>
+  <meta name="description" content="Politique de confidentialité du Groupe Beauséjour. Découvrez comment nous collectons, utilisons et protégeons vos renseignements personnels.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
             </div>
           </div>
         </div>
-        <a href="./contact.html" class="nav-link-active">Contact</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
       </nav>
       <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
         <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
@@ -57,7 +57,7 @@
           <a href="./carrieres.html" class="nav-mobile-link">Carrières</a>
           <a href="./fournisseurs.html" class="nav-mobile-link">Fournisseurs</a>
           <a href="./faq.html" class="nav-mobile-link">FAQ</a>
-          <a href="./contact.html" class="nav-mobile-link-active">Contact</a>
+          <a href="./contact.html" class="nav-mobile-link">Contact</a>
         </nav>
       </div>
     </div>
@@ -65,154 +65,60 @@
 
   <main>
     <!-- Hero -->
-    <section class="inner-hero">
-      <div class="inner-hero-card">
-        <img src="./assets/store-card-bg.jpg" alt="" aria-hidden="true" class="inner-hero-bg" loading="eager" fetchpriority="high" decoding="async">
-        <div class="inner-hero-overlay"></div>
-        <div class="inner-hero-content">
-          <span class="eyebrow">Contact</span>
-          <h1 class="inner-hero-title" data-reveal-text>On est là pour vous.</h1>
-          <p class="inner-hero-desc">Une question, un commentaire ou simplement envie de jaser? Écrivez-nous.</p>
-        </div>
-      </div>
+    <section class="simple-hero">
+      <span class="eyebrow">Légal</span>
+      <h1 class="simple-hero-title" data-reveal-text>Politique de confidentialité.</h1>
+      <p class="simple-hero-desc">Dernière mise à jour : avril 2026</p>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section py-[var(--space-section-lg)]">
+    <!-- Content -->
+    <section class="section py-[var(--space-section-md)]">
       <div class="container">
-        <div class="grid gap-[var(--space-section-md)] lg:grid-cols-[3fr_2fr]">
+        <div class="mx-auto max-w-3xl">
+          <div class="prose">
 
-          <!-- Left: Form -->
-          <div>
-            <h2 class="card-title-lg mb-6">Envoyez-nous un message</h2>
-            <form class="contact-form-fields">
-              <div class="grid gap-5 md:grid-cols-2">
-                <div class="contact-form-field">
-                  <label for="prenom" class="contact-form-label">Prénom</label>
-                  <input type="text" id="prenom" name="prenom" class="form-input contact-form-input" placeholder="Votre prénom" required>
-                </div>
-                <div class="contact-form-field">
-                  <label for="nom" class="contact-form-label">Nom</label>
-                  <input type="text" id="nom" name="nom" class="form-input contact-form-input" placeholder="Votre nom" required>
-                </div>
-              </div>
-              <div class="contact-form-field">
-                <label for="courriel" class="contact-form-label">Courriel</label>
-                <input type="email" id="courriel" name="courriel" class="form-input contact-form-input" placeholder="vous@exemple.com" required>
-              </div>
-              <div class="contact-form-field">
-                <label for="telephone" class="contact-form-label">Téléphone (optionnel)</label>
-                <input type="tel" id="telephone" name="telephone" class="form-input contact-form-input" placeholder="(819) 000-0000">
-              </div>
-              <div class="contact-form-field">
-                <label for="sujet" class="contact-form-label">Sujet</label>
-                <select id="sujet" name="sujet" class="form-input contact-form-input" required>
-                  <option value="" disabled selected>Sélectionnez un sujet</option>
-                  <option value="generale">Question générale</option>
-                  <option value="pret-a-manger">Prêt-à-manger</option>
-                  <option value="lave-auto">Lave-auto</option>
-                  <option value="autre">Autre</option>
-                </select>
-              </div>
-              <div class="contact-form-field">
-                <label for="message" class="contact-form-label">Message</label>
-                <textarea id="message" name="message" rows="5" class="form-input contact-form-input contact-form-textarea" placeholder="Comment pouvons-nous vous aider?" required></textarea>
-              </div>
-              <button type="submit" class="btn-primary contact-form-submit">Envoyer le message</button>
-            </form>
-          </div>
+            <h2 class="section-title mb-6">Introduction</h2>
+            <p class="body-text mb-8">Le Groupe Beauséjour (« nous », « notre », « nos ») s'engage à protéger la vie privée de ses clients et des visiteurs de son site Web. Cette politique de confidentialité explique comment nous recueillons, utilisons, communiquons et protégeons vos renseignements personnels.</p>
 
-          <!-- Right: Info Cards -->
-          <div class="flex flex-col gap-6">
-            <div class="card-padded">
-              <h3 class="card-title mb-3">Siège social</h3>
-              <p class="body-text">114 3e Avenue, Val-d'Or, QC</p>
-              <p class="body-text mt-1"><a href="tel:8198244185">819 824-4185</a></p>
-            </div>
-            <div class="card-padded">
-              <h3 class="card-title mb-3">Réseaux sociaux</h3>
-              <div class="flex flex-col gap-2">
-                <p class="body-text">TikTok : <a href="https://www.tiktok.com/@groupebeausejour" target="_blank" rel="noopener">@groupebeausejour</a></p>
-                <p class="body-text">Instagram : <a href="https://instagram.com/groupe.beausejour" target="_blank" rel="noopener">@groupe.beausejour</a></p>
-                <p class="body-text">Facebook : <a href="https://www.facebook.com/DepanneurBeausejour/" target="_blank" rel="noopener">Groupe Beauséjour</a></p>
-              </div>
-            </div>
-          </div>
+            <h2 class="section-title mb-6">Renseignements collectés</h2>
+            <p class="body-text mb-4">Nous pouvons recueillir les renseignements suivants :</p>
+            <ul class="body-text mb-8 list-disc pl-6 space-y-2">
+              <li>Nom, prénom et coordonnées (courriel, téléphone)</li>
+              <li>Informations fournies via nos formulaires de contact, de carrières ou de fournisseurs</li>
+              <li>Données de navigation (cookies, adresse IP, pages consultées)</li>
+              <li>Toute autre information que vous choisissez de nous communiquer</li>
+            </ul>
 
-        </div>
-      </div>
-    </section>
+            <h2 class="section-title mb-6">Utilisation des renseignements</h2>
+            <p class="body-text mb-4">Vos renseignements personnels sont utilisés aux fins suivantes :</p>
+            <ul class="body-text mb-8 list-disc pl-6 space-y-2">
+              <li>Répondre à vos demandes et communications</li>
+              <li>Traiter les candidatures et demandes de partenariat</li>
+              <li>Améliorer nos services et l'expérience utilisateur de notre site Web</li>
+              <li>Respecter nos obligations légales</li>
+            </ul>
 
-    <!-- FAQ -->
-    <section class="section-alt">
-      <div class="section-alt-inner py-[var(--space-section-lg)]">
-        <div class="container">
-          <div class="intro-center">
-            <span class="eyebrow">FAQ</span>
-            <h2 class="section-title" data-reveal-text>Questions fréquentes</h2>
-          </div>
-          <div class="grid gap-6 md:grid-cols-2">
-            <div>
-              <details class="faq-item">
-                <summary class="faq-summary">
-                  <span class="faq-question">Quels sont vos horaires d'ouverture?</span>
-                  <span class="faq-toggle"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p class="faq-answer-text">Trois de nos cinq magasins sont ouverts 24h/7 (Beauséjour 202, 1697 et Shell 117). Les autres ont des horaires spécifiques — consultez la page « Nos magasins ».</p>
-                </div>
-              </details>
-              <details class="faq-item">
-                <summary class="faq-summary">
-                  <span class="faq-question">Où se trouve le lave-chien?</span>
-                  <span class="faq-toggle"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p class="faq-answer-text">Notre lave-chien est disponible au 202, 3e Avenue à Val-d'Or et au 111 Sud (Sullivan).</p>
-                </div>
-              </details>
-              <details class="faq-item">
-                <summary class="faq-summary">
-                  <span class="faq-question">Est-ce que tous les magasins offrent du prêt-à-manger?</span>
-                  <span class="faq-toggle"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p class="faq-answer-text">La majorité de nos emplacements offrent des options prêt-à-manger. L'offre varie selon le magasin.</p>
-                </div>
-              </details>
-            </div>
-            <div>
-              <details class="faq-item">
-                <summary class="faq-summary">
-                  <span class="faq-question">Combien de magasins avez-vous?</span>
-                  <span class="faq-toggle"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p class="faq-answer-text">Cinq magasins en Abitibi : deux à Val-d'Or (202 et 1697), un à Louvicourt, un à Rouyn-Noranda et un au sud de Val-d'Or (111 Sud).</p>
-                </div>
-              </details>
-              <details class="faq-item">
-                <summary class="faq-summary">
-                  <span class="faq-question">Acceptez-vous Air Miles?</span>
-                  <span class="faq-toggle"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p class="faq-answer-text">Oui, les cartes Air Miles sont acceptées dans nos stations Shell (202, 1697 et Shell 117).</p>
-                </div>
-              </details>
-              <details class="faq-item">
-                <summary class="faq-summary">
-                  <span class="faq-question">Comment postuler chez Beauséjour?</span>
-                  <span class="faq-toggle"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p class="faq-answer-text">Rendez-vous sur notre page « <a href="./carrieres.html">Carrières</a> » pour voir les postes disponibles et soumettre votre candidature.</p>
-                </div>
-              </details>
-            </div>
-          </div>
-          <div class="mt-8 text-center">
-            <a href="./faq.html" class="btn-link">Voir toutes les FAQ →</a>
+            <h2 class="section-title mb-6">Protection des renseignements</h2>
+            <p class="body-text mb-8">Nous prenons des mesures de sécurité raisonnables pour protéger vos renseignements personnels contre la perte, le vol, l'accès non autorisé, la divulgation, la copie ou la modification. L'accès à vos renseignements est limité aux employés qui en ont besoin dans le cadre de leurs fonctions.</p>
+
+            <h2 class="section-title mb-6">Cookies</h2>
+            <p class="body-text mb-8">Notre site utilise des cookies pour améliorer votre expérience de navigation. Vous pouvez configurer votre navigateur pour refuser les cookies, mais certaines fonctionnalités du site pourraient ne pas fonctionner correctement.</p>
+
+            <h2 class="section-title mb-6">Vos droits</h2>
+            <p class="body-text mb-4">Conformément aux lois applicables, vous avez le droit de :</p>
+            <ul class="body-text mb-8 list-disc pl-6 space-y-2">
+              <li>Accéder à vos renseignements personnels</li>
+              <li>Demander la rectification ou la suppression de vos renseignements</li>
+              <li>Retirer votre consentement à tout moment</li>
+            </ul>
+
+            <h2 class="section-title mb-6">Nous contacter</h2>
+            <p class="body-text mb-4">Pour toute question concernant cette politique ou pour exercer vos droits, contactez-nous :</p>
+            <p class="body-text mb-2"><strong>Groupe Beauséjour</strong></p>
+            <p class="body-text mb-1">202, 3e Avenue, Val-d'Or (Québec)</p>
+            <p class="body-text mb-1">Téléphone : <a href="tel:819-825-2525" class="text-primary underline">819-825-2525</a></p>
+            <p class="body-text">Courriel : <a href="mailto:info@groupebeausejour.com" class="text-primary underline">info@groupebeausejour.com</a></p>
+
           </div>
         </div>
       </div>
@@ -277,7 +183,6 @@
       </div>
     </div>
   </footer>
-
 
     <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
