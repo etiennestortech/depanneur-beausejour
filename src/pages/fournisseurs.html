@@ -14,7 +14,7 @@
     <!-- Hero -->
     <section class="inner-hero">
       <div class="inner-hero-card">
-        <img src="./assets/food-pret-a-manger.jpg" alt="" aria-hidden="true" class="inner-hero-bg" loading="eager" fetchpriority="high" decoding="async">
+        <img src="./assets/hero-fournisseurs.jpg" alt="" aria-hidden="true" class="inner-hero-bg" loading="eager" fetchpriority="high" decoding="async">
         <div class="inner-hero-overlay"></div>
         <div class="inner-hero-content">
           <span class="eyebrow">Fournisseurs</span>
@@ -53,21 +53,21 @@
       <div class="section-dark-inner overflow-hidden py-[var(--space-section-md)]">
         <div class="container relative">
           <div class="brand-pattern brand-pattern-dark"></div>
-          <div class="stats-band lg:grid-cols-4">
+          <div class="stats-band lg:grid-cols-4" data-stats-group>
             <div class="stat-item-dark">
-              <div class="stat-value">5</div>
+              <div class="stat-value"><span data-counter-target="5">5</span></div>
               <div class="stat-label">Magasins en Abitibi</div>
             </div>
             <div class="stat-item-dark">
-              <div class="stat-value">50+</div>
+              <div class="stat-value whitespace-nowrap"><span data-counter-target="50">50</span><span class="stat-accent">+</span></div>
               <div class="stat-label">Années en affaires</div>
             </div>
             <div class="stat-item-dark">
-              <div class="stat-value">30 000+</div>
+              <div class="stat-value whitespace-nowrap"><span data-counter-target="30000">30 000</span><span class="stat-accent">+</span></div>
               <div class="stat-label">Clients par semaine</div>
             </div>
             <div class="stat-item-dark">
-              <div class="stat-value">3</div>
+              <div class="stat-value"><span data-counter-target="3">3</span></div>
               <div class="stat-label">Emplacements ouverts 24/7</div>
             </div>
           </div>
@@ -116,27 +116,21 @@
         <div class="intro-center">
           <h2 class="section-title" data-reveal-text>Comment ça fonctionne?</h2>
         </div>
-        <div class="process-steps-grid">
-          <div class="process-step-card">
-            <div class="process-step-icon-wrap">
-              <svg class="process-step-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
-            </div>
-            <h3 class="card-title process-step-title">1. Contactez-nous</h3>
-            <p class="process-step-description">Remplissez le formulaire ci-dessous avec les détails de vos produits.</p>
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="card-padded">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg></div>
+            <h3 class="card-title">1. Contactez-nous</h3>
+            <p class="body-text mt-3">Remplissez le formulaire ci-dessous avec les détails de vos produits.</p>
           </div>
-          <div class="process-step-card">
-            <div class="process-step-icon-wrap">
-              <svg class="process-step-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15a2.25 2.25 0 0 1 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
-            </div>
-            <h3 class="card-title process-step-title">2. Évaluation</h3>
-            <p class="process-step-description">Notre équipe évalue la compatibilité avec nos magasins et notre clientèle.</p>
+          <div class="card-padded">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15a2.25 2.25 0 0 1 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg></div>
+            <h3 class="card-title">2. Évaluation</h3>
+            <p class="body-text mt-3">Notre équipe évalue la compatibilité avec nos magasins et notre clientèle.</p>
           </div>
-          <div class="process-step-card">
-            <div class="process-step-icon-wrap">
-              <svg class="process-step-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg>
-            </div>
-            <h3 class="card-title process-step-title">3. Partenariat</h3>
-            <p class="process-step-description">On démarre ensemble et on met vos produits en valeur.</p>
+          <div class="card-padded">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg></div>
+            <h3 class="card-title">3. Partenariat</h3>
+            <p class="body-text mt-3">On démarre ensemble et on met vos produits en valeur.</p>
           </div>
         </div>
       </div>
