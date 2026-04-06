@@ -503,7 +503,7 @@ function formatCounterValue(value) {
   }).format(value).replace(/[\u202F\u00A0]/g, ' ');
 }
 
-function initStatCounters(gsap, ScrollTrigger) {
+function initStatCounters(gsap) {
   document.querySelectorAll('[data-stats-group]').forEach((group) => {
     const counters = Array.from(group.querySelectorAll('[data-counter-target]'));
 
@@ -592,7 +592,7 @@ function initAboutTimelineProgress(gsap, ScrollTrigger) {
   });
 }
 
-function initAboutStatementScrub(gsap, ScrollTrigger) {
+function initAboutStatementScrub(gsap) {
   document.querySelectorAll('[data-about-statement]').forEach((panel) => {
     const copy = panel.querySelector('[data-about-statement-copy]');
     const watermark = panel.querySelector('[data-about-statement-watermark]');
@@ -854,6 +854,43 @@ function initAboutHeroIntro() {
   return tl;
 }
 
+function initSimpleHeroIntro() {
+  const hero = document.querySelector('.simple-hero');
+  if (!hero || !window.gsap) return null;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+
+  const gsap = window.gsap;
+  const eyebrow = hero.querySelector('.eyebrow');
+  const title = hero.querySelector('[data-reveal-text]');
+  const desc = hero.querySelector('.simple-hero-desc');
+
+  const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+  // 1. Eyebrow fades in
+  if (eyebrow) {
+    gsap.set(eyebrow, { y: 10, autoAlpha: 0 });
+    tl.to(eyebrow, { y: 0, autoAlpha: 1, duration: 0.5 }, 0);
+  }
+
+  // 2. Title words stagger in
+  if (title) {
+    splitRevealText(title);
+    const words = title.querySelectorAll('.reveal-word-inner');
+    if (words.length) {
+      gsap.set(words, { yPercent: 110, opacity: 0 });
+      tl.to(words, { yPercent: 0, opacity: 1, duration: 0.7, stagger: 0.03 }, eyebrow ? 0.2 : 0);
+    }
+  }
+
+  // 3. Description fades in
+  if (desc) {
+    gsap.set(desc, { y: 12, autoAlpha: 0 });
+    tl.to(desc, { y: 0, autoAlpha: 1, duration: 0.5 }, 0.7);
+  }
+
+  return tl;
+}
+
 function initRevealAnimations(lenis) {
   if (!window.gsap || !window.ScrollTrigger) {
     return;
@@ -877,8 +914,8 @@ function initRevealAnimations(lenis) {
   }
 
   document.querySelectorAll('[data-reveal-text]').forEach((element) => {
-    // Skip hero titles — already animated by initHeroIntro / initInnerHeroIntro / initAboutHeroIntro
-    if (element.closest('[data-hero-intro]') || element.closest('.hero-v2-card') || element.closest('.inner-hero-card') || element.closest('.about-hero-copy')) return;
+    // Skip hero titles — already animated by initHeroIntro / initInnerHeroIntro / initAboutHeroIntro / initSimpleHeroIntro
+    if (element.closest('[data-hero-intro]') || element.closest('.hero-v2-card') || element.closest('.inner-hero-card') || element.closest('.about-hero-copy') || element.closest('.simple-hero')) return;
 
     splitRevealText(element);
 
@@ -1010,9 +1047,9 @@ function initRevealAnimations(lenis) {
     iconTl.to(bottom, { yPercent: 0, ease: 'none' }, 0);
   }
 
-  initStatCounters(gsap, ScrollTrigger);
+  initStatCounters(gsap);
   initAboutTimelineProgress(gsap, ScrollTrigger);
-  initAboutStatementScrub(gsap, ScrollTrigger);
+  initAboutStatementScrub(gsap);
 
   // Content fade-ups (subtitles, eyebrows, section CTAs)
   // Skip elements inside hero cards — already animated by hero intros
@@ -1143,7 +1180,8 @@ if (heroTitle) splitRevealText(heroTitle);
 initHeroIntro();
 const innerHeroTl = initInnerHeroIntro();
 const aboutHeroTl = initAboutHeroIntro();
-const pageHeroTl = innerHeroTl || aboutHeroTl;
+const simpleHeroTl = initSimpleHeroIntro();
+const pageHeroTl = innerHeroTl || aboutHeroTl || simpleHeroTl;
 
 // Hide scroll-animated elements immediately so they don't flash.
 // ScrollTriggers are created after the hero intro finishes.
@@ -1153,14 +1191,14 @@ if (pageHeroTl && window.gsap) {
   // Immediately hide everything that will animate on scroll
   // (skip elements already owned by the hero intro)
   document.querySelectorAll('[data-reveal-text]').forEach((el) => {
-    if (el.closest('.inner-hero-card') || el.closest('.hero-v2-card') || el.closest('[data-hero-intro]') || el.closest('.about-hero-copy')) return;
+    if (el.closest('.inner-hero-card') || el.closest('.hero-v2-card') || el.closest('[data-hero-intro]') || el.closest('.about-hero-copy') || el.closest('.simple-hero')) return;
     splitRevealText(el);
     gsapRef.set(el.querySelectorAll('.reveal-word-inner'), { yPercent: 110, opacity: 0 });
   });
 
   const fadeEls = Array.from(document.querySelectorAll(
     'main .section-subtitle, main .eyebrow'
-  )).filter((el) => !el.closest('.inner-hero-card') && !el.closest('.hero-v2-card') && !el.closest('[data-hero-intro]') && !el.closest('.about-hero-copy'));
+  )).filter((el) => !el.closest('.inner-hero-card') && !el.closest('.hero-v2-card') && !el.closest('[data-hero-intro]') && !el.closest('.about-hero-copy') && !el.closest('.simple-hero'));
   gsapRef.set(fadeEls, { y: 16, autoAlpha: 0 });
 
   document.querySelectorAll('.carwash-card').forEach((el) => gsapRef.set(el, { y: 24, autoAlpha: 0 }));
