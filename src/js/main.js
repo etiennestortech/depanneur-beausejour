@@ -1485,7 +1485,7 @@ function initForms() {
 
         if (res.ok && result.ok) {
           showFormStatus(form, 'success', isEn
-            ? 'Message sent! We'll get back to you shortly.'
+            ? "Message sent! We'll get back to you shortly."
             : 'Message envoyé! Nous vous répondrons sous peu.');
           form.reset();
         } else {
