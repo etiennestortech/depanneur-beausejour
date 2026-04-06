@@ -1213,3 +1213,5 @@ if (pageHeroTl && window.gsap) {
 }
 
 initNavbarScroll();
+// Re-measure after navbar scroll adds padding to the header element
+updateHeaderHeight();
