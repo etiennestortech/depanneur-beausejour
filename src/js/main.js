@@ -1008,11 +1008,12 @@ function initRevealAnimations(lenis) {
     });
   });
 
-  // Store slider entrance
+  // Store slider entrance — opacity only (no y/visibility) to avoid triggering
+  // scroll-snap recalculation while the container is animating in
   const sliderRoot = document.querySelector('[data-slider-root]');
   if (sliderRoot) {
-    gsap.set(sliderRoot, { y: 30, autoAlpha: 0 });
-    gsap.to(sliderRoot, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: sliderRoot, start: 'top 85%', once: true } });
+    gsap.set(sliderRoot, { opacity: 0 });
+    gsap.to(sliderRoot, { opacity: 1, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: sliderRoot, start: 'clamp(top 85%)', once: true } });
   }
 
   // Footer logo entrance
