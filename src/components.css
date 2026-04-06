@@ -606,6 +606,40 @@ html.lenis, html.lenis body { height: auto; }
     border-radius: var(--radius-card-lg);
     box-shadow: var(--shadow-card);
   }
+  /* ── Carwash Pricing Feature Row ── */
+  .carwash-feature {
+    @apply flex items-center gap-3 border-b border-border py-2.5;
+    font-size: var(--type-size-body);
+  }
+  .carwash-feature-last {
+    @apply border-b-0;
+  }
+  .carwash-feature::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .carwash-feature-included {
+    color: var(--color-text-body);
+  }
+  .carwash-feature-included::before {
+    background: var(--color-primary);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'%3E%3Cpath d='M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z'/%3E%3Cpath d='M8 12.5L10.5 15L16 9'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+  .carwash-feature-excluded {
+    color: var(--color-text-caption);
+  }
+  .carwash-feature-excluded::before {
+    background: var(--color-text-caption);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z'/%3E%3Cpath d='M14.9994 15L9 9M9.00064 15L15 9'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+
   /* ── Carwash Card (homepage) ── */
   .carwash-card {
     @apply bg-surface-card border border-border overflow-hidden flex flex-col gap-6 p-6;
