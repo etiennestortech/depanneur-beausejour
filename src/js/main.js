@@ -907,10 +907,6 @@ function initRevealAnimations(lenis) {
 
   if (lenis && typeof lenis.on === 'function') {
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
   }
 
   document.querySelectorAll('[data-reveal-text]').forEach((element) => {
@@ -1170,6 +1166,16 @@ updateHeaderHeight();
 window.addEventListener('resize', debounce(updateHeaderHeight));
 
 const lenis = initLenis();
+
+// Drive Lenis immediately via GSAP ticker so scroll works during hero animations.
+// ScrollTrigger.update is wired later inside initRevealAnimations once ST is registered.
+if (lenis && window.gsap) {
+  window.gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  window.gsap.ticker.lagSmoothing(0);
+}
+
 initMobileMenu();
 initNavDropdowns();
 initSliders();
