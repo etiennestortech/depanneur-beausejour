@@ -1013,20 +1013,9 @@ html.lenis, html.lenis body { height: auto; }
 
   /* ── Nav Language Toggle ── */
   .nav-lang-toggle {
-    @apply inline-flex items-center no-underline transition-colors duration-150;
-    padding: 0.2rem 0.6rem;
-    border-radius: var(--radius-pill);
-    border: 1.5px solid var(--color-border);
-    font-family: var(--font-heading);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    color: var(--color-text-muted);
-
-    &:hover {
-      color: var(--color-primary);
-      border-color: var(--color-primary);
-    }
+    @apply inline-flex items-center justify-center no-underline font-medium text-text-heading whitespace-nowrap transition-colors duration-150 hover:text-text-body;
+    font-size: var(--type-size-ui);
+    line-height: var(--type-leading-ui);
   }
 
   /* ── Nav Dropdown ── */
@@ -1271,6 +1260,9 @@ html.lenis, html.lenis body { height: auto; }
   }
   .faq-accordion {
     @apply divide-y divide-border;
+  }
+  .faq-accordion-alt > * + * {
+    border-color: var(--color-border-strong);
   }
   .faq-item {
     @apply py-0;
