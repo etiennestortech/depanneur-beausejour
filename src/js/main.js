@@ -1029,6 +1029,9 @@ function initNavbarScroll() {
   const header = document.querySelector('header');
   if (!header) return;
 
+  // Pull mobile menu out before wrapping so it stays outside the card
+  const mobileMenu = header.querySelector('.site-mobile-menu');
+
   const inner = document.createElement('div');
   while (header.firstChild) inner.appendChild(header.firstChild);
 
@@ -1048,6 +1051,12 @@ function initNavbarScroll() {
   header.style.backgroundColor = 'transparent';
 
   header.appendChild(inner);
+
+  // Move mobile menu outside the inner card, below it in the header
+  if (mobileMenu) {
+    inner.removeChild(mobileMenu);
+    header.appendChild(mobileMenu);
+  }
 
   // Logo crossfade: full wordmark → icon mark on scroll
   const logoFull = header.querySelector('[data-nav-logo-full]');
