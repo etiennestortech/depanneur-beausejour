@@ -1254,39 +1254,111 @@ function initCookieBanner() {
   }
   if (stored === 'refused') return;
 
-  // Build banner
+  // ── Banner ────────────────────────────────────────────────────────────────
   const banner = document.createElement('div');
   banner.className = 'cookie-banner';
-  banner.setAttribute('role', 'dialog');
-  banner.setAttribute('aria-modal', 'false');
+  banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Gestion des témoins');
   banner.innerHTML = `
     <div class="cookie-banner-body">
-      <p class="cookie-banner-title">Vos préférences en matière de confidentialité</p>
-      <p class="cookie-banner-text">Conformément à la <strong>Loi 25</strong>, nous vous demandons votre consentement avant d'activer les témoins (cookies) d'analyse. Ces données nous aident à améliorer votre expérience sur notre site. Consultez notre <a href="./politique-de-confidentialite.html">politique de confidentialité</a> pour en savoir plus.</p>
+      <p class="cookie-banner-title">Vos préférences de confidentialité</p>
+      <p class="cookie-banner-text">Conformément à la <strong>Loi 25</strong>, nous activons uniquement les témoins avec votre consentement. <a href="./politique-de-confidentialite.html">En savoir plus</a>.</p>
     </div>
     <div class="cookie-banner-actions">
+      <button class="cookie-banner-btn-manage" data-cookie-manage>Gérer</button>
       <button class="cookie-banner-btn-refuse" data-cookie-refuse>Refuser</button>
-      <button class="cookie-banner-btn-accept" data-cookie-accept>Accepter</button>
+      <button class="cookie-banner-btn-accept" data-cookie-accept>Accepter tout</button>
     </div>
   `;
 
   document.body.appendChild(banner);
 
-  // Animate in after a short delay
   requestAnimationFrame(() => {
     requestAnimationFrame(() => { banner.classList.add('cookie-banner--visible'); });
   });
 
-  function dismiss(choice) {
+  function dismissBanner(choice) {
     localStorage.setItem(CONSENT_KEY, choice);
     banner.classList.remove('cookie-banner--visible');
     banner.addEventListener('transitionend', () => banner.remove(), { once: true });
     if (choice === 'accepted') loadGoogleAnalytics();
   }
 
-  banner.querySelector('[data-cookie-accept]').addEventListener('click', () => dismiss('accepted'));
-  banner.querySelector('[data-cookie-refuse]').addEventListener('click', () => dismiss('refused'));
+  banner.querySelector('[data-cookie-accept]').addEventListener('click', () => dismissBanner('accepted'));
+  banner.querySelector('[data-cookie-refuse]').addEventListener('click', () => dismissBanner('refused'));
+  banner.querySelector('[data-cookie-manage]').addEventListener('click', () => openCookieModal(dismissBanner));
+}
+
+// ── Preferences Modal ─────────────────────────────────────────────────────────
+function openCookieModal(onSave) {
+  const overlay = document.createElement('div');
+  overlay.className = 'cookie-modal-overlay';
+
+  const modal = document.createElement('div');
+  modal.className = 'cookie-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-label', 'Préférences de témoins');
+  modal.innerHTML = `
+    <div class="cookie-modal-header">
+      <h2 class="cookie-modal-title">Préférences de témoins</h2>
+      <button class="cookie-modal-close" aria-label="Fermer" data-cookie-modal-close>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cookie-modal-body">
+      <div class="cookie-pref-row">
+        <div class="cookie-pref-info">
+          <p class="cookie-pref-name">Témoins essentiels</p>
+          <p class="cookie-pref-desc">Nécessaires au bon fonctionnement du site (navigation, sécurité). Toujours actifs.</p>
+        </div>
+        <div class="cookie-toggle cookie-toggle--on cookie-toggle--disabled" aria-label="Toujours activé">
+          <span class="cookie-toggle-thumb"></span>
+        </div>
+      </div>
+      <div class="cookie-pref-row">
+        <div class="cookie-pref-info">
+          <p class="cookie-pref-name">Témoins analytiques</p>
+          <p class="cookie-pref-desc">Nous aident à comprendre comment les visiteurs utilisent le site (Google Analytics). Ces données sont anonymisées.</p>
+        </div>
+        <button class="cookie-toggle" role="switch" aria-checked="false" data-cookie-toggle="analytics" aria-label="Activer les témoins analytiques">
+          <span class="cookie-toggle-thumb"></span>
+        </button>
+      </div>
+    </div>
+    <div class="cookie-modal-footer">
+      <button class="cookie-modal-btn-save" data-cookie-modal-save>Sauvegarder mes préférences</button>
+    </div>
+  `;
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { overlay.classList.add('cookie-modal-overlay--visible'); });
+  });
+
+  const analyticsToggle = modal.querySelector('[data-cookie-toggle="analytics"]');
+  let analyticsEnabled = false;
+
+  analyticsToggle.addEventListener('click', () => {
+    analyticsEnabled = !analyticsEnabled;
+    analyticsToggle.setAttribute('aria-checked', String(analyticsEnabled));
+    analyticsToggle.classList.toggle('cookie-toggle--on', analyticsEnabled);
+  });
+
+  function closeModal() {
+    overlay.classList.remove('cookie-modal-overlay--visible');
+    overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+  }
+
+  modal.querySelector('[data-cookie-modal-close]').addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+  modal.querySelector('[data-cookie-modal-save]').addEventListener('click', () => {
+    closeModal();
+    onSave(analyticsEnabled ? 'accepted' : 'refused');
+  });
 }
 
 initCookieBanner();
