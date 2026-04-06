@@ -5,8 +5,8 @@ dist/
 .claude/
 .playwright-mcp/
 
-# Dev screenshots
-*.png
+# Dev screenshots (root level only)
+/*.png
 
 # Reference files (not part of site)
 wireframe/

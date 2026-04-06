@@ -208,10 +208,13 @@ All reusable patterns defined in `src/components.css`, organized by section:
 ## Git & Workflow
 - Remote: `origin` → `https://github.com/etiennestortech/depanneur-beausejour.git`
 - **Branch strategy:**
-  - `main` — production source code, only updated via PR from `dev`
+  - `main` — production source code. Every push auto-deploys to Cloudflare Pages
   - `dev` — active development, all client work goes here
-  - `gh-pages` — live site (built output), deployed via worktree — do not edit directly
-- All work-in-progress goes on `dev`. When ready, open a PR from `dev` → `main`, then deploy to `gh-pages`
+- All work-in-progress goes on `dev` (or a feature branch). When ready, open a PR from `dev` → `main`
+- **Deployment is automatic** — Cloudflare Pages builds and deploys on every push to `main`. No manual deploy step needed
+- Live URL: `depanneur-beausejour.pages.dev` (production domain `groupebeausejour.com` pending DNS)
+- CF Pages project name: `depanneur-beausejour`
+- To add/update environment secrets: `npx wrangler pages secret put RESEND_API_KEY --project-name depanneur-beausejour`
 - Commit after completing work — don't batch up multiple unrelated changes
 - Keep commits focused and descriptive
 - To deploy to live site: build → rsync `dist/` into a `gh-pages` worktree → commit → push to `origin/gh-pages`

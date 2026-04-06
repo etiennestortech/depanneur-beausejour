@@ -1,15 +1,16 @@
 # Groupe Beauséjour — Website
 
-Marketing site for Groupe Beauséjour, a convenience store chain in Abitibi, Quebec. Built as a lightweight static site with Tailwind CSS v4, shared HTML partials, and a small Node build step.
+Marketing site for Groupe Beauséjour, a convenience store chain in Abitibi, Quebec. Built as a lightweight static site with Tailwind CSS v4, shared HTML partials, and a small Node build step. Hosted on Cloudflare Pages with Cloudflare Pages Functions for form handling via Resend.
 
 ## Stack
 
-- Static HTML pages in `src/pages/`
-- Shared partials in `src/partials/`
+- Static HTML pages in `src/pages/` (FR) and `src/pages/en/` (EN)
+- Shared partials in `src/partials/` (FR) and `src/partials/en/` (EN)
 - Tailwind CSS v4 — tokens in `src/input.css`, component classes in `src/components.css`
 - Vanilla JS with GSAP + ScrollTrigger + Lenis in `src/js/main.js`
 - Simple Node build script in `build.js`
-- Deployed via GitHub Pages from the `gh-pages` branch
+- **Hosted on Cloudflare Pages** — auto-deploys on every push to `main`
+- **Form handling** via Cloudflare Pages Functions (`functions/api/`) + Resend
 
 ## Commands
 
@@ -29,41 +30,63 @@ npm run dev          # Build HTML then watch CSS
 src/
   assets/        Images, icons, fonts
   js/            Shared frontend behavior (main.js)
-  pages/         Page templates (edit these, not dist/)
-  partials/      Shared HTML partials (header, footer, head, scripts)
+  pages/         FR page templates (edit these, not dist/)
+  pages/en/      EN page templates
+  partials/      Shared FR HTML partials (header, footer, head, scripts)
+  partials/en/   Shared EN HTML partials
   input.css      Tailwind entrypoint + design tokens
   components.css Shared component classes
-dist/            Generated site output (gitignored — do not edit directly)
+functions/
+  api/
+    contact.js   Contact form → Resend
+    supplier.js  Supplier form → Resend
+    careers.js   Careers modal (+ CV attachment) → Resend
+dist/            Generated site output (gitignored — built by Cloudflare)
 build.js         HTML include/build script
+wrangler.toml    Cloudflare Pages config
 ```
 
 ## Branch Strategy
 
-| Branch     | Purpose |
-|------------|---------|
-| `main`     | Production-ready source code. Only updated via PR from `dev`. |
-| `dev`      | Active development. All client work-in-progress goes here. |
-| `gh-pages` | Live site (built output). Deploy via the process below — do not edit directly. |
+| Branch | Purpose |
+|--------|---------|
+| `main` | Production. Auto-deploys to Cloudflare Pages on push. |
+| `dev`  | Active development. All client work-in-progress goes here. |
 
 **Workflow:**
-1. Work on `dev`
-2. When ready, open a PR from `dev` → `main`
-3. After merging to `main`, deploy to `gh-pages`
+1. Branch from `dev`
+2. Open a PR from feature branch → `dev`
+3. Merge `dev` → `main` via PR when ready to ship
+4. Cloudflare Pages picks up the push and deploys automatically — no manual deploy step needed
 
-## Deploying to GitHub Pages
+## Deployment
 
-`dist/` is gitignored on `main`. To push a new build to the live site:
+Cloudflare Pages project: **depanneur-beausejour**
+Live URL: `depanneur-beausejour.pages.dev` (production domain: `groupebeausejour.com`, pending DNS setup)
+
+Cloudflare builds on every push to `main` using:
+- Build command: `npm run build`
+- Output directory: `dist`
+- Functions directory: `functions/`
+
+## Environment Variables
+
+Set in Cloudflare Pages dashboard (Settings → Environment variables) or via CLI:
 
 ```bash
-npm run build
-git worktree add /tmp/beausejour-gh-pages origin/gh-pages
-rsync -av --delete --exclude='.git' dist/ /tmp/beausejour-gh-pages/
-cd /tmp/beausejour-gh-pages
-git checkout -b gh-pages
-git add -A
-git commit -m "Deploy: <description>"
-git push origin gh-pages:gh-pages
-git worktree remove /tmp/beausejour-gh-pages --force
+npx wrangler pages secret put RESEND_API_KEY --project-name depanneur-beausejour
+```
+
+| Variable | Description |
+|----------|-------------|
+| `RESEND_API_KEY` | Resend API key for transactional email |
+
+## Local Dev with Functions
+
+To test form submissions locally:
+
+```bash
+npx wrangler pages dev dist --binding RESEND_API_KEY=re_your_key_here
 ```
 
 ## Design System Principles
