@@ -1260,13 +1260,13 @@ function initCookieBanner() {
   banner.setAttribute('aria-label', 'Gestion des témoins');
   banner.innerHTML = `
     <div class="cookie-banner-body">
-      <p class="cookie-banner-title">Vos préférences de confidentialité</p>
-      <p class="cookie-banner-text">Conformément à la <strong>Loi 25</strong>, nous activons uniquement les témoins avec votre consentement. <a href="./politique-de-confidentialite.html">En savoir plus</a>.</p>
+      <p class="cookie-banner-title">Nous utilisons des témoins</p>
+      <p class="cookie-banner-text">Des témoins d'analyse nous aident à comprendre comment notre site est utilisé et à l'améliorer. Vous pouvez accepter, refuser ou personnaliser vos choix. <a href="./politique-de-confidentialite.html">Politique de confidentialité</a>.</p>
     </div>
     <div class="cookie-banner-actions">
-      <button class="cookie-banner-btn-manage" data-cookie-manage>Gérer</button>
+      <button class="cookie-banner-btn-manage" data-cookie-manage>Personnaliser</button>
       <button class="cookie-banner-btn-refuse" data-cookie-refuse>Refuser</button>
-      <button class="cookie-banner-btn-accept" data-cookie-accept>Accepter tout</button>
+      <button class="cookie-banner-btn-accept" data-cookie-accept>Accepter</button>
     </div>
   `;
 
