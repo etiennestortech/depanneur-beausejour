@@ -1030,7 +1030,7 @@ html.lenis, html.lenis body { height: auto; }
     transform: rotate(180deg);
   }
   .nav-dropdown-menu {
-    @apply absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden;
+    @apply absolute top-full left-1/2 -translate-x-1/2 hidden;
     min-width: 12rem;
     z-index: 60;
   }
@@ -1038,17 +1038,19 @@ html.lenis, html.lenis body { height: auto; }
     @apply block;
   }
   .nav-dropdown-panel {
-    @apply flex flex-col py-2 bg-surface-card border border-border;
+    @apply flex flex-col gap-0.5 p-2 bg-surface-card border border-border;
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-elevated);
   }
   .nav-dropdown-link {
-    @apply flex items-center px-4 py-2.5 no-underline text-text-body transition-colors duration-150 hover:bg-surface-alt hover:text-text-heading;
+    @apply flex items-center px-3 py-2.5 no-underline text-text-body transition-colors duration-150 hover:bg-primary-light hover:text-text-heading;
+    border-radius: calc(var(--radius-card) - 2px);
     font-size: var(--type-size-ui);
     line-height: var(--type-leading-ui);
   }
   .nav-dropdown-link-active {
-    @apply flex items-center px-4 py-2.5 no-underline font-medium text-text-heading bg-surface-alt;
+    @apply flex items-center px-3 py-2.5 no-underline font-medium text-text-heading bg-surface-alt;
+    border-radius: calc(var(--radius-card) - 2px);
     font-size: var(--type-size-ui);
     line-height: var(--type-leading-ui);
   }
