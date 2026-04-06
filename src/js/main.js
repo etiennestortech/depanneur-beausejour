@@ -817,6 +817,43 @@ function initInnerHeroIntro() {
   return tl;
 }
 
+function initAboutHeroIntro() {
+  const heroCopy = document.querySelector('.about-hero-copy');
+  if (!heroCopy || !window.gsap) return null;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+
+  const gsap = window.gsap;
+  const title = heroCopy.querySelector('[data-reveal-text]');
+  const descs = heroCopy.querySelectorAll('.page-description');
+  const ribbon = document.querySelector('.about-hero-ribbon');
+
+  const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+  // 1. Title words stagger in
+  if (title) {
+    splitRevealText(title);
+    const words = title.querySelectorAll('.reveal-word-inner');
+    if (words.length) {
+      gsap.set(words, { yPercent: 110, opacity: 0 });
+      tl.to(words, { yPercent: 0, opacity: 1, duration: 0.8, stagger: 0.03 }, 0);
+    }
+  }
+
+  // 2. Description paragraphs fade in
+  if (descs.length) {
+    gsap.set(descs, { y: 16, autoAlpha: 0 });
+    tl.to(descs, { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.15 }, 0.6);
+  }
+
+  // 3. Ribbon slides up and fades in
+  if (ribbon) {
+    gsap.set(ribbon, { y: 40, autoAlpha: 0 });
+    tl.to(ribbon, { y: 0, autoAlpha: 1, duration: 0.9 }, 1.0);
+  }
+
+  return tl;
+}
+
 function initRevealAnimations(lenis) {
   if (!window.gsap || !window.ScrollTrigger) {
     return;
@@ -840,8 +877,8 @@ function initRevealAnimations(lenis) {
   }
 
   document.querySelectorAll('[data-reveal-text]').forEach((element) => {
-    // Skip hero titles — already animated by initHeroIntro / initInnerHeroIntro
-    if (element.closest('[data-hero-intro]') || element.closest('.hero-v2-card') || element.closest('.inner-hero-card')) return;
+    // Skip hero titles — already animated by initHeroIntro / initInnerHeroIntro / initAboutHeroIntro
+    if (element.closest('[data-hero-intro]') || element.closest('.hero-v2-card') || element.closest('.inner-hero-card') || element.closest('.about-hero-copy')) return;
 
     splitRevealText(element);
 
@@ -1105,29 +1142,32 @@ const heroTitle = document.querySelector('[data-hero-intro] [data-reveal-text]')
 if (heroTitle) splitRevealText(heroTitle);
 initHeroIntro();
 const innerHeroTl = initInnerHeroIntro();
+const aboutHeroTl = initAboutHeroIntro();
+const pageHeroTl = innerHeroTl || aboutHeroTl;
 
 // Hide scroll-animated elements immediately so they don't flash.
 // ScrollTriggers are created after the hero intro finishes.
-if (innerHeroTl && window.gsap) {
+if (pageHeroTl && window.gsap) {
   const gsapRef = window.gsap;
 
   // Immediately hide everything that will animate on scroll
+  // (skip elements already owned by the hero intro)
   document.querySelectorAll('[data-reveal-text]').forEach((el) => {
-    if (el.closest('.inner-hero-card') || el.closest('.hero-v2-card') || el.closest('[data-hero-intro]')) return;
+    if (el.closest('.inner-hero-card') || el.closest('.hero-v2-card') || el.closest('[data-hero-intro]') || el.closest('.about-hero-copy')) return;
     splitRevealText(el);
     gsapRef.set(el.querySelectorAll('.reveal-word-inner'), { yPercent: 110, opacity: 0 });
   });
 
   const fadeEls = Array.from(document.querySelectorAll(
     'main .section-subtitle, main .eyebrow'
-  )).filter((el) => !el.closest('.inner-hero-card') && !el.closest('.hero-v2-card') && !el.closest('[data-hero-intro]'));
+  )).filter((el) => !el.closest('.inner-hero-card') && !el.closest('.hero-v2-card') && !el.closest('[data-hero-intro]') && !el.closest('.about-hero-copy'));
   gsapRef.set(fadeEls, { y: 16, autoAlpha: 0 });
 
   document.querySelectorAll('.carwash-card').forEach((el) => gsapRef.set(el, { y: 24, autoAlpha: 0 }));
   document.querySelectorAll('[data-stagger-cards] > *').forEach((el) => gsapRef.set(el, { y: 24, autoAlpha: 0 }));
 
   // After hero finishes, create the ScrollTriggers
-  innerHeroTl.call(() => {
+  pageHeroTl.call(() => {
     initRevealAnimations(lenis);
   });
 } else {
