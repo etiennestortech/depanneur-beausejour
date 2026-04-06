@@ -1011,6 +1011,13 @@ html.lenis, html.lenis body { height: auto; }
     line-height: var(--type-leading-ui);
   }
 
+  /* ── Nav Language Toggle ── */
+  .nav-lang-toggle {
+    @apply inline-flex items-center justify-center no-underline font-medium text-text-heading whitespace-nowrap transition-colors duration-150 hover:text-text-body;
+    font-size: var(--type-size-ui);
+    line-height: var(--type-leading-ui);
+  }
+
   /* ── Nav Dropdown ── */
   .nav-dropdown {
     @apply relative;
@@ -1253,6 +1260,9 @@ html.lenis, html.lenis body { height: auto; }
   }
   .faq-accordion {
     @apply divide-y divide-border;
+  }
+  .faq-accordion-alt > * + * {
+    border-color: var(--color-border-strong);
   }
   .faq-item {
     @apply py-0;
