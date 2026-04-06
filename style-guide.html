@@ -80,6 +80,8 @@
           </div>
         </div>
         <a href="./contact.html" class="nav-link">Contact</a>
+        <span class="w-px h-4 bg-border" aria-hidden="true"></span>
+        <a href="./en/index.html" class="nav-lang-toggle" aria-label="Switch to English" data-lang-toggle>EN</a>
       </nav>
       <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
         <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
@@ -96,6 +98,7 @@
           <a href="./fournisseurs.html" class="nav-mobile-link">Fournisseurs</a>
           <a href="./faq.html" class="nav-mobile-link">FAQ</a>
           <a href="./contact.html" class="nav-mobile-link">Contact</a>
+          <a href="./en/index.html" class="nav-mobile-link" data-lang-toggle>English</a>
         </nav>
       </div>
     </div>
@@ -657,7 +660,10 @@
           <img src="./assets/beausejour-logo-large.svg" alt="" class="h-auto w-full opacity-90">
 
           <div class="flex flex-col gap-4 border-t border-border-dark pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-            <p class="text-sm opacity-70 text-text-on-dark">© 2026 Groupe Beauséjour. Tous droits réservés.</p>
+            <div class="flex items-center gap-4">
+              <p class="text-sm opacity-70 text-text-on-dark">© 2026 Groupe Beauséjour. Tous droits réservés.</p>
+              <a href="./en/index.html" class="text-sm opacity-60 text-text-on-dark no-underline hover:opacity-100 transition-opacity duration-150" data-lang-toggle>EN</a>
+            </div>
             <div class="flex flex-col gap-2 text-sm opacity-70 text-text-on-dark sm:flex-row sm:gap-6">
               <a href="./politique-de-confidentialite.html" class="underline hover:no-underline">Politique de confidentialité</a>
               <a href="./conditions-utilisation.html" class="underline hover:no-underline">Conditions d'utilisation</a>
