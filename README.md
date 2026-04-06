@@ -1,87 +1,76 @@
-# Depanneur Beausejour
+# Groupe Beauséjour — Website
 
-Marketing site for Groupe Beausejour, built as a lightweight static site with Tailwind CSS v4, shared HTML partials, and a small Node build step.
-
-The project should stay Tailwind-first:
-
-- prefer utilities for page composition
-- keep tokens centralized in `src/input.css`
-- keep `src/components.css` limited to stable shared primitives
-- avoid growing a second custom CSS framework inside the project
-
-## Current State
-
-The homepage is the current reference page for the system and visual direction.
-
-It now includes:
-
-- shared typography, spacing, color, and radius tokens
-- a reusable button treatment with text-clip hover animation
-- shared slider logic for the stores carousel
-- a simplified GSAP + Lenis motion layer
-- stat counters tied to reveal timing
-- optimized homepage image assets with responsive variants for the heaviest images
-
-The rest of the site should be built from this direction, not as separate visual experiments.
+Marketing site for Groupe Beauséjour, a convenience store chain in Abitibi, Quebec. Built as a lightweight static site with Tailwind CSS v4, shared HTML partials, and a small Node build step.
 
 ## Stack
 
-- Static HTML pages in `src/pages`
-- Shared partials in `src/partials`
-- Tailwind CSS v4
-- Design tokens in `src/input.css`
-- Shared component classes in `src/components.css`
-- Shared frontend behavior in `src/js/main.js`
+- Static HTML pages in `src/pages/`
+- Shared partials in `src/partials/`
+- Tailwind CSS v4 — tokens in `src/input.css`, component classes in `src/components.css`
+- Vanilla JS with GSAP + ScrollTrigger + Lenis in `src/js/main.js`
 - Simple Node build script in `build.js`
+- Deployed via GitHub Pages from the `gh-pages` branch
 
 ## Commands
 
 ```bash
-npm install
-npm run build
-npm run dev
+npm install          # Install dependencies
+npm run build        # Full build (HTML + CSS) → dist/
+npm run build:html   # HTML partials only
+npm run build:css    # CSS only
+npm run dev          # Build HTML then watch CSS
 ```
+
+> After editing `src/components.css` or `src/input.css`, always run `npm run build` — CSS changes require the Tailwind build step.
 
 ## Project Structure
 
-```text
+```
 src/
-  assets/        Images, icons, fonts, and optimized media variants
-  js/            Shared frontend behavior
-  pages/         Page templates
-  partials/      Shared HTML partials
-  input.css      Tailwind entrypoint and design tokens
-  components.css Shared component primitives and section systems
-dist/            Generated site output
+  assets/        Images, icons, fonts
+  js/            Shared frontend behavior (main.js)
+  pages/         Page templates (edit these, not dist/)
+  partials/      Shared HTML partials (header, footer, head, scripts)
+  input.css      Tailwind entrypoint + design tokens
+  components.css Shared component classes
+dist/            Generated site output (gitignored — do not edit directly)
 build.js         HTML include/build script
 ```
 
-## Build Behavior
+## Branch Strategy
 
-- `npm run build` rebuilds `dist/` from scratch
-- `build.js` assembles pages from `src/pages` and `src/partials`
-- `src/assets` and `src/js` are copied into `dist`
-- backup pages are excluded from the intended build output
-- `dist/` is generated and should not be edited by hand
+| Branch     | Purpose |
+|------------|---------|
+| `main`     | Production-ready source code. Only updated via PR from `dev`. |
+| `dev`      | Active development. All client work-in-progress goes here. |
+| `gh-pages` | Live site (built output). Deploy via the process below — do not edit directly. |
 
-## Design System Direction
+**Workflow:**
+1. Work on `dev`
+2. When ready, open a PR from `dev` → `main`
+3. After merging to `main`, deploy to `gh-pages`
 
-- Keep source of truth in `src/`, not `dist/`
-- Use `src/input.css` for tokens and global scale decisions
-- Use `src/components.css` for shared patterns like buttons, cards, titles, containers, footer shell, and homepage systems that are stable enough to reuse
-- Use page markup for one-off layout composition
-- Extract patterns only when they repeat and are clearly stable
-- Reuse the homepage spacing, type rhythm, cards, CTA patterns, and interaction behavior when building the inner pages
+## Deploying to GitHub Pages
 
-## Motion And Interaction
+`dist/` is gitignored on `main`. To push a new build to the live site:
 
-- Smooth scroll is handled with Lenis
-- Scroll-based animation is intentionally restrained to avoid jitter
-- GSAP/ScrollTrigger is used for title reveals, the hero parallax, and stat counters
-- Shared interactions live in `src/js/main.js`, not inline page scripts
+```bash
+npm run build
+git worktree add /tmp/beausejour-gh-pages origin/gh-pages
+rsync -av --delete --exclude='.git' dist/ /tmp/beausejour-gh-pages/
+cd /tmp/beausejour-gh-pages
+git checkout -b gh-pages
+git add -A
+git commit -m "Deploy: <description>"
+git push origin gh-pages:gh-pages
+git worktree remove /tmp/beausejour-gh-pages --force
+```
 
-## Notes
+## Design System Principles
 
-- `wireframe/` is treated as a separate reference repository and is intentionally excluded from this site repo
-- the repo is private and intended for active design and implementation work
-- current working branch for homepage system exploration: `codex/homepage-tailwind-refactor`
+- Keep source of truth in `src/`, never `dist/`
+- Tokens (spacing, typography, colors, radii) live in `src/input.css`
+- Component classes live in `src/components.css` — extract only patterns that repeat across multiple pages
+- The homepage (`src/pages/index.html`) is the reference implementation for layout and visual direction
+- Prefer Tailwind utilities for page-level composition; extract to component classes only when stable and reused
+- Smooth scroll via Lenis, scroll animations via GSAP + ScrollTrigger — keep motion restrained and performant
