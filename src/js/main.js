@@ -1374,9 +1374,9 @@ function openCookieModal(onSave) {
   });
 }
 
-// Wire the persistent footer "Gérer les témoins" button
-document.querySelectorAll('[data-cookie-settings]').forEach((btn) => {
-  btn.addEventListener('click', () => openCookieModal());
+// Wire the persistent footer "Gérer les témoins" button via delegation
+document.body.addEventListener('click', (e) => {
+  if (e.target.closest('[data-cookie-settings]')) openCookieModal();
 });
 
 initCookieBanner();
