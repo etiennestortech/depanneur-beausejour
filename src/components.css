@@ -1303,6 +1303,13 @@ html.lenis, html.lenis body { height: auto; }
     font-size: var(--type-size-ui);
     line-height: var(--type-leading-body);
   }
+  .faq-answer-text a {
+    @apply text-text-heading underline;
+    text-underline-offset: 2px;
+  }
+  .faq-answer-text a:hover {
+    @apply no-underline;
+  }
   .faq-answer-text + .faq-answer-text {
     @apply mt-4;
   }
