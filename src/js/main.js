@@ -1290,7 +1290,11 @@ function initCookieBanner() {
 }
 
 // ── Preferences Modal ─────────────────────────────────────────────────────────
+// onSave is optional — when called from the footer the modal saves directly
 function openCookieModal(onSave) {
+  const currentConsent = localStorage.getItem(CONSENT_KEY);
+  const initiallyEnabled = currentConsent === 'accepted';
+
   const overlay = document.createElement('div');
   overlay.className = 'cookie-modal-overlay';
 
@@ -1321,7 +1325,7 @@ function openCookieModal(onSave) {
           <p class="cookie-pref-name">Témoins analytiques</p>
           <p class="cookie-pref-desc">Nous aident à comprendre comment les visiteurs utilisent le site (Google Analytics). Ces données sont anonymisées.</p>
         </div>
-        <button class="cookie-toggle" role="switch" aria-checked="false" data-cookie-toggle="analytics" aria-label="Activer les témoins analytiques">
+        <button class="cookie-toggle${initiallyEnabled ? ' cookie-toggle--on' : ''}" role="switch" aria-checked="${initiallyEnabled}" data-cookie-toggle="analytics" aria-label="Activer les témoins analytiques">
           <span class="cookie-toggle-thumb"></span>
         </button>
       </div>
@@ -1339,7 +1343,7 @@ function openCookieModal(onSave) {
   });
 
   const analyticsToggle = modal.querySelector('[data-cookie-toggle="analytics"]');
-  let analyticsEnabled = false;
+  let analyticsEnabled = initiallyEnabled;
 
   analyticsToggle.addEventListener('click', () => {
     analyticsEnabled = !analyticsEnabled;
@@ -1356,9 +1360,23 @@ function openCookieModal(onSave) {
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
 
   modal.querySelector('[data-cookie-modal-save]').addEventListener('click', () => {
+    const choice = analyticsEnabled ? 'accepted' : 'refused';
     closeModal();
-    onSave(analyticsEnabled ? 'accepted' : 'refused');
+    if (typeof onSave === 'function') {
+      // Called from banner — let banner handle dismissal + GA
+      onSave(choice);
+    } else {
+      // Called from footer — save directly and load GA if newly accepted
+      const previous = localStorage.getItem(CONSENT_KEY);
+      localStorage.setItem(CONSENT_KEY, choice);
+      if (choice === 'accepted' && previous !== 'accepted') loadGoogleAnalytics();
+    }
   });
 }
+
+// Wire the persistent footer "Gérer les témoins" button
+document.querySelectorAll('[data-cookie-settings]').forEach((btn) => {
+  btn.addEventListener('click', () => openCookieModal());
+});
 
 initCookieBanner();
