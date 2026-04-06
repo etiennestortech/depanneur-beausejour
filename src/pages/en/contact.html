@@ -1,0 +1,174 @@
+<!-- @set title Contact Us — Groupe Beauséjour | Val-d'Or, Abitibi -->
+<!-- @set description Write to us for any question, comment or partnership request. The Groupe Beauséjour team is available to help you. -->
+<!-- @set canonical https://etiennestortech.github.io/depanneur-beausejour/en/contact.html -->
+<!-- @set activeNav contact -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- @include partials/en/head.html -->
+</head>
+<body class="bg-surface-page text-text-body font-body">
+
+  <!-- @include partials/en/header.html -->
+
+  <main>
+    <!-- Hero -->
+    <section class="inner-hero">
+      <div class="inner-hero-card">
+        <img src="../assets/store-card-bg.jpg" alt="" aria-hidden="true" class="inner-hero-bg" loading="eager" fetchpriority="high" decoding="async">
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content">
+          <span class="eyebrow">Contact</span>
+          <h1 class="inner-hero-title" data-reveal-text>We're here for you.</h1>
+          <p class="inner-hero-desc">A question, a comment or just want to chat? Write to us.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section py-[var(--space-section-lg)]">
+      <div class="container">
+        <div class="grid gap-[var(--space-section-md)] lg:grid-cols-[3fr_2fr]">
+
+          <!-- Left: Form -->
+          <div>
+            <h2 class="card-title-lg mb-6">Send us a message</h2>
+            <form class="contact-form-fields">
+              <div class="grid gap-5 md:grid-cols-2">
+                <div class="contact-form-field">
+                  <label for="prenom" class="contact-form-label">First name</label>
+                  <input type="text" id="prenom" name="prenom" class="form-input contact-form-input" placeholder="Your first name" required>
+                </div>
+                <div class="contact-form-field">
+                  <label for="nom" class="contact-form-label">Last name</label>
+                  <input type="text" id="nom" name="nom" class="form-input contact-form-input" placeholder="Your last name" required>
+                </div>
+              </div>
+              <div class="contact-form-field">
+                <label for="courriel" class="contact-form-label">Email</label>
+                <input type="email" id="courriel" name="courriel" class="form-input contact-form-input" placeholder="you@example.com" required>
+              </div>
+              <div class="contact-form-field">
+                <label for="telephone" class="contact-form-label">Phone (optional)</label>
+                <input type="tel" id="telephone" name="telephone" class="form-input contact-form-input" placeholder="(819) 000-0000">
+              </div>
+              <div class="contact-form-field">
+                <label for="sujet" class="contact-form-label">Subject</label>
+                <select id="sujet" name="sujet" class="form-input contact-form-input" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="generale">General question</option>
+                  <option value="pret-a-manger">Ready-to-Eat</option>
+                  <option value="lave-auto">Car Wash</option>
+                  <option value="autre">Other</option>
+                </select>
+              </div>
+              <div class="contact-form-field">
+                <label for="message" class="contact-form-label">Message</label>
+                <textarea id="message" name="message" rows="5" class="form-input contact-form-input contact-form-textarea" placeholder="How can we help you?" required></textarea>
+              </div>
+              <button type="submit" class="btn-primary contact-form-submit">Send message</button>
+            </form>
+          </div>
+
+          <!-- Right: Info Cards -->
+          <div class="flex flex-col gap-6">
+            <div class="card-padded">
+              <h3 class="card-title mb-3">Head Office</h3>
+              <p class="body-text">114 3e Avenue, Val-d'Or, QC</p>
+              <p class="body-text mt-1"><a href="tel:8198244185">819 824-4185</a></p>
+            </div>
+            <div class="card-padded">
+              <h3 class="card-title mb-3">Social Media</h3>
+              <div class="flex flex-col gap-2">
+                <p class="body-text">TikTok: <a href="https://www.tiktok.com/@groupebeausejour" target="_blank" rel="noopener">@groupebeausejour</a></p>
+                <p class="body-text">Instagram: <a href="https://instagram.com/groupe.beausejour" target="_blank" rel="noopener">@groupe.beausejour</a></p>
+                <p class="body-text">Facebook: <a href="https://www.facebook.com/DepanneurBeausejour/" target="_blank" rel="noopener">Groupe Beauséjour</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-alt">
+      <div class="section-alt-inner py-[var(--space-section-lg)]">
+        <div class="container">
+          <div class="intro-center">
+            <span class="eyebrow">FAQ</span>
+            <h2 class="section-title" data-reveal-text>Frequently asked questions</h2>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2">
+            <div>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <span class="faq-question">What are your opening hours?</span>
+                  <span class="faq-toggle"></span>
+                </summary>
+                <div class="faq-answer">
+                  <p class="faq-answer-text">Three of our five stores are open 24/7 (Beauséjour 202, 1697 and Shell 117). The others have specific hours — check our Our Stores page.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <span class="faq-question">Where is the dog wash?</span>
+                  <span class="faq-toggle"></span>
+                </summary>
+                <div class="faq-answer">
+                  <p class="faq-answer-text">Our dog wash is available at 202, 3e Avenue in Val-d'Or and at 111 Sud (Sullivan).</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <span class="faq-question">Do all stores offer ready-to-eat food?</span>
+                  <span class="faq-toggle"></span>
+                </summary>
+                <div class="faq-answer">
+                  <p class="faq-answer-text">Most of our locations offer ready-to-eat options. The selection varies by store.</p>
+                </div>
+              </details>
+            </div>
+            <div>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <span class="faq-question">How many stores do you have?</span>
+                  <span class="faq-toggle"></span>
+                </summary>
+                <div class="faq-answer">
+                  <p class="faq-answer-text">Five stores in Abitibi: two in Val-d'Or (202 and 1697), one in Louvicourt, one in Rouyn-Noranda and one south of Val-d'Or (111 Sud).</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <span class="faq-question">Do you accept Air Miles?</span>
+                  <span class="faq-toggle"></span>
+                </summary>
+                <div class="faq-answer">
+                  <p class="faq-answer-text">Yes, Air Miles cards are accepted at our Shell stations (202, 1697 and Shell 117).</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <span class="faq-question">How do I apply at Beauséjour?</span>
+                  <span class="faq-toggle"></span>
+                </summary>
+                <div class="faq-answer">
+                  <p class="faq-answer-text">Visit our <a href="./carrieres.html">Careers</a> page to see available positions and submit your application.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+          <div class="mt-8 text-center">
+            <a href="./faq.html" class="btn-link">See all FAQs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include partials/en/footer.html -->
+
+  <!-- @include partials/en/scripts.html -->
+</body>
+</html>

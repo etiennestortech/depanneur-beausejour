@@ -1,0 +1,48 @@
+  <!-- Navbar -->
+  <header class="z-50 bg-surface-card px-6 py-5">
+    <div class="flex items-center gap-8">
+      <a href="./index.html" class="flex-1 shrink-0 relative" data-nav-logo>
+        <img src="../assets/beausejour-logo.svg" alt="Groupe Beauséjour" class="w-[160px] h-auto" data-nav-logo-full>
+        <img src="../assets/beausejour-icon-black.svg" alt="Groupe Beauséjour" class="h-[28px] w-auto absolute left-0 top-1/2 -translate-y-1/2" data-nav-logo-icon style="opacity: 0; visibility: hidden;">
+      </a>
+      <nav class="hidden md:flex items-center gap-4 shrink-0" aria-label="Main navigation">
+        <a href="./nos-magasins.html" class="{{nav:nos-magasins}}">Our Stores</a>
+        <a href="./pret-a-manger.html" class="{{nav:pret-a-manger}}">Ready-to-Eat</a>
+        <a href="./lave-auto.html" class="{{nav:lave-auto}}">Car Wash</a>
+        <a href="./carrieres.html" class="{{nav:carrieres}}">Careers</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg class="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="nav-dropdown-panel">
+              <a href="./a-propos.html" class="{{nav-dropdown:a-propos}}">About Us</a>
+              <a href="./fournisseurs.html" class="{{nav-dropdown:fournisseurs}}">Suppliers</a>
+              <a href="./faq.html" class="{{nav-dropdown:faq}}">FAQ</a>
+            </div>
+          </div>
+        </div>
+        <a href="./contact.html" class="{{nav:contact}}">Contact</a>
+        <a href="../index.html" class="nav-lang-toggle" aria-label="Switch to French" data-lang-toggle>FR</a>
+      </nav>
+      <button class="site-mobile-toggle md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg class="site-mobile-toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="site-mobile-menu" hidden>
+      <div class="site-mobile-menu-inner">
+        <nav class="site-mobile-nav" aria-label="Mobile navigation">
+          <a href="./nos-magasins.html" class="{{nav-mobile:nos-magasins}}">Our Stores</a>
+          <a href="./pret-a-manger.html" class="{{nav-mobile:pret-a-manger}}">Ready-to-Eat</a>
+          <a href="./lave-auto.html" class="{{nav-mobile:lave-auto}}">Car Wash</a>
+          <a href="./a-propos.html" class="{{nav-mobile:a-propos}}">About Us</a>
+          <a href="./carrieres.html" class="{{nav-mobile:carrieres}}">Careers</a>
+          <a href="./fournisseurs.html" class="{{nav-mobile:fournisseurs}}">Suppliers</a>
+          <a href="./faq.html" class="{{nav-mobile:faq}}">FAQ</a>
+          <a href="./contact.html" class="{{nav-mobile:contact}}">Contact</a>
+          <a href="../index.html" class="nav-mobile-link" data-lang-toggle>Français</a>
+        </nav>
+      </div>
+    </div>
+  </header>

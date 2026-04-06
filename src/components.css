@@ -1011,6 +1011,24 @@ html.lenis, html.lenis body { height: auto; }
     line-height: var(--type-leading-ui);
   }
 
+  /* ── Nav Language Toggle ── */
+  .nav-lang-toggle {
+    @apply inline-flex items-center no-underline transition-colors duration-150;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--color-border);
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    color: var(--color-text-muted);
+
+    &:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+  }
+
   /* ── Nav Dropdown ── */
   .nav-dropdown {
     @apply relative;

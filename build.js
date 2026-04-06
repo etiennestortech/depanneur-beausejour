@@ -89,7 +89,29 @@ for (const page of pages) {
   console.log(`  ✓ ${page}`);
 }
 
+console.log(`\nBuilt ${pages.length} pages → dist/`);
+
+// Process English pages (src/pages/en/ → dist/en/)
+const EN_PAGES_DIR = join(SRC, 'pages', 'en');
+const EN_DIST = join(DIST, 'en');
+
+try {
+  mkdirSync(EN_DIST, { recursive: true });
+  const enPages = readdirSync(EN_PAGES_DIR).filter((file) => (
+    file.endsWith('.html') &&
+    !file.includes('.backup.')
+  ));
+  for (const page of enPages) {
+    const src = join(EN_PAGES_DIR, page);
+    const dest = join(EN_DIST, page);
+    const html = buildPage(src);
+    writeFileSync(dest, html, 'utf-8');
+    console.log(`  ✓ en/${page}`);
+  }
+  if (enPages.length > 0) console.log(`\nBuilt ${enPages.length} EN pages → dist/en/`);
+} catch (e) {
+  if (e.code !== 'ENOENT') throw e;
+}
+
 copyDir(ASSETS_DIR, join(DIST, 'assets'));
 copyDir(JS_DIR, join(DIST, 'js'));
-
-console.log(`\nBuilt ${pages.length} pages → dist/`);

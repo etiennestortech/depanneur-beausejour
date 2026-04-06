@@ -1226,6 +1226,26 @@ initNavbarScroll();
 // Re-measure after navbar scroll adds padding to the header element
 updateHeaderHeight();
 
+// ── Language Switcher ────────────────────────────────────────────────────────
+
+function initLangSwitcher() {
+  const isEn = /\/en\//.test(window.location.pathname);
+  document.querySelectorAll('[data-lang-toggle]').forEach(function (el) {
+    const path = window.location.pathname;
+    if (isEn) {
+      // On an EN page — link goes to the FR equivalent
+      el.href = path.replace('/en/', '/');
+    } else {
+      // On a FR page — link goes to the EN equivalent
+      const base = path.substring(0, path.lastIndexOf('/') + 1);
+      const file = path.split('/').pop() || 'index.html';
+      el.href = base + 'en/' + file;
+    }
+  });
+}
+
+initLangSwitcher();
+
 // ── Cookie Consent (Loi 25) ──────────────────────────────────────────────────
 
 const CONSENT_KEY = 'beausejour_cookie_consent';
@@ -1253,12 +1273,24 @@ function initCookieBanner() {
   }
   if (stored === 'refused') return;
 
+  const isEn = document.documentElement.lang === 'en';
+
   // ── Banner ────────────────────────────────────────────────────────────────
   const banner = document.createElement('div');
   banner.className = 'cookie-banner';
   banner.setAttribute('role', 'region');
-  banner.setAttribute('aria-label', 'Gestion des témoins');
-  banner.innerHTML = `
+  banner.setAttribute('aria-label', isEn ? 'Cookie management' : 'Gestion des témoins');
+  banner.innerHTML = isEn ? `
+    <div class="cookie-banner-body">
+      <p class="cookie-banner-title">We use cookies</p>
+      <p class="cookie-banner-text">Analytics cookies help us understand how our site is used and improve it. You can accept, decline, or customize your choices. <a href="./politique-de-confidentialite.html">Privacy Policy</a>.</p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button class="cookie-banner-btn-manage" data-cookie-manage>Customize</button>
+      <button class="cookie-banner-btn-refuse" data-cookie-refuse>Decline</button>
+      <button class="cookie-banner-btn-accept" data-cookie-accept>Accept</button>
+    </div>
+  ` : `
     <div class="cookie-banner-body">
       <p class="cookie-banner-title">Nous utilisons des témoins</p>
       <p class="cookie-banner-text">Des témoins d'analyse nous aident à comprendre comment notre site est utilisé et à l'améliorer. Vous pouvez accepter, refuser ou personnaliser vos choix. <a href="./politique-de-confidentialite.html">Politique de confidentialité</a>.</p>
@@ -1293,6 +1325,7 @@ function initCookieBanner() {
 function openCookieModal(onSave) {
   const currentConsent = localStorage.getItem(CONSENT_KEY);
   const initiallyEnabled = currentConsent === 'accepted';
+  const isEn = document.documentElement.lang === 'en';
 
   const overlay = document.createElement('div');
   overlay.className = 'cookie-modal-overlay';
@@ -1301,8 +1334,38 @@ function openCookieModal(onSave) {
   modal.className = 'cookie-modal';
   modal.setAttribute('role', 'dialog');
   modal.setAttribute('aria-modal', 'true');
-  modal.setAttribute('aria-label', 'Préférences de témoins');
-  modal.innerHTML = `
+  modal.setAttribute('aria-label', isEn ? 'Cookie Preferences' : 'Préférences de témoins');
+  modal.innerHTML = isEn ? `
+    <div class="cookie-modal-header">
+      <h2 class="cookie-modal-title">Cookie Preferences</h2>
+      <button class="cookie-modal-close" aria-label="Close" data-cookie-modal-close>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cookie-modal-body">
+      <div class="cookie-pref-row">
+        <div class="cookie-pref-info">
+          <p class="cookie-pref-name">Essential cookies</p>
+          <p class="cookie-pref-desc">Necessary for the site to function (navigation, security). Always active.</p>
+        </div>
+        <div class="cookie-toggle cookie-toggle--on cookie-toggle--disabled" aria-label="Always active">
+          <span class="cookie-toggle-thumb"></span>
+        </div>
+      </div>
+      <div class="cookie-pref-row">
+        <div class="cookie-pref-info">
+          <p class="cookie-pref-name">Analytics cookies</p>
+          <p class="cookie-pref-desc">Help us understand how visitors use the site (Google Analytics). Data is anonymized.</p>
+        </div>
+        <button class="cookie-toggle${initiallyEnabled ? ' cookie-toggle--on' : ''}" role="switch" aria-checked="${initiallyEnabled}" data-cookie-toggle="analytics" aria-label="Enable analytics cookies">
+          <span class="cookie-toggle-thumb"></span>
+        </button>
+      </div>
+    </div>
+    <div class="cookie-modal-footer">
+      <button class="cookie-modal-btn-save" data-cookie-modal-save>Save my preferences</button>
+    </div>
+  ` : `
     <div class="cookie-modal-header">
       <h2 class="cookie-modal-title">Préférences de témoins</h2>
       <button class="cookie-modal-close" aria-label="Fermer" data-cookie-modal-close>
