@@ -1055,7 +1055,7 @@ function initRevealAnimations(lenis) {
   // Skip elements inside hero cards — already animated by hero intros
   const fadeUpEls = Array.from(document.querySelectorAll(
     'main .section-subtitle, main .eyebrow'
-  )).filter((el) => !el.closest('.inner-hero-card') && !el.closest('.hero-v2-card') && !el.closest('[data-hero-intro]'));
+  )).filter((el) => !el.closest('.inner-hero-card') && !el.closest('.hero-v2-card') && !el.closest('[data-hero-intro]') && !el.closest('.about-hero-copy') && !el.closest('.simple-hero'));
 
   if (fadeUpEls.length) {
     gsap.set(fadeUpEls, { y: 16, autoAlpha: 0 });
