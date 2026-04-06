@@ -1442,3 +1442,82 @@ document.body.addEventListener('click', (e) => {
 });
 
 initCookieBanner();
+
+// ── Form handling ─────────────────────────────────────────────────────────────
+
+function initForms() {
+  document.querySelectorAll('form[data-api]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const endpoint = form.dataset.api;
+      const submit = form.querySelector('[type="submit"]');
+      const isEn = document.documentElement.lang === 'en';
+
+      // Disable submit button
+      submit.disabled = true;
+      const originalText = submit.textContent;
+      submit.textContent = isEn ? 'Sending…' : 'Envoi en cours…';
+
+      // Remove any existing status message
+      form.querySelector('.form-status')?.remove();
+
+      try {
+        let res;
+
+        // Careers form has a file upload — send as multipart FormData
+        if (endpoint === '/api/careers') {
+          res = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+          });
+        } else {
+          // All other forms — send as JSON
+          const data = Object.fromEntries(new FormData(form));
+          res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+        }
+
+        const result = await res.json();
+
+        if (res.ok && result.ok) {
+          showFormStatus(form, 'success', isEn
+            ? 'Message sent! We'll get back to you shortly.'
+            : 'Message envoyé! Nous vous répondrons sous peu.');
+          form.reset();
+        } else {
+          throw new Error(result.error || 'Unknown error');
+        }
+      } catch (err) {
+        console.error('Form error:', err);
+        showFormStatus(form, 'error', isEn
+          ? 'Something went wrong. Please try again or email us directly.'
+          : 'Une erreur est survenue. Veuillez réessayer ou nous écrire directement.');
+      } finally {
+        submit.disabled = false;
+        submit.textContent = originalText;
+      }
+    });
+  });
+}
+
+function showFormStatus(form, type, message) {
+  const el = document.createElement('p');
+  el.className = 'form-status';
+  el.style.cssText = [
+    'margin-top:1rem',
+    'padding:0.75rem 1rem',
+    'border-radius:var(--radius-btn)',
+    'font-size:var(--type-size-ui)',
+    type === 'success'
+      ? 'background:rgba(69,203,181,0.12);color:var(--color-primary)'
+      : 'background:rgba(220,38,38,0.08);color:#dc2626',
+  ].join(';');
+  el.textContent = message;
+  form.appendChild(el);
+}
+
+initForms();
