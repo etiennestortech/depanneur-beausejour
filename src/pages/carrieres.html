@@ -159,7 +159,8 @@
       <div class="modal-body">
         <span class="eyebrow">Candidature</span>
         <h3 class="contact-form-title mt-2" id="apply-modal-title"></h3>
-        <form class="contact-form-fields mt-6">
+        <form class="contact-form-fields mt-6" data-api="/api/careers">
+          <input type="hidden" name="lang" value="fr">
           <div class="contact-form-field">
             <label for="modal-nom" class="contact-form-label">Nom</label>
             <input type="text" id="modal-nom" name="nom" class="form-input contact-form-input" required>

@@ -147,7 +147,8 @@
         <div class="mx-auto max-w-2xl">
           <div class="contact-form-panel">
             <h3 class="contact-form-title">Supplier Application</h3>
-            <form class="contact-form-fields">
+            <form class="contact-form-fields" data-api="/api/supplier">
+              <input type="hidden" name="lang" value="en">
               <div class="contact-form-field">
                 <label for="entreprise" class="contact-form-label">Business name</label>
                 <input type="text" id="entreprise" name="entreprise" class="form-input contact-form-input" required>
