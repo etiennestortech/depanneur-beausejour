@@ -446,8 +446,8 @@ html.lenis, html.lenis body { height: auto; }
   }
   .store-finder-card-copy {
     @apply text-text-muted;
-    font-size: 1rem;
-    line-height: 1.45;
+    font-size: var(--type-size-body);
+    line-height: var(--type-leading-body);
   }
   .store-finder-card-copy + .store-finder-card-copy {
     margin-top: 0.25rem;

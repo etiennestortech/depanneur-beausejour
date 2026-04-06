@@ -136,5 +136,11 @@
   --overlay-white-15: rgba(255, 255, 255, 0.15);
 }
 
+/* Custom utilities — extend the Tailwind scale with design tokens */
+@utility text-ui {
+  font-size: var(--type-size-ui);
+  line-height: var(--type-leading-ui);
+}
+
 /* Shared component classes */
 @import "./components.css";

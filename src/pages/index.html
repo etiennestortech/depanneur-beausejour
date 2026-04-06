@@ -1,10 +1,12 @@
-<!-- @set title Groupe Beauséjour — Essence, lave-auto, prêt-à-manger en Abitibi -->
-<!-- @set description Cinq magasins de proximité en Abitibi — essence, lave-auto, prêt-à-manger et plus encore. -->
+<!-- @set title Groupe Beauséjour — Dépanneurs 24h/7j en Abitibi -->
+<!-- @set description Cinq dépanneurs de proximité à Val-d'Or, Rouyn-Noranda et Louvicourt. Essence, lave-auto, prêt-à-manger et loterie — ouverts 24 heures sur 24. -->
+<!-- @set canonical https://etiennestortech.github.io/depanneur-beausejour/ -->
 <!-- @set activeNav accueil -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <!-- @include partials/head.html -->
+  <!-- @include partials/jsonld-organization.html -->
 </head>
 <body class="bg-surface-page text-text-body font-body">
 
@@ -275,7 +277,7 @@
             <div class="h-48 md:h-[278px] overflow-hidden rounded-card bg-surface-alt">
               <img src="./assets/food-patisseries.jpg" width="1440" height="1800" alt="Pâtisseries" class="media-image-cover" loading="lazy" decoding="async">
             </div>
-            <div>
+            <div class="pr-6">
               <p class="font-bold text-sm text-text-heading">Pâtisseries</p>
               <p class="mt-2 food-category-text">Viennoiseries, muffins, biscuits et exclusivités Voisin.</p>
             </div>
@@ -284,7 +286,7 @@
             <div class="h-48 md:h-[278px] overflow-hidden rounded-card bg-surface-alt">
               <img src="./assets/food-repas-chauds.jpg" width="1536" height="2048" alt="Repas chauds" class="media-image-cover" loading="lazy" decoding="async">
             </div>
-            <div>
+            <div class="pr-6">
               <p class="font-bold text-sm text-text-heading">Repas chauds</p>
               <p class="mt-2 food-category-text">Plats réconfortants, réchauds remplis de produits sur le pouce, pizzas chaudes.</p>
             </div>
@@ -293,7 +295,7 @@
             <div class="h-48 md:h-[278px] overflow-hidden rounded-card bg-surface-alt">
               <img src="./assets/food-pret-a-manger.jpg" width="1600" height="1068" alt="Prêt-à-manger" class="media-image-cover" loading="lazy" decoding="async">
             </div>
-            <div>
+            <div class="pr-6">
               <p class="font-bold text-sm text-text-heading">Prêt-à-manger</p>
               <p class="mt-2 food-category-text">Produits Cari &amp; Gingembre dans tous nos réfrigérateurs.</p>
             </div>
@@ -306,7 +308,7 @@
     <section class="section px-6">
       <div class="relative bg-surface-dark overflow-hidden rounded-card-lg">
         <div class="brand-pattern brand-pattern-light" aria-hidden="true"></div>
-        <div class="relative z-10 flex flex-col items-center gap-12 container py-20 lg:py-28">
+        <div class="relative z-10 flex flex-col items-center gap-12 container py-[var(--space-section-lg)]">
           <div class="flex max-w-2xl flex-col items-center gap-4 text-center">
             <h2 class="section-title text-text-inverse" data-reveal-text>Des lave-autos pour tous les besoins</h2>
             <p class="body-text-lg text-text-on-dark">Manuel, automatique ou lave-chien — on a ce qu'il vous faut pour garder vos véhicules (et vos compagnons) propres.</p>
@@ -354,7 +356,7 @@
         <p class="section-subtitle text-center">On cherche des gens motivés et passionnés qui veulent propager la bonne humeur avec nous.</p>
       </div>
 
-      <div class="careers-marquee mt-16">
+      <div class="careers-marquee mt-[var(--space-section-md)]">
         <div class="careers-marquee-track">
           <div class="careers-marquee-card">
             <img src="./assets/careers-employee-1.jpg" alt="Employée Beauséjour devant le magasin" class="careers-marquee-image" loading="lazy" decoding="async">
@@ -390,7 +392,7 @@
         </div>
       </div>
 
-      <div class="mt-16 flex justify-center">
+      <div class="mt-[var(--space-section-md)] flex justify-center">
         <a href="./carrieres.html" class="btn-neutral">Voir les postes disponibles</a>
       </div>
     </section>
