@@ -62,12 +62,20 @@ function initMobileMenu() {
 function initNavDropdowns() {
   document.querySelectorAll('[data-nav-dropdown]').forEach((dropdown) => {
     const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    const menu = dropdown.querySelector('.nav-dropdown-menu');
 
-    if (!trigger) {
-      return;
-    }
+    if (!trigger || !menu) return;
 
     function open() {
+      // Set padding-top to bridge the gap between trigger bottom and card bottom.
+      // This makes the entire space part of the menu element — no dead zone to cross.
+      const navInner = document.querySelector('[data-nav-inner]');
+      if (navInner) {
+        const innerBottom = navInner.getBoundingClientRect().bottom;
+        const triggerBottom = dropdown.getBoundingClientRect().bottom;
+        const bridge = Math.max(0, innerBottom - triggerBottom) + 8;
+        menu.style.paddingTop = `${bridge}px`;
+      }
       dropdown.setAttribute('data-open', '');
       trigger.setAttribute('aria-expanded', 'true');
     }
@@ -78,29 +86,19 @@ function initNavDropdowns() {
     }
 
     function toggle() {
-      if (dropdown.hasAttribute('data-open')) {
-        close();
-        return;
-      }
-
-      open();
+      dropdown.hasAttribute('data-open') ? close() : open();
     }
 
     trigger.addEventListener('click', toggle);
     dropdown.addEventListener('mouseenter', open);
     dropdown.addEventListener('mouseleave', close);
 
-    dropdown.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        close();
-        trigger.focus();
-      }
+    dropdown.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { close(); trigger.focus(); }
     });
 
-    document.addEventListener('click', (event) => {
-      if (!dropdown.contains(event.target)) {
-        close();
-      }
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) close();
     });
   });
 }
@@ -1120,6 +1118,7 @@ function initNavbarScroll() {
   header.style.paddingBlock = 'var(--space-section-gap)';
   header.style.backgroundColor = 'transparent';
 
+  inner.setAttribute('data-nav-inner', '');
   header.appendChild(inner);
 
   // Move mobile menu outside the inner card and float it absolutely
