@@ -1122,10 +1122,15 @@ function initNavbarScroll() {
 
   header.appendChild(inner);
 
-  // Move mobile menu outside the inner card, below it in the header
+  // Move mobile menu outside the inner card and float it absolutely
+  // so opening it overlays the page instead of expanding the sticky header
   if (mobileMenu) {
     inner.removeChild(mobileMenu);
     header.appendChild(mobileMenu);
+    mobileMenu.style.position = 'absolute';
+    mobileMenu.style.top = '100%';
+    mobileMenu.style.left = 'calc(var(--layout-gutter-outer) + 0.5rem)';
+    mobileMenu.style.right = 'calc(var(--layout-gutter-outer) + 0.5rem)';
   }
 
   // Logo crossfade: full wordmark → icon mark on scroll
