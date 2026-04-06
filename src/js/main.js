@@ -1226,3 +1226,67 @@ if (pageHeroTl && window.gsap) {
 initNavbarScroll();
 // Re-measure after navbar scroll adds padding to the header element
 updateHeaderHeight();
+
+// ── Cookie Consent (Loi 25) ──────────────────────────────────────────────────
+
+const CONSENT_KEY = 'beausejour_cookie_consent';
+const GA_ID = ''; // Set your GA4 measurement ID here (e.g. 'G-XXXXXXXXXX')
+
+function loadGoogleAnalytics() {
+  if (!GA_ID) return;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', GA_ID, { anonymize_ip: true });
+}
+
+function initCookieBanner() {
+  const stored = localStorage.getItem(CONSENT_KEY);
+
+  // Already answered — respect the saved choice
+  if (stored === 'accepted') {
+    loadGoogleAnalytics();
+    return;
+  }
+  if (stored === 'refused') return;
+
+  // Build banner
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-modal', 'false');
+  banner.setAttribute('aria-label', 'Gestion des témoins');
+  banner.innerHTML = `
+    <div class="cookie-banner-body">
+      <p class="cookie-banner-title">Vos préférences en matière de confidentialité</p>
+      <p class="cookie-banner-text">Conformément à la <strong>Loi 25</strong>, nous vous demandons votre consentement avant d'activer les témoins (cookies) d'analyse. Ces données nous aident à améliorer votre expérience sur notre site. Consultez notre <a href="./politique-de-confidentialite.html">politique de confidentialité</a> pour en savoir plus.</p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button class="cookie-banner-btn-refuse" data-cookie-refuse>Refuser</button>
+      <button class="cookie-banner-btn-accept" data-cookie-accept>Accepter</button>
+    </div>
+  `;
+
+  document.body.appendChild(banner);
+
+  // Animate in after a short delay
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { banner.classList.add('cookie-banner--visible'); });
+  });
+
+  function dismiss(choice) {
+    localStorage.setItem(CONSENT_KEY, choice);
+    banner.classList.remove('cookie-banner--visible');
+    banner.addEventListener('transitionend', () => banner.remove(), { once: true });
+    if (choice === 'accepted') loadGoogleAnalytics();
+  }
+
+  banner.querySelector('[data-cookie-accept]').addEventListener('click', () => dismiss('accepted'));
+  banner.querySelector('[data-cookie-refuse]').addEventListener('click', () => dismiss('refused'));
+}
+
+initCookieBanner();
