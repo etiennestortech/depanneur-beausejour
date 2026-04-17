@@ -1418,6 +1418,14 @@ html.lenis, html.lenis body { height: auto; }
     margin-top: var(--card-mt, 0px);
     transform: rotate(var(--card-tilt, 0deg));
   }
+  .about-hero-ribbon-placeholder {
+    @apply flex items-center justify-center text-center;
+    background: var(--color-surface-alt);
+    color: var(--color-text-muted);
+    font-size: var(--type-size-ui);
+    border: 1px dashed var(--color-border);
+    box-shadow: none;
+  }
   @keyframes about-hero-ribbon-scroll {
     from {
       transform: translateX(0);
