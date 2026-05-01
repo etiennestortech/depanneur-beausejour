@@ -6,6 +6,7 @@
  * Directives:
  *   <!-- @set key value -->       — define a template variable
  *   <!-- @include path -->        — inline a partial (relative to src/)
+ *   <!-- @if key -->...<!-- @endif --> — render block only if `key` is set
  *   {{key}}                       — replaced with the variable value
  *   {{nav:slug}}                  — resolves to nav-link-active or nav-link
  *   {{nav-mobile:slug}}           — resolves to nav-mobile-link-active or nav-mobile-link
@@ -52,7 +53,12 @@ function buildPage(filePath) {
     if (html === before) break;
   }
 
-  // 3. Replace nav active class helpers
+  // 3. Process @if blocks — render only if the named var is set & non-empty
+  html = html.replace(/<!--\s*@if\s+(\w+)\s*-->([\s\S]*?)<!--\s*@endif\s*-->/g, (_, key, block) => (
+    vars[key] ? block : ''
+  ));
+
+  // 3a. Replace nav active class helpers
   const activeNav = vars.activeNav || '';
   html = html.replace(/\{\{nav:([^}]+)\}\}/g, (_, slug) =>
     slug.trim() === activeNav ? 'nav-link-active' : 'nav-link'

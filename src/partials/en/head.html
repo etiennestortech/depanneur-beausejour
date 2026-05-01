@@ -1,5 +1,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- @if heroImage -->
+  <link rel="preload" as="image" href="{{heroImage}}" fetchpriority="high">
+  <!-- @endif -->
+  <script>
+    // Set before paint so CSS can pre-hide hero text and prevent FOUC.
+    // Removed if user prefers reduced motion or JS is disabled.
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('js-anim');
+      // Safety net: if GSAP fails to load or intro doesn't run within 2.5s,
+      // reveal everything so content is never permanently hidden.
+      setTimeout(function () {
+        document.documentElement.classList.remove('js-anim');
+      }, 2500);
+    }
+  </script>
+  <noscript><style>.js-anim [data-reveal-text],.js-anim .eyebrow,.js-anim .inner-hero-desc,.js-anim .page-description,.js-anim .simple-hero-desc,.js-anim .about-hero-ribbon{opacity:1 !important;}</style></noscript>
 
   <!-- Primary meta -->
   <title>{{title}}</title>

@@ -840,6 +840,32 @@ html.lenis, html.lenis body { height: auto; }
     display: inline-block;
   }
 
+  /* ── Pre-hide inner-page hero animated elements before JS runs (anti-FOUC) ──
+     The .js-anim class is set inline in <head> only when JS is on
+     and prefers-reduced-motion is not set. GSAP's intro timelines
+     replace these styles on first paint via autoAlpha.
+
+     Why opacity (not visibility): visibility:hidden caused a perceptible
+     flash when GSAP cleared it via autoAlpha — the layout reserved space
+     but rendering had a brief reflow. Opacity + reserved space (no layout
+     change) gives a true seamless reveal.
+
+     NOTE: The homepage hero (.hero-v2-card) is NOT included here — it
+     already pre-hides its content via the [data-hero-intro] selector
+     above (line ~730). Adding it here would double-hide the title and
+     prevent it from ever revealing. */
+  .js-anim .inner-hero-card .inner-hero-title,
+  .js-anim .inner-hero-card .eyebrow,
+  .js-anim .inner-hero-card .inner-hero-desc,
+  .js-anim .about-hero-copy [data-reveal-text],
+  .js-anim .about-hero-copy .page-description,
+  .js-anim .about-hero-ribbon,
+  .js-anim .simple-hero [data-reveal-text],
+  .js-anim .simple-hero .eyebrow,
+  .js-anim .simple-hero .simple-hero-desc {
+    opacity: 0;
+  }
+
   /* Mobile adjustments for hero v2 */
   @media (max-width: 1023px) {
     .hero-v2-top {
@@ -881,7 +907,9 @@ html.lenis, html.lenis body { height: auto; }
   .inner-hero-bg {
     @apply absolute inset-0 h-full w-full object-cover;
     pointer-events: none;
+    will-change: transform;
   }
+  .js-anim .inner-hero-bg { transform: scale(1.08); }
   .inner-hero-overlay {
     @apply absolute inset-0;
     background:

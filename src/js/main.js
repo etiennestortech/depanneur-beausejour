@@ -784,7 +784,10 @@ function initInnerHeroIntro() {
     splitRevealText(title);
     const words = title.querySelectorAll('.reveal-word-inner');
     if (words.length) {
+      // Hide words first, THEN reveal the title parent — prevents any frame
+      // where the title is visible but words haven't been inline-hidden yet.
       gsap.set(words, { yPercent: 110, opacity: 0 });
+      gsap.set(title, { autoAlpha: 1 });
       tl.to(words, { yPercent: 0, opacity: 1, duration: 0.7, stagger: 0.04 }, 0.5);
     }
   }
@@ -833,6 +836,7 @@ function initAboutHeroIntro() {
     const words = title.querySelectorAll('.reveal-word-inner');
     if (words.length) {
       gsap.set(words, { yPercent: 110, opacity: 0 });
+      gsap.set(title, { autoAlpha: 1 });
       tl.to(words, { yPercent: 0, opacity: 1, duration: 0.8, stagger: 0.03 }, 0);
     }
   }
@@ -876,6 +880,7 @@ function initSimpleHeroIntro() {
     const words = title.querySelectorAll('.reveal-word-inner');
     if (words.length) {
       gsap.set(words, { yPercent: 110, opacity: 0 });
+      gsap.set(title, { autoAlpha: 1 });
       tl.to(words, { yPercent: 0, opacity: 1, duration: 0.7, stagger: 0.03 }, eyebrow ? 0.2 : 0);
     }
   }
