@@ -121,3 +121,13 @@ try {
 
 copyDir(ASSETS_DIR, join(DIST, 'assets'));
 copyDir(JS_DIR, join(DIST, 'js'));
+
+// Copy Cloudflare Pages config files from src/ to dist/ root
+for (const file of ['_redirects', '_headers']) {
+  const source = join(SRC, file);
+  try {
+    cpSync(source, join(DIST, file));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+  }
+}

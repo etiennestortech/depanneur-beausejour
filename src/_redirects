@@ -1,0 +1,12 @@
+# Cloudflare Pages redirect rules
+# Format: <source> <destination> <status>
+
+# ── Old WordPress FR paths (Polylang) → new flat structure ──
+# Specific slug remaps first
+/fr/notre-histoire        /a-propos        301
+/fr/notre-histoire/       /a-propos        301
+/fr/foire-aux-questions   /faq             301
+/fr/foire-aux-questions/  /faq             301
+
+# Generic FR catch-all: drop the /fr/ prefix
+/fr/*  /:splat  301
