@@ -45,7 +45,7 @@ export async function onRequestPost(context) {
     },
     body: JSON.stringify({
       from: 'Site web <noreply@groupebeausejour.com>',
-      to: ['info@groupebeausejour.com'],
+      to: ['rh@groupebeausejour.com'],
       reply_to: courriel,
       subject: `[${isEn ? 'Contact' : 'Contact'}] ${subjectLabel} — ${prenom} ${nom}`,
       html,
